@@ -1,7 +1,7 @@
-import { getStepperStatus } from 'views/PancakeSquad/components/EventStepsSection/utils'
-import { SaleStatusEnum } from 'views/PancakeSquad/types'
+import { getStepperStatus } from 'views/ChampagneSquad/components/EventStepsSection/utils'
+import { SaleStatusEnum } from 'views/ChampagneSquad/types'
 
-describe('PancakeSquad/EventStepsSection/utils/getStepperStatus', () => {
+describe('ChampagneSquad/EventStepsSection/utils/getStepperStatus', () => {
   it('Should return future text', () => {
     // Given
     const eventStatus = []

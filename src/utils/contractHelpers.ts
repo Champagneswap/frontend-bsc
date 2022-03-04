@@ -31,7 +31,7 @@ import {
   getAnniversaryAchievement,
   getNftMarketAddress,
   getNftSaleAddress,
-  getPancakeSquadAddress,
+  getChampagneSquadAddress,
   getTradingCompetitionAddressV2,
   getBunnySpecialXmasAddress,
 } from 'utils/addressHelpers'
@@ -70,7 +70,7 @@ import farmAuctionAbi from 'config/abi/farmAuction.json'
 import anniversaryAchievementAbi from 'config/abi/anniversaryAchievement.json'
 import nftMarketAbi from 'config/abi/nftMarket.json'
 import nftSaleAbi from 'config/abi/nftSale.json'
-import pancakeSquadAbi from 'config/abi/champagneSquad.json'
+import champagneSquadAbi from 'config/abi/champagneSquad.json'
 import erc721CollectionAbi from 'config/abi/erc721collection.json'
 
 // Types
@@ -87,7 +87,7 @@ import type {
   Cham,
   BunnyFactory,
   PancakeRabbits,
-  PancakeProfile,
+  ChampagneProfile,
   LotteryV2,
   Masterchef,
   SousChef,
@@ -105,7 +105,7 @@ import type {
   BunnySpecialLottery,
   NftMarket,
   NftSale,
-  PancakeSquad,
+  ChampagneSquad,
   Erc721collection,
   PointCenterIfo,
 } from 'config/abi/types'
@@ -147,7 +147,7 @@ export const getChamContract = (signer?: Signer | Provider) => {
   return getContract(chamAbi, tokens.cham.address, signer) as Cham
 }
 export const getProfileContract = (signer?: Signer | Provider) => {
-  return getContract(profileABI, getChampagneProfileAddress(), signer) as PancakeProfile
+  return getContract(profileABI, getChampagneProfileAddress(), signer) as ChampagneProfile
 }
 export const getPancakeRabbitContract = (signer?: Signer | Provider) => {
   return getContract(pancakeRabbitsAbi, getPancakeRabbitsAddress(), signer) as PancakeRabbits
@@ -218,8 +218,8 @@ export const getNftMarketContract = (signer?: Signer | Provider) => {
 export const getNftSaleContract = (signer?: Signer | Provider) => {
   return getContract(nftSaleAbi, getNftSaleAddress(), signer) as NftSale
 }
-export const getPancakeSquadContract = (signer?: Signer | Provider) => {
-  return getContract(pancakeSquadAbi, getPancakeSquadAddress(), signer) as PancakeSquad
+export const getChampagneSquadContract = (signer?: Signer | Provider) => {
+  return getContract(champagneSquadAbi, getChampagneSquadAddress(), signer) as ChampagneSquad
 }
 export const getErc721CollectionContract = (signer?: Signer | Provider, address?: string) => {
   return getContract(erc721CollectionAbi, address, signer) as Erc721collection

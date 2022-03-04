@@ -88,6 +88,6 @@ export const getNftMarketAddress = () => {
 export const getNftSaleAddress = () => {
   return getAddress(addresses.nftSale)
 }
-export const getPancakeSquadAddress = () => {
+export const getChampagneSquadAddress = () => {
   return getAddress(addresses.pancakeSquad)
 }

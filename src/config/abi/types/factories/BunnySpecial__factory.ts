@@ -20,7 +20,7 @@ const _abi = [
         type: "address",
       },
       {
-        internalType: "contract IPancakeProfile",
+        internalType: "contract IChampagneProfile",
         name: "_pancakeProfile",
         type: "address",
       },
@@ -381,7 +381,7 @@ const _abi = [
     name: "pancakeProfile",
     outputs: [
       {
-        internalType: "contract IPancakeProfile",
+        internalType: "contract IChampagneProfile",
         name: "",
         type: "address",
       },

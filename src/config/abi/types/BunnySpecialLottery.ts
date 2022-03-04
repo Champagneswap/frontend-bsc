@@ -35,8 +35,8 @@ export interface BunnySpecialLotteryInterface extends utils.Interface {
     "mintNFT(uint8,uint256,uint256)": FunctionFragment;
     "numberPoints(uint8)": FunctionFragment;
     "owner()": FunctionFragment;
-    "champagneProfile()": FunctionFragment;
-    "champagneSwapLottery()": FunctionFragment;
+    "pancakeProfile()": FunctionFragment;
+    "pancakeSwapLottery()": FunctionFragment;
     "renounceOwnership()": FunctionFragment;
     "startLotteryRound()": FunctionFragment;
     "tokenURIs(uint8)": FunctionFragment;
@@ -104,11 +104,11 @@ export interface BunnySpecialLotteryInterface extends utils.Interface {
   ): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
   encodeFunctionData(
-    functionFragment: "champagneProfile",
+    functionFragment: "pancakeProfile",
     values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: "champagneSwapLottery",
+    functionFragment: "pancakeSwapLottery",
     values?: undefined
   ): string;
   encodeFunctionData(
@@ -189,11 +189,11 @@ export interface BunnySpecialLotteryInterface extends utils.Interface {
   ): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
   decodeFunctionResult(
-    functionFragment: "champagneProfile",
+    functionFragment: "pancakeProfile",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "champagneSwapLottery",
+    functionFragment: "pancakeSwapLottery",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -400,9 +400,9 @@ export interface BunnySpecialLottery extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<[string]>;
 
-    champagneProfile(overrides?: CallOverrides): Promise<[string]>;
+    pancakeProfile(overrides?: CallOverrides): Promise<[string]>;
 
-    champagneSwapLottery(overrides?: CallOverrides): Promise<[string]>;
+    pancakeSwapLottery(overrides?: CallOverrides): Promise<[string]>;
 
     renounceOwnership(
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -506,9 +506,9 @@ export interface BunnySpecialLottery extends BaseContract {
 
   owner(overrides?: CallOverrides): Promise<string>;
 
-  champagneProfile(overrides?: CallOverrides): Promise<string>;
+  pancakeProfile(overrides?: CallOverrides): Promise<string>;
 
-  champagneSwapLottery(overrides?: CallOverrides): Promise<string>;
+  pancakeSwapLottery(overrides?: CallOverrides): Promise<string>;
 
   renounceOwnership(
     overrides?: Overrides & { from?: string | Promise<string> }
@@ -612,9 +612,9 @@ export interface BunnySpecialLottery extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<string>;
 
-    champagneProfile(overrides?: CallOverrides): Promise<string>;
+    pancakeProfile(overrides?: CallOverrides): Promise<string>;
 
-    champagneSwapLottery(overrides?: CallOverrides): Promise<string>;
+    pancakeSwapLottery(overrides?: CallOverrides): Promise<string>;
 
     renounceOwnership(overrides?: CallOverrides): Promise<void>;
 
@@ -777,9 +777,9 @@ export interface BunnySpecialLottery extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<BigNumber>;
 
-    champagneProfile(overrides?: CallOverrides): Promise<BigNumber>;
+    pancakeProfile(overrides?: CallOverrides): Promise<BigNumber>;
 
-    champagneSwapLottery(overrides?: CallOverrides): Promise<BigNumber>;
+    pancakeSwapLottery(overrides?: CallOverrides): Promise<BigNumber>;
 
     renounceOwnership(
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -889,9 +889,9 @@ export interface BunnySpecialLottery extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    champagneProfile(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    pancakeProfile(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    champagneSwapLottery(
+    pancakeSwapLottery(
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 

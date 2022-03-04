@@ -24,7 +24,7 @@ export interface NftSaleInterface extends utils.Interface {
     "chamToken()": FunctionFragment;
     "calculateTokenId(uint256)": FunctionFragment;
     "canClaimForGen0(address)": FunctionFragment;
-    "changeOwnershipPancakeSquad(address)": FunctionFragment;
+    "changeOwnershipChampagneSquad(address)": FunctionFragment;
     "claim()": FunctionFragment;
     "currentStatus()": FunctionFragment;
     "drawRandomness()": FunctionFragment;
@@ -42,8 +42,8 @@ export interface NftSaleInterface extends utils.Interface {
     "numberTicketsUsedForGen0(address)": FunctionFragment;
     "operator()": FunctionFragment;
     "owner()": FunctionFragment;
-    "pancakeProfile()": FunctionFragment;
-    "pancakeSquad()": FunctionFragment;
+    "champagneProfile()": FunctionFragment;
+    "champagneSquad()": FunctionFragment;
     "pricePerTicket()": FunctionFragment;
     "randomOffsetNumber()": FunctionFragment;
     "rawFulfillRandomness(bytes32,uint256)": FunctionFragment;
@@ -82,7 +82,7 @@ export interface NftSaleInterface extends utils.Interface {
     values: [string]
   ): string;
   encodeFunctionData(
-    functionFragment: "changeOwnershipPancakeSquad",
+    functionFragment: "changeOwnershipChampagneSquad",
     values: [string]
   ): string;
   encodeFunctionData(functionFragment: "claim", values?: undefined): string;
@@ -133,11 +133,11 @@ export interface NftSaleInterface extends utils.Interface {
   encodeFunctionData(functionFragment: "operator", values?: undefined): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
   encodeFunctionData(
-    functionFragment: "pancakeProfile",
+    functionFragment: "champagneProfile",
     values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: "pancakeSquad",
+    functionFragment: "champagneSquad",
     values?: undefined
   ): string;
   encodeFunctionData(
@@ -225,7 +225,7 @@ export interface NftSaleInterface extends utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "changeOwnershipPancakeSquad",
+    functionFragment: "changeOwnershipChampagneSquad",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "claim", data: BytesLike): Result;
@@ -273,11 +273,11 @@ export interface NftSaleInterface extends utils.Interface {
   decodeFunctionResult(functionFragment: "operator", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
   decodeFunctionResult(
-    functionFragment: "pancakeProfile",
+    functionFragment: "champagneProfile",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "pancakeSquad",
+    functionFragment: "champagneSquad",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -515,7 +515,7 @@ export interface NftSale extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[boolean]>;
 
-    changeOwnershipPancakeSquad(
+    changeOwnershipChampagneSquad(
       _newOwner: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
@@ -572,9 +572,9 @@ export interface NftSale extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<[string]>;
 
-    pancakeProfile(overrides?: CallOverrides): Promise<[string]>;
+    champagneProfile(overrides?: CallOverrides): Promise<[string]>;
 
-    pancakeSquad(overrides?: CallOverrides): Promise<[string]>;
+    champagneSquad(overrides?: CallOverrides): Promise<[string]>;
 
     pricePerTicket(overrides?: CallOverrides): Promise<[BigNumber]>;
 
@@ -680,7 +680,7 @@ export interface NftSale extends BaseContract {
 
   canClaimForGen0(user: string, overrides?: CallOverrides): Promise<boolean>;
 
-  changeOwnershipPancakeSquad(
+  changeOwnershipChampagneSquad(
     _newOwner: string,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
@@ -737,9 +737,9 @@ export interface NftSale extends BaseContract {
 
   owner(overrides?: CallOverrides): Promise<string>;
 
-  pancakeProfile(overrides?: CallOverrides): Promise<string>;
+  champagneProfile(overrides?: CallOverrides): Promise<string>;
 
-  pancakeSquad(overrides?: CallOverrides): Promise<string>;
+  champagneSquad(overrides?: CallOverrides): Promise<string>;
 
   pricePerTicket(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -845,7 +845,7 @@ export interface NftSale extends BaseContract {
 
     canClaimForGen0(user: string, overrides?: CallOverrides): Promise<boolean>;
 
-    changeOwnershipPancakeSquad(
+    changeOwnershipChampagneSquad(
       _newOwner: string,
       overrides?: CallOverrides
     ): Promise<void>;
@@ -893,9 +893,9 @@ export interface NftSale extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<string>;
 
-    pancakeProfile(overrides?: CallOverrides): Promise<string>;
+    champagneProfile(overrides?: CallOverrides): Promise<string>;
 
-    pancakeSquad(overrides?: CallOverrides): Promise<string>;
+    champagneSquad(overrides?: CallOverrides): Promise<string>;
 
     pricePerTicket(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1080,7 +1080,7 @@ export interface NftSale extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    changeOwnershipPancakeSquad(
+    changeOwnershipChampagneSquad(
       _newOwner: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
@@ -1137,9 +1137,9 @@ export interface NftSale extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<BigNumber>;
 
-    pancakeProfile(overrides?: CallOverrides): Promise<BigNumber>;
+    champagneProfile(overrides?: CallOverrides): Promise<BigNumber>;
 
-    pancakeSquad(overrides?: CallOverrides): Promise<BigNumber>;
+    champagneSquad(overrides?: CallOverrides): Promise<BigNumber>;
 
     pricePerTicket(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1249,7 +1249,7 @@ export interface NftSale extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    changeOwnershipPancakeSquad(
+    changeOwnershipChampagneSquad(
       _newOwner: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
@@ -1306,9 +1306,9 @@ export interface NftSale extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    pancakeProfile(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    champagneProfile(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    pancakeSquad(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    champagneSquad(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     pricePerTicket(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 

@@ -5,9 +5,9 @@
 import { Contract, Signer, utils } from "ethers";
 import { Provider } from "@ethersproject/providers";
 import type {
-  PancakeProfile,
-  PancakeProfileInterface,
-} from "../PancakeProfile";
+  ChampagneProfile,
+  ChampagneProfileInterface,
+} from "../ChampagneProfile";
 
 const _abi = [
   {
@@ -1069,13 +1069,13 @@ const _abi = [
 
 export class ChampagneProfile__factory {
   static readonly abi = _abi;
-  static createInterface(): PancakeProfileInterface {
-    return new utils.Interface(_abi) as PancakeProfileInterface;
+  static createInterface(): ChampagneProfileInterface {
+    return new utils.Interface(_abi) as ChampagneProfileInterface;
   }
   static connect(
     address: string,
     signerOrProvider: Signer | Provider
-  ): PancakeProfile {
-    return new Contract(address, _abi, signerOrProvider) as PancakeProfile;
+  ): ChampagneProfile {
+    return new Contract(address, _abi, signerOrProvider) as ChampagneProfile;
   }
 }

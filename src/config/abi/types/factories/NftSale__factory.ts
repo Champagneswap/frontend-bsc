@@ -11,7 +11,7 @@ const _abi = [
     inputs: [
       {
         internalType: "address",
-        name: "_pancakeSquad",
+        name: "_champagneSquad",
         type: "address",
       },
       {
@@ -26,12 +26,12 @@ const _abi = [
       },
       {
         internalType: "address",
-        name: "_chamToken",
+        name: "_champagneToken",
         type: "address",
       },
       {
         internalType: "address",
-        name: "_pancakeProfile",
+        name: "_champagneProfile",
         type: "address",
       },
       {
@@ -342,7 +342,7 @@ const _abi = [
         type: "address",
       },
     ],
-    name: "changeOwnershipPancakeSquad",
+    name: "changeOwnershipChampagneSquad",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
@@ -564,10 +564,10 @@ const _abi = [
   },
   {
     inputs: [],
-    name: "pancakeProfile",
+    name: "champagneProfile",
     outputs: [
       {
-        internalType: "contract IPancakeProfile",
+        internalType: "contract IChampagneProfile",
         name: "",
         type: "address",
       },
@@ -577,10 +577,10 @@ const _abi = [
   },
   {
     inputs: [],
-    name: "pancakeSquad",
+    name: "champagneSquad",
     outputs: [
       {
-        internalType: "contract PancakeSquad",
+        internalType: "contract ChampagneSquad",
         name: "",
         type: "address",
       },

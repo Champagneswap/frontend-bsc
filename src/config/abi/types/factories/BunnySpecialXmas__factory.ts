@@ -89,7 +89,7 @@ const _abi = [
         type: "uint256",
       },
     ],
-    name: "NewPancakeProfileThresholdPoints",
+    name: "NewChampagneProfileThresholdPoints",
     type: "event",
   },
   {
@@ -226,7 +226,7 @@ const _abi = [
     name: "pancakeProfile",
     outputs: [
       {
-        internalType: "contract IPancakeProfile",
+        internalType: "contract IChampagneProfile",
         name: "",
         type: "address",
       },

@@ -4,7 +4,10 @@
 
 import { Contract, Signer, utils } from "ethers";
 import { Provider } from "@ethersproject/providers";
-import type { PancakeSquad, PancakeSquadInterface } from "../PancakeSquad";
+import type {
+  ChampagneSquad,
+  ChampagneSquadInterface,
+} from "../ChampagneSquad";
 
 const _abi = [
   {
@@ -656,13 +659,13 @@ const _abi = [
 
 export class ChampagneSquad__factory {
   static readonly abi = _abi;
-  static createInterface(): PancakeSquadInterface {
-    return new utils.Interface(_abi) as PancakeSquadInterface;
+  static createInterface(): ChampagneSquadInterface {
+    return new utils.Interface(_abi) as ChampagneSquadInterface;
   }
   static connect(
     address: string,
     signerOrProvider: Signer | Provider
-  ): PancakeSquad {
-    return new Contract(address, _abi, signerOrProvider) as PancakeSquad;
+  ): ChampagneSquad {
+    return new Contract(address, _abi, signerOrProvider) as ChampagneSquad;
   }
 }

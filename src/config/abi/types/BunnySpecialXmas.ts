@@ -119,7 +119,7 @@ export interface BunnySpecialXmasInterface extends utils.Interface {
   events: {
     "BunnyMint(address,uint256,uint8)": EventFragment;
     "NewEndBlock(uint256)": EventFragment;
-    "NewPancakeProfileThresholdPoints(uint256)": EventFragment;
+    "NewChampagneProfileThresholdPoints(uint256)": EventFragment;
     "NewTokenURI(string)": EventFragment;
     "OwnershipTransferred(address,address)": EventFragment;
   };
@@ -127,7 +127,7 @@ export interface BunnySpecialXmasInterface extends utils.Interface {
   getEvent(nameOrSignatureOrTopic: "BunnyMint"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "NewEndBlock"): EventFragment;
   getEvent(
-    nameOrSignatureOrTopic: "NewPancakeProfileThresholdPoints"
+    nameOrSignatureOrTopic: "NewChampagneProfileThresholdPoints"
   ): EventFragment;
   getEvent(nameOrSignatureOrTopic: "NewTokenURI"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "OwnershipTransferred"): EventFragment;
@@ -144,13 +144,13 @@ export type NewEndBlockEvent = TypedEvent<[BigNumber], { endBlock: BigNumber }>;
 
 export type NewEndBlockEventFilter = TypedEventFilter<NewEndBlockEvent>;
 
-export type NewPancakeProfileThresholdPointsEvent = TypedEvent<
+export type NewChampagneProfileThresholdPointsEvent = TypedEvent<
   [BigNumber],
   { thresholdPoints: BigNumber }
 >;
 
-export type NewPancakeProfileThresholdPointsEventFilter =
-  TypedEventFilter<NewPancakeProfileThresholdPointsEvent>;
+export type NewChampagneProfileThresholdPointsEventFilter =
+  TypedEventFilter<NewChampagneProfileThresholdPointsEvent>;
 
 export type NewTokenURIEvent = TypedEvent<[string], { tokenURI: string }>;
 
@@ -350,12 +350,12 @@ export interface BunnySpecialXmas extends BaseContract {
     "NewEndBlock(uint256)"(endBlock?: null): NewEndBlockEventFilter;
     NewEndBlock(endBlock?: null): NewEndBlockEventFilter;
 
-    "NewPancakeProfileThresholdPoints(uint256)"(
+    "NewChampagneProfileThresholdPoints(uint256)"(
       thresholdPoints?: null
-    ): NewPancakeProfileThresholdPointsEventFilter;
-    NewPancakeProfileThresholdPoints(
+    ): NewChampagneProfileThresholdPointsEventFilter;
+    NewChampagneProfileThresholdPoints(
       thresholdPoints?: null
-    ): NewPancakeProfileThresholdPointsEventFilter;
+    ): NewChampagneProfileThresholdPointsEventFilter;
 
     "NewTokenURI(string)"(tokenURI?: null): NewTokenURIEventFilter;
     NewTokenURI(tokenURI?: null): NewTokenURIEventFilter;

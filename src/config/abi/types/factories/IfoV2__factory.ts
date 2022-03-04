@@ -294,7 +294,7 @@ const _abi = [
     name: "pancakeProfile",
     outputs: [
       {
-        internalType: "contract PancakeProfile",
+        internalType: "contract ChampagneProfile",
         name: "",
         type: "address",
       },

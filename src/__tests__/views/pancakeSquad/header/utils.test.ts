@@ -1,8 +1,8 @@
-import { ButtonsEnum } from 'views/PancakeSquad/components/Header/types'
-import { getCurrentButton } from 'views/PancakeSquad/components/Header/utils'
-import { SaleStatusEnum, UserStatusEnum } from 'views/PancakeSquad/types'
+import { ButtonsEnum } from 'views/ChampagneSquad/components/Header/types'
+import { getCurrentButton } from 'views/ChampagneSquad/components/Header/utils'
+import { SaleStatusEnum, UserStatusEnum } from 'views/ChampagneSquad/types'
 
-describe('PancakeSquad/Header/utils/getCurrentButton', () => {
+describe('ChampagneSquad/Header/utils/getCurrentButton', () => {
   it('Should return ACTIVATE button', () => {
     // Given
     const saleStatus = SaleStatusEnum.Pending

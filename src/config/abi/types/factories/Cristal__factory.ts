@@ -702,7 +702,10 @@ export class Cristal__factory {
   static createInterface(): CristalInterface {
     return new utils.Interface(_abi) as CristalInterface;
   }
-  static connect(address: string, signerOrProvider: Signer | Provider): Cristal {
+  static connect(
+    address: string,
+    signerOrProvider: Signer | Provider
+  ): Cristal {
     return new Contract(address, _abi, signerOrProvider) as Cristal;
   }
 }

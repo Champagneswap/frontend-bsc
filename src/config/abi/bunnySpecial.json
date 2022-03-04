@@ -12,7 +12,7 @@
         "type": "address"
       },
       {
-        "internalType": "contract IPancakeProfile",
+        "internalType": "contract IChampagneProfile",
         "name": "_pancakeProfile",
         "type": "address"
       },
@@ -373,7 +373,7 @@
     "name": "pancakeProfile",
     "outputs": [
       {
-        "internalType": "contract IPancakeProfile",
+        "internalType": "contract IChampagneProfile",
         "name": "",
         "type": "address"
       }

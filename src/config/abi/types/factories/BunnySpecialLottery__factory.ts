@@ -14,7 +14,7 @@ const _abi = [
     inputs: [
       {
         internalType: "address",
-        name: "_champagneSwapLotteryAddress",
+        name: "_pancakeSwapLotteryAddress",
         type: "address",
       },
       {
@@ -24,7 +24,7 @@ const _abi = [
       },
       {
         internalType: "address",
-        name: "_champagneProfileAddress",
+        name: "_pancakeProfileAddress",
         type: "address",
       },
       {
@@ -533,7 +533,7 @@ const _abi = [
   },
   {
     inputs: [],
-    name: "champagneProfile",
+    name: "pancakeProfile",
     outputs: [
       {
         internalType: "contract ChampagneProfile",
@@ -546,7 +546,7 @@ const _abi = [
   },
   {
     inputs: [],
-    name: "champagneSwapLottery",
+    name: "pancakeSwapLottery",
     outputs: [
       {
         internalType: "contract IChampagneSwapLottery",
