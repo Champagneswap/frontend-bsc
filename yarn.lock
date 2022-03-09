@@ -443,7 +443,6 @@
 "@champagneswap/uikit@^0.63.1":
   version "0.63.1"
   resolved "https://registry.yarnpkg.com/@champagneswap/uikit/-/uikit-0.63.1.tgz#1d0fabeb23b2fa14a02bc9a71989ce8d244293d8"
-  integrity "sha1-3L0cotPXIxXPKpBiaFG+l2yeynA= sha512-uvKa+ZYJejmqt0Mclg/GctG3i0mfeiaXndvdJx1JOyOHh00tD6aGzYHTkrqK+kjMPsQzgxBNvB5VwJfTDhGpJQ=="
   dependencies:
     "@popperjs/core" "^2.9.2"
     "@types/styled-system" "^5.1.10"
