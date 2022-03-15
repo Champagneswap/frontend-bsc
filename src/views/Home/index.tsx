@@ -139,14 +139,7 @@ const Home: React.FC = () => {
         index={2}
         hasCurvedDivider={false}
       >
-        <WinSection />
-      </PageSection>
-      <PageSection
-        innerProps={{ style: HomeSectionContainerStyles }}
-        background={theme.colors.background}
-        index={2}
-        hasCurvedDivider={false}
-      >
+       
         <SalesSection {...cakeSectionData(t)} />
         <ChamDataRow />
       </PageSection>
