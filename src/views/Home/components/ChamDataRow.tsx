@@ -50,10 +50,10 @@ const ChamDataRow = () => {
   const { t } = useTranslation()
   const { observerRef, isIntersecting } = useIntersectionObserver()
   const [loadData, setLoadData] = useState(false)
-  const [cakeSupply, setChamSupply] = useState(0)
+  const [chamSupply, setChamSupply] = useState(0)
   const [burnedBalance, setBurnedBalance] = useState(0)
   const chamPriceBusd = usePriceChamBusd()
-  const mcap = chamPriceBusd.times(cakeSupply)
+  const mcap = chamPriceBusd.times(chamSupply)
   const mcapString = formatLocalisedCompactNumber(mcap.toNumber())
 
   useEffect(() => {
@@ -87,8 +87,8 @@ const ChamDataRow = () => {
     <Grid>
       <Flex flexDirection="column">
         <Text color="textSubtle">{t('Total supply')}</Text>
-        {cakeSupply ? (
-          <Balance decimals={0} lineHeight="1.1" fontSize="24px" bold value={cakeSupply} />
+        {chamSupply ? (
+          <Balance decimals={0} lineHeight="1.1" fontSize="24px" bold value={chamSupply} />
         ) : (
           <>
             <div ref={observerRef} />
@@ -115,7 +115,7 @@ const ChamDataRow = () => {
       <StyledColumn>
         <Text color="textSubtle">{t('Current emissions')}</Text>
 
-        <Heading scale="lg">{t('%cakeEmissions%/block', { cakeEmissions: emissionsPerBlock })}</Heading>
+        <Heading scale="lg">{t('%chamEmissions%/block', { chamEmissions: emissionsPerBlock })}</Heading>
       </StyledColumn>
     </Grid>
   )

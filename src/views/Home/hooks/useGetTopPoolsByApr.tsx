@@ -14,20 +14,20 @@ export function usePoolsWithVault() {
   const ifoPool = useIfoPoolVault()
   const pools = useMemo(() => {
     const activePools = poolsWithoutAutoVault.filter((pool) => !pool.isFinished)
-    const cakePool = activePools.find((pool) => pool.sousId === 0)
-    const cakeAutoVault = { ...cakePool, vaultKey: VaultKey.ChamVault }
-    const ifoPoolVault = { ...cakePool, vaultKey: VaultKey.IfoPool }
-    const cakeAutoVaultWithApr = {
-      ...cakeAutoVault,
-      apr: getAprData(cakeAutoVault, chamVault.fees.performanceFeeAsDecimal).apr,
-      rawApr: cakePool.apr,
+    const chamPool = activePools.find((pool) => pool.sousId === 0)
+    const chamAutoVault = { ...chamPool, vaultKey: VaultKey.ChamVault }
+    const ifoPoolVault = { ...chamPool, vaultKey: VaultKey.IfoPool }
+    const chamAutoVaultWithApr = {
+      ...chamAutoVault,
+      apr: getAprData(chamAutoVault, chamVault.fees.performanceFeeAsDecimal).apr,
+      rawApr: chamPool.apr,
     }
     const ifoPoolWithApr = {
       ...ifoPoolVault,
       apr: getAprData(ifoPoolVault, ifoPool.fees.performanceFeeAsDecimal).apr,
-      rawApr: cakePool.apr,
+      rawApr: chamPool.apr,
     }
-    return [ifoPoolWithApr, cakeAutoVaultWithApr, ...poolsWithoutAutoVault]
+    return [ifoPoolWithApr, chamAutoVaultWithApr, ...poolsWithoutAutoVault]
   }, [poolsWithoutAutoVault, chamVault.fees.performanceFeeAsDecimal, ifoPool.fees.performanceFeeAsDecimal])
 
   return pools
