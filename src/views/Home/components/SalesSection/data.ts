@@ -49,7 +49,7 @@ export const earnSectionData = (t: TranslateFunction): SalesSectionProps => ({
   },
 })
 
-export const cakeSectionData = (t: TranslateFunction): SalesSectionProps => ({
+export const chamSectionData = (t: TranslateFunction): SalesSectionProps => ({
   headingText: t('CHAM makes our world go round.'),
   bodyText: t(
     'CHAM token is at the heart of the ChampagneSwap ecosystem. Buy it, win it, farm it, spend it, stake it... heck, you can even vote with it!',
