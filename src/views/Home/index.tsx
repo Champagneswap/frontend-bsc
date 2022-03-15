@@ -8,7 +8,7 @@ import Container from 'components/Layout/Container'
 import { PageMeta } from 'components/Layout/Page'
 import { useTranslation } from 'contexts/Localization'
 import Hero from './components/Hero'
-import { swapSectionData, earnSectionData, cakeSectionData } from './components/SalesSection/data'
+import { swapSectionData, earnSectionData, chamSectionData } from './components/SalesSection/data'
 import MetricsSection from './components/MetricsSection'
 import SalesSection from './components/SalesSection'
 import WinSection from './components/WinSection'
@@ -140,7 +140,7 @@ const Home: React.FC = () => {
         hasCurvedDivider={false}
       >
        
-        <SalesSection {...cakeSectionData(t)} />
+        <SalesSection {...chamSectionData(t)} />
         <ChamDataRow />
       </PageSection>
       <PageSection
