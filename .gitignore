@@ -3,3 +3,4 @@ yarn.lock
 .next/*
 .husky/*
 .git/*
+public/images/icrebreakers.png
