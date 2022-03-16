@@ -34,6 +34,7 @@ import {
   getChampagneSquadAddress,
   getTradingCompetitionAddressV2,
   getBunnySpecialXmasAddress,
+  getCampagneRollAddress,
 } from 'utils/addressHelpers'
 
 // ABI
@@ -72,6 +73,7 @@ import nftMarketAbi from 'config/abi/nftMarket.json'
 import nftSaleAbi from 'config/abi/nftSale.json'
 import champagneSquadAbi from 'config/abi/champagneSquad.json'
 import erc721CollectionAbi from 'config/abi/erc721collection.json'
+import champagneRollAbi from 'config/abi/ChampagneRoll.json'
 
 // Types
 import type {
@@ -108,6 +110,7 @@ import type {
   ChampagneSquad,
   Erc721collection,
   PointCenterIfo,
+  ChampagneRoll,
 } from 'config/abi/types'
 
 const getContract = (abi: any, address: string, signer?: Signer | Provider) => {
@@ -115,6 +118,9 @@ const getContract = (abi: any, address: string, signer?: Signer | Provider) => {
   return new Contract(address, abi, signerOrProvider)
 }
 
+export const getChampagneRollContract = (address: string, signer?: Signer | Provider) => {
+  return getContract(bep20Abi, address, signer) as ChampagneRoll
+}
 export const getBep20Contract = (address: string, signer?: Signer | Provider) => {
   return getContract(bep20Abi, address, signer) as Erc20
 }
@@ -203,6 +209,7 @@ export const getBunnySpecialPredictionContract = (signer?: Signer | Provider) =>
 export const getBunnySpecialLotteryContract = (signer?: Signer | Provider) => {
   return getContract(bunnySpecialLotteryAbi, getBunnySpecialLotteryAddress(), signer) as BunnySpecialLottery
 }
+
 export const getBunnySpecialXmasContract = (signer?: Signer | Provider) => {
   return getContract(bunnySpecialXmasAbi, getBunnySpecialXmasAddress(), signer)
 }

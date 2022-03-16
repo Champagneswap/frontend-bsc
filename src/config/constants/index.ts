@@ -2,6 +2,7 @@ import { ChainId, JSBI, Percent, Token } from '@champagneswap/sdk'
 import { mainnetTokens, testnetTokens } from './tokens'
 
 export const ROUTER_ADDRESS = '0x5FeCceEC9c3dD4b80c2D691ff35CA248Ec423C78'
+export const CHAMPAGNEROLL_ADDRESS = '0xa0E345307996b0544322D6da96298Deeab3FDaA3'
 
 // a list of tokens by chain
 type ChainTokenList = {

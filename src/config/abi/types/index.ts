@@ -10,6 +10,7 @@ export type { BunnySpecialPrediction } from "./BunnySpecialPrediction";
 export type { BunnySpecialXmas } from "./BunnySpecialXmas";
 export type { ChainlinkOracle } from "./ChainlinkOracle";
 export type { Cham } from "./Cham";
+export type { ChampagneRoll } from "./ChampagneRoll";
 export type { ChampagneProfile } from "./ChampagneProfile";
 export type { ChampagneSquad } from "./ChampagneSquad";
 export type { ChamVault } from "./ChamVault";

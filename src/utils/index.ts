@@ -6,9 +6,13 @@ import { AddressZero } from '@ethersproject/constants'
 import { JsonRpcSigner, Web3Provider } from '@ethersproject/providers'
 import { BigNumber } from '@ethersproject/bignumber'
 import IChampagneRouter02ABI from 'config/abi/IChampagneRouter02.json'
+import ChampagneRollABI from 'config/abi/ChampagneRoll.json'
+
 import { IChampagneRouter02 } from 'config/abi/types/IChampagneRouter02'
+import { ChampagneRoll} from 'config/abi/types/ChampagneRoll'
 import { ChainId, JSBI, Percent, Token, CurrencyAmount, Currency, ETHER } from '@champagneswap/sdk'
 import { ROUTER_ADDRESS } from '../config/constants'
+import { CHAMPAGNEROLL_ADDRESS } from '../config/constants'
 import { BASE_BSC_SCAN_URLS } from '../config'
 import { TokenAddressMap } from '../state/lists/hooks'
 import { simpleRpcProvider } from './providers'
@@ -96,6 +100,10 @@ export function getContract(address: string, ABI: any, signer?: Signer | Provide
 // account is optional
 export function getRouterContract(_: number, library: Web3Provider, account?: string) {
   return getContract(ROUTER_ADDRESS, IChampagneRouter02ABI, getProviderOrSigner(library, account)) as IChampagneRouter02
+}
+
+export function getChampagneRollContract(_: number, library: Web3Provider, account?: string) {
+  return getContract(CHAMPAGNEROLL_ADDRESS, ChampagneRollABI, getProviderOrSigner(library, account)) as ChampagneRoll
 }
 
 export function escapeRegExp(string: string): string {
