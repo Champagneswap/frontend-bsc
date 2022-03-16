@@ -33,8 +33,6 @@
   },
   "dependencies": {
     "@binance-chain/bsc-connector": "^1.0.0",
-    "@champagneswap/sdk": "^5.0.6",
-    "@champagneswap/uikit": "^0.63.1",
     "@ethersproject/abi": "^5.5.0",
     "@ethersproject/address": "^5.5.0",
     "@ethersproject/bignumber": "^5.5.0",
@@ -46,11 +44,6 @@
     "@ethersproject/strings": "^5.5.0",
     "@ethersproject/units": "^5.5.0",
     "@next/bundle-analyzer": "^12.0.7",
-<<<<<<< HEAD
-=======
-    "@champagneswap/sdk": "^5.0.6",
-    "@champagneswap/uikit": "^0.63.5",
->>>>>>> d13c2f82511b31c679c46d93c6d351ddeb71bc9c
     "@reduxjs/toolkit": "^1.5.0",
     "@sentry/nextjs": "^6.17.4",
     "@snapshot-labs/snapshot.js": "^0.3.25",

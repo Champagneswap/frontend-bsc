@@ -15,6 +15,11 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
+    "/": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/index.js"
+    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -30,11 +35,6 @@
       "static/chunks/main.js",
       "server/middleware-runtime.js",
       "server/pages/_middleware.js"
-    ],
-    "/liquidity": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/liquidity.js"
     ],
     "/migration": [
       "static/chunks/webpack.js",
