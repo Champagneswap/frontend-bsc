@@ -45,7 +45,7 @@
     "@ethersproject/units": "^5.5.0",
     "@next/bundle-analyzer": "^12.0.7",
     "@champagneswap/sdk": "^5.0.6",
-    "@champagneswap/uikit": "^0.63.1",
+    "@champagneswap/uikit": "^0.63.5",
     "@reduxjs/toolkit": "^1.5.0",
     "@sentry/nextjs": "^6.17.4",
     "@snapshot-labs/snapshot.js": "^0.3.25",
