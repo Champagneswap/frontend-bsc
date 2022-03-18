@@ -73,7 +73,7 @@ import nftMarketAbi from 'config/abi/nftMarket.json'
 import nftSaleAbi from 'config/abi/nftSale.json'
 import champagneSquadAbi from 'config/abi/champagneSquad.json'
 import erc721CollectionAbi from 'config/abi/erc721collection.json'
-import champagneRollAbi from 'config/abi/champagneRoll.json'
+import champagneRollAbi from 'config/abi/ChampagneRoll.json'
 
 // Types
 import type {
