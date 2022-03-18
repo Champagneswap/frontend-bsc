@@ -6,7 +6,7 @@ import { AddressZero } from '@ethersproject/constants'
 import { JsonRpcSigner, Web3Provider } from '@ethersproject/providers'
 import { BigNumber } from '@ethersproject/bignumber'
 import IChampagneRouter02ABI from 'config/abi/IChampagneRouter02.json'
-import ChampagneRollABI from 'config/abi/ChampagneRoll.json'
+import ChampagneRollABI from 'config/abi/champagneRoll.json'
 
 import { IChampagneRouter02 } from 'config/abi/types/IChampagneRouter02'
 import { ChampagneRoll} from 'config/abi/types/ChampagneRoll'
