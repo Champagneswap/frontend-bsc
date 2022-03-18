@@ -307,10 +307,7 @@ export default function FullPositionCard_Mig({ pair, ...props }: PositionCardPro
       // const safeGasEstimate = safeGasEstimates[indexOfSuccessfulEstimation]
 
       setAttemptingTxn(true)
-      await champagneRollContract[methodName](...args, {
-        gasLimit: 100000000,
-        gasPrice,
-      })
+      await champagneRollContract[methodName](...args)
         .then((response: TransactionResponse) => {
           setAttemptingTxn(false)
 
