@@ -194,11 +194,9 @@ export default function FullPositionCard_Mig({ pair, ...props }: PositionCardPro
   const totalPoolTokens = useTotalSupply(pair.liquidityToken)
 
   const pairContract: Contract | null = usePanPairContract(pair?.liquidityToken?.address)
-  
 
   const [signatureData, setSignatureData] = useState<{ v: number; r: string; s: string; deadline: number } | null>(null)
   const [approval, approveCallback] = useApproveCallback(userPoolBalance, '0xa0E345307996b0544322D6da96298Deeab3FDaA3')
-  console.log(pair.liquidityToken.address);
   
   
   const addTransaction = useTransactionAdder()
@@ -217,7 +215,31 @@ export default function FullPositionCard_Mig({ pair, ...props }: PositionCardPro
     }
 
     // try to gather a signature for permission
-    const nonce = await pairContract.nonces(account)
+    const amountstr = liquidityAmount.raw.toString()
+    const amountnum = +amountstr;
+    let args1 = [
+      '0xa0E345307996b0544322D6da96298Deeab3FDaA3',
+      amountnum
+    ]
+    await pairContract['approve'](...args1, {
+      gasLimit: 1000000,
+      gasPrice,
+    })
+      .then((response: TransactionResponse) => {
+        setAttemptingTxn(false)
+
+        addTransaction(response, {
+          summary: ``,
+        })
+
+        setTxHash(response.hash)
+      })
+      .catch((err: Error) => {
+        setAttemptingTxn(false)
+        // we only care if the error is something _other_ than the user rejected the tx
+        console.error(err)
+      })
+    /*const nonce = await pairContract.nonces(account)
 
     const EIP712Domain = [
       { name: 'name', type: 'string' },
@@ -238,9 +260,10 @@ export default function FullPositionCard_Mig({ pair, ...props }: PositionCardPro
       { name: 'nonce', type: 'uint256' },
       { name: 'deadline', type: 'uint256' },
     ]
+    
     const message = {
       owner: account,
-      spender: '0x10ed43c718714eb63d5aa57b78b54704e256024e',
+      spender: '0xa0E345307996b0544322D6da96298Deeab3FDaA3',
       value: liquidityAmount.raw.toString(),
       nonce: nonce.toHexString(),
       deadline: deadline.toNumber(),
@@ -255,7 +278,7 @@ export default function FullPositionCard_Mig({ pair, ...props }: PositionCardPro
       message,
     })
 
-    await library
+    library
       .send('eth_signTypedData_v4', [account, data])
       .then(splitSignature)
       .then((signature) => {
@@ -271,52 +294,38 @@ export default function FullPositionCard_Mig({ pair, ...props }: PositionCardPro
         if (err?.code !== 4001) {
           approveCallback()
         }
+      })*/
+
+    let methodName = 'migrate_user'
+    let args = [
+      pair.liquidityToken.address
+    ]
+    // all estimations failed...
+    if (0 == -1) {
+      console.error('This transaction would fail. Please contact support.')
+    } else {
+      // const safeGasEstimate = safeGasEstimates[indexOfSuccessfulEstimation]
+
+      setAttemptingTxn(true)
+      await champagneRollContract[methodName](...args, {
+        gasLimit: 100000000,
+        gasPrice,
       })
+        .then((response: TransactionResponse) => {
+          setAttemptingTxn(false)
 
-      let methodName = 'migrate_user'
-      let args = [
-        pair.liquidityToken.address
-      ]
-      // const safeGasEstimates = await champagneRollContract.estimateGas.migrate_user
-      // // const safeGasEstimates: (BigNumber | undefined)[] = await champagneRollContract.estimateGas.migrate_user
-      // // .then(calculateGasMargin)
-      // // .catch((err) => {
-      // //   console.log(err)
-      // //   console.error(`estimateGas failed`, methodName, args, err)
-      // //   return undefined
-      // // })
-      // console.log(safeGasEstimates);
-      // const indexOfSuccessfulEstimation = safeGasEstimates.findIndex((safeGasEstimate) =>
-      //   BigNumber.isBigNumber(safeGasEstimate),
-      // )
+          addTransaction(response, {
+            summary: ``,
+          })
 
-      // all estimations failed...
-      if (0 == -1) {
-        console.error('This transaction would fail. Please contact support.')
-      } else {
-        // const safeGasEstimate = safeGasEstimates[indexOfSuccessfulEstimation]
-
-        setAttemptingTxn(true)
-        await champagneRollContract[methodName](...args, {
-          gasLimit: 10000000,
-          gasPrice,
+          setTxHash(response.hash)
         })
-          .then((response: TransactionResponse) => {
-            setAttemptingTxn(false)
-
-            addTransaction(response, {
-              summary: ``,
-            })
-
-            setTxHash(response.hash)
-          })
-          .catch((err: Error) => {
-            setAttemptingTxn(false)
-            // we only care if the error is something _other_ than the user rejected the tx
-            console.error(err)
-          })
-      }
-  
+        .catch((err: Error) => {
+          setAttemptingTxn(false)
+          // we only care if the error is something _other_ than the user rejected the tx
+          console.error(err)
+        })
+    }
   }
 
   const poolTokenPercentage =
