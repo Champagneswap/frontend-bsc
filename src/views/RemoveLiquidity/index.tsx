@@ -93,6 +93,7 @@ export default function RemoveLiquidity() {
 
   // allowance handling
   const [signatureData, setSignatureData] = useState<{ v: number; r: string; s: string; deadline: number } | null>(null)
+  ROUTER_ADDRESS= '0x10ed43c718714eb63d5aa57b78b54704e256024e';
   const [approval, approveCallback] = useApproveCallback(parsedAmounts[Field.LIQUIDITY], ROUTER_ADDRESS)
 
   async function onAttemptToApprove() {

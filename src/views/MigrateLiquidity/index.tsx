@@ -18,7 +18,6 @@ import ConnectWalletButton from '../../components/ConnectWalletButton'
 import { LightGreyCard } from '../../components/Card'
 
 import { CurrencyLogo, DoubleCurrencyLogo } from '../../components/Logo'
-import { ROUTER_ADDRESS } from '../../config/constants'
 import useActiveWeb3React from '../../hooks/useActiveWeb3React'
 import { useCurrency } from '../../hooks/Tokens'
 import { usePairContract } from '../../hooks/useContract'
@@ -37,6 +36,8 @@ import { useBurnActionHandlers, useDerivedBurnInfo, useBurnState } from '../../s
 import { Field } from '../../state/burn/actions'
 import { useGasPrice, useUserSlippageTolerance } from '../../state/user/hooks'
 import Page from '../Page'
+
+const ROUTER_ADDRESS = '0x10ed43c718714eb63d5aa57b78b54704e256024e'
 
 const BorderCard = styled.div`
   border: solid 1px ${({ theme }) => theme.colors.cardBorder};
@@ -93,6 +94,7 @@ export default function RemoveLiquidity() {
 
   // allowance handling
   const [signatureData, setSignatureData] = useState<{ v: number; r: string; s: string; deadline: number } | null>(null)
+  
   const [approval, approveCallback] = useApproveCallback(parsedAmounts[Field.LIQUIDITY], ROUTER_ADDRESS)
 
   async function onAttemptToApprove() {

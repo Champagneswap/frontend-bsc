@@ -1,14 +1,14 @@
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
-import { Pair } from '@champagneswap/sdk'
+import { Pair } from '@pancakeswap/sdk'
 import { Text, Flex, CardBody, CardFooter, Button, AddIcon } from '@champagneswap/uikit'
 import Link from 'next/link'
 import { useTranslation } from 'contexts/Localization'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import FullPositionCard_Mig from '../../components/PositionCard_Mig'
-import { useTokenBalancesWithLoadingIndicator } from '../../state/wallet/hooks'
-import { usePairs } from '../../hooks/usePairs'
-import { toV2LiquidityToken, useTrackedTokenPairs } from '../../state/user/hooks'
+import { useTokenBalancesWithLoadingIndicator } from '../../state/wallet/hooks_Mig'
+import { usePairs_Mig } from '../../hooks/usePairs_Mig'
+import { toV2LiquidityToken, useTrackedTokenPairs, useTrackedTokenPairs_Mig } from '../../state/user/hooks/mig_hook'
 import Dots from '../../components/Loader/Dots'
 import { AppHeader, AppBody } from '../../components/App'
 import Page from '../Page'
@@ -17,24 +17,31 @@ const Body = styled(CardBody)`
   background-color: ${({ theme }) => theme.colors.dropdownDeep};
 `
 
-export default function Pool() {
+export default function Migration() {
   const { account } = useActiveWeb3React()
   const { t } = useTranslation()
 
   // fetch the user's balances of all tracked V2 LP tokens
-  const trackedTokenPairs = useTrackedTokenPairs()
+  const trackedTokenPairs = useTrackedTokenPairs_Mig()
+  
   const tokenPairsWithLiquidityTokens = useMemo(
     () => trackedTokenPairs.map((tokens) => ({ liquidityToken: toV2LiquidityToken(tokens), tokens })),
     [trackedTokenPairs],
   )
+
+  
   const liquidityTokens = useMemo(
     () => tokenPairsWithLiquidityTokens.map((tpwlt) => tpwlt.liquidityToken),
     [tokenPairsWithLiquidityTokens],
   )
+
+  
+  
   const [v2PairsBalances, fetchingV2PairBalances] = useTokenBalancesWithLoadingIndicator(
     account ?? undefined,
     liquidityTokens,
   )
+  
 
   // fetch the reserves for all V2 pools in which the user has a balance
   const liquidityTokensWithBalances = useMemo(
@@ -44,8 +51,9 @@ export default function Pool() {
       ),
     [tokenPairsWithLiquidityTokens, v2PairsBalances],
   )
-
-  const v2Pairs = usePairs(liquidityTokensWithBalances.map(({ tokens }) => tokens))
+  
+  const v2Pairs = usePairs_Mig(liquidityTokensWithBalances.map(({ tokens }) => tokens))
+  
   const v2IsLoading =
     fetchingV2PairBalances || v2Pairs?.length < liquidityTokensWithBalances.length || v2Pairs?.some((V2Pair) => !V2Pair)
 

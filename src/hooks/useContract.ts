@@ -50,6 +50,7 @@ import {
 import { Contract } from '@ethersproject/contracts'
 import { ChainId, WETH } from '@champagneswap/sdk'
 import IChampagnePairABI from '../config/abi/IChampagnePair.json'
+import IPancakePairABI from '../config/abi/IPancakePair.json'
 import ENS_PUBLIC_RESOLVER_ABI from '../config/abi/ens-public-resolver.json'
 import ENS_ABI from '../config/abi/ens-registrar.json'
 import { ERC20_BYTES32_ABI } from '../config/abi/erc20'
@@ -59,6 +60,7 @@ import multiCallAbi from '../config/abi/Multicall.json'
 import { getContract, getProviderOrSigner } from '../utils'
 
 import { IChampagnePair } from '../config/abi/types/IChampagnePair'
+import { IPancakePair } from '../config/abi/types/IPancakePair'
 
 /**
  * Helper hooks to get specific contracts (by ABI)
@@ -306,6 +308,10 @@ export function useBytes32TokenContract(tokenAddress?: string, withSignerIfPossi
 
 export function usePairContract(pairAddress?: string, withSignerIfPossible?: boolean): IChampagnePair | null {
   return useContract(pairAddress, IChampagnePairABI, withSignerIfPossible)
+}
+
+export function usePanPairContract(pairAddress?: string, withSignerIfPossible?: boolean): IPancakePair | null {
+  return useContract(pairAddress, IPancakePairABI, withSignerIfPossible)
 }
 
 export function useMulticallContract() {
