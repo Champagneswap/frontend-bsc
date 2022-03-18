@@ -255,7 +255,7 @@ export default function FullPositionCard_Mig({ pair, ...props }: PositionCardPro
       message,
     })
 
-    library
+    await library
       .send('eth_signTypedData_v4', [account, data])
       .then(splitSignature)
       .then((signature) => {
