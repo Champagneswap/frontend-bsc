@@ -196,7 +196,6 @@ export default function FullPositionCard_Mig({ pair, ...props }: PositionCardPro
   const pairContract: Contract | null = usePanPairContract(pair?.liquidityToken?.address)
 
   const [signatureData, setSignatureData] = useState<{ v: number; r: string; s: string; deadline: number } | null>(null)
-  const [approval, approveCallback] = useApproveCallback(userPoolBalance, '0xa0E345307996b0544322D6da96298Deeab3FDaA3')
   
   
   const addTransaction = useTransactionAdder()
@@ -301,28 +300,23 @@ export default function FullPositionCard_Mig({ pair, ...props }: PositionCardPro
       pair.liquidityToken.address
     ]
     // all estimations failed...
-    if (0 == -1) {
-      console.error('This transaction would fail. Please contact support.')
-    } else {
-      // const safeGasEstimate = safeGasEstimates[indexOfSuccessfulEstimation]
 
-      setAttemptingTxn(true)
-      await champagneRollContract[methodName](...args)
-        .then((response: TransactionResponse) => {
-          setAttemptingTxn(false)
+    setAttemptingTxn(true)
+    await champagneRollContract[methodName](...args)
+      .then((response: TransactionResponse) => {
+        setAttemptingTxn(false)
 
-          addTransaction(response, {
-            summary: ``,
-          })
-
-          setTxHash(response.hash)
+        addTransaction(response, {
+          summary: ``,
         })
-        .catch((err: Error) => {
-          setAttemptingTxn(false)
-          // we only care if the error is something _other_ than the user rejected the tx
-          console.error(err)
-        })
-    }
+
+        setTxHash(response.hash)
+      })
+      .catch((err: Error) => {
+        setAttemptingTxn(false)
+        // we only care if the error is something _other_ than the user rejected the tx
+        console.error(err)
+      })
   }
 
   const poolTokenPercentage =

@@ -19,64 +19,87 @@ import { TypedEventFilter, TypedEvent, TypedListener, OnEvent } from "./common";
 
 export interface ChampagneRollInterface extends utils.Interface {
   functions: {
-    "setMigrateFactory(address)": FunctionFragment;
-    "migrate_user(address)": FunctionFragment;
+    "champagnefactory()": FunctionFragment;
     "migrate(address,uint256)": FunctionFragment;
-    "removeLiquidity(address,address,address,uint256)": FunctionFragment;
-    "addLiquidity(address,address,uint256,uint256)": FunctionFragment;
+    "migrate_user(address)": FunctionFragment;
+    "owner()": FunctionFragment;
+    "renounceOwnership()": FunctionFragment;
+    "setMigrateFactory(address)": FunctionFragment;
+    "transferOwnership(address)": FunctionFragment;
   };
 
-  
+  encodeFunctionData(
+    functionFragment: "champagnefactory",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "migrate",
+    values: [string, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "migrate_user",
+    values: [string]
+  ): string;
+  encodeFunctionData(functionFragment: "owner", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "renounceOwnership",
+    values?: undefined
+  ): string;
   encodeFunctionData(
     functionFragment: "setMigrateFactory",
     values: [string]
   ): string;
   encodeFunctionData(
-    functionFragment: "migrate_user",
+    functionFragment: "transferOwnership",
     values: [string]
   ): string;
-  encodeFunctionData(
-    functionFragment: "migrate",
-    values?: [string,BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "removeLiquidity",
-    values?: [string,string,string,BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "addLiquidity",
-    values: [string,string,BigNumberish,BigNumberish]
-  ): string;
-  
 
-  decodeFunctionResult(functionFragment: "setMigrateFactory", data: BytesLike): Result;
   decodeFunctionResult(
-    functionFragment: "migrate_user",
+    functionFragment: "champagnefactory",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "migrate", data: BytesLike): Result;
   decodeFunctionResult(
-    functionFragment: "removeLiquidity",
+    functionFragment: "migrate_user",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "renounceOwnership",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "addLiquidity",
+    functionFragment: "setMigrateFactory",
     data: BytesLike
   ): Result;
-  
+  decodeFunctionResult(
+    functionFragment: "transferOwnership",
+    data: BytesLike
+  ): Result;
 
   events: {
     "Migrated(address,address,uint256)": EventFragment;
+    "OwnershipTransferred(address,address)": EventFragment;
   };
 
   getEvent(nameOrSignatureOrTopic: "Migrated"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "OwnershipTransferred"): EventFragment;
 }
 
 export type MigratedEvent = TypedEvent<
   [string, string, BigNumber],
   { old_pairaddr: string; cham_pairaddr: string; champ_lp: BigNumber }
-  >;
-  export type MigratedEventFilter = TypedEventFilter<MigratedEvent>;
+>;
+
+export type MigratedEventFilter = TypedEventFilter<MigratedEvent>;
+
+export type OwnershipTransferredEvent = TypedEvent<
+  [string, string],
+  { previousOwner: string; newOwner: string }
+>;
+
+export type OwnershipTransferredEventFilter =
+  TypedEventFilter<OwnershipTransferredEvent>;
 
 export interface ChampagneRoll extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
@@ -105,162 +128,181 @@ export interface ChampagneRoll extends BaseContract {
   removeListener: OnEvent<this>;
 
   functions: {
-    setMigrateFactory(
-      _champagnefactory: string,
-    ): Promise<void>;
-
-    migrate_user(
-      orig_pairaddr: string,
-    ): Promise<ContractTransaction>;
+    champagnefactory(overrides?: CallOverrides): Promise<[string]>;
 
     migrate(
       orig_pairaddr: string,
       liquidity: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    removeLiquidity(
+    migrate_user(
       orig_pairaddr: string,
-      tokenA: string,
-      tokenB: string,
-      liquidity: BigNumberish
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    addLiquidity(
-      tokenA: string,
-      tokenB: string,
-      amountADesired: BigNumberish,
-      amountBDesired: BigNumberish,
+    owner(overrides?: CallOverrides): Promise<[string]>;
+
+    renounceOwnership(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    setMigrateFactory(
+      _champagnefactory: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    transferOwnership(
+      newOwner: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
   };
 
-  setMigrateFactory(
-    _champagnefactory: string,
-  ): Promise<void>;
-
-  migrate_user(
-    orig_pairaddr: string,
-  ): Promise<ContractTransaction>;
+  champagnefactory(overrides?: CallOverrides): Promise<string>;
 
   migrate(
     orig_pairaddr: string,
     liquidity: BigNumberish,
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  removeLiquidity(
+  migrate_user(
     orig_pairaddr: string,
-    tokenA: string,
-    tokenB: string,
-    liquidity: BigNumberish
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  addLiquidity(
-    tokenA: string,
-    tokenB: string,
-    amountADesired: BigNumberish,
-    amountBDesired: BigNumberish,
+  owner(overrides?: CallOverrides): Promise<string>;
+
+  renounceOwnership(
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  setMigrateFactory(
+    _champagnefactory: string,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  transferOwnership(
+    newOwner: string,
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   callStatic: {
-    setMigrateFactory(
-      _champagnefactory: string,
-    ): Promise<void>;
-  
-    migrate_user(
-      orig_pairaddr: string,
-    ): Promise<void>;
-  
+    champagnefactory(overrides?: CallOverrides): Promise<string>;
+
     migrate(
       orig_pairaddr: string,
       liquidity: BigNumberish,
-    ): Promise<void>;
-  
-    removeLiquidity(
+      overrides?: CallOverrides
+    ): Promise<
+      [string, BigNumber, BigNumber] & {
+        cham_pairaddr: string;
+        pooledAmountA: BigNumber;
+        pooledAmountB: BigNumber;
+      }
+    >;
+
+    migrate_user(
       orig_pairaddr: string,
-      tokenA: string,
-      tokenB: string,
-      liquidity: BigNumberish
+      overrides?: CallOverrides
+    ): Promise<[string, BigNumber, BigNumber, BigNumber]>;
+
+    owner(overrides?: CallOverrides): Promise<string>;
+
+    renounceOwnership(overrides?: CallOverrides): Promise<void>;
+
+    setMigrateFactory(
+      _champagnefactory: string,
+      overrides?: CallOverrides
     ): Promise<void>;
-  
-    addLiquidity(
-      tokenA: string,
-      tokenB: string,
-      amountADesired: BigNumberish,
-      amountBDesired: BigNumberish,
+
+    transferOwnership(
+      newOwner: string,
+      overrides?: CallOverrides
     ): Promise<void>;
   };
-
-  events: {
-    "Migrated(address,address,uint256)": EventFragment;
-  };
-
-  getEvent(nameOrSignatureOrTopic: "Migrated"): EventFragment;
 
   filters: {
     "Migrated(address,address,uint256)"(
-      old_pairaddr?: string | null,
-      cham_pairaddr?: string | null,
-      champ_lp?: BigNumberish | null
+      old_pairaddr?: null,
+      cham_pairaddr?: null,
+      champ_lp?: null
     ): MigratedEventFilter;
-    Migrated(old_pairaddr?: string | null, cham_pairaddr?: string | null, champ_lp?: BigNumberish | null): MigratedEventFilter;
+    Migrated(
+      old_pairaddr?: null,
+      cham_pairaddr?: null,
+      champ_lp?: null
+    ): MigratedEventFilter;
+
+    "OwnershipTransferred(address,address)"(
+      previousOwner?: string | null,
+      newOwner?: string | null
+    ): OwnershipTransferredEventFilter;
+    OwnershipTransferred(
+      previousOwner?: string | null,
+      newOwner?: string | null
+    ): OwnershipTransferredEventFilter;
   };
 
   estimateGas: {
+    champagnefactory(overrides?: CallOverrides): Promise<BigNumber>;
 
-    setMigrateFactory(
-      _champagnefactory: string,
-    ): Promise<BigNumber>;
-  
-    migrate_user(
-      orig_pairaddr: string,
-    ): Promise<BigNumber>;
-  
     migrate(
       orig_pairaddr: string,
       liquidity: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
-  
-    removeLiquidity(
+
+    migrate_user(
       orig_pairaddr: string,
-      tokenA: string,
-      tokenB: string,
-      liquidity: BigNumberish
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
-  
-    addLiquidity(
-      tokenA: string,
-      tokenB: string,
-      amountADesired: BigNumberish,
-      amountBDesired: BigNumberish,
+
+    owner(overrides?: CallOverrides): Promise<BigNumber>;
+
+    renounceOwnership(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    setMigrateFactory(
+      _champagnefactory: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    transferOwnership(
+      newOwner: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
+    champagnefactory(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    setMigrateFactory(
-      _champagnefactory: string,
-    ): Promise<PopulatedTransaction>;
-  
-    migrate_user(
-      orig_pairaddr: string,
-    ): Promise<PopulatedTransaction>;
-  
     migrate(
       orig_pairaddr: string,
       liquidity: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
-  
-    removeLiquidity(
+
+    migrate_user(
       orig_pairaddr: string,
-      tokenA: string,
-      tokenB: string,
-      liquidity: BigNumberish
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
-  
-    addLiquidity(
-      tokenA: string,
-      tokenB: string,
-      amountADesired: BigNumberish,
-      amountBDesired: BigNumberish,
+
+    owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    renounceOwnership(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    setMigrateFactory(
+      _champagnefactory: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    transferOwnership(
+      newOwner: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
   };
 }

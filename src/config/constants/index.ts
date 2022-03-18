@@ -3,10 +3,7 @@ import { mainnetTokens, testnetTokens } from './tokens'
 
 //champagne router_address
 
-export const ROUTER_ADDRESS = {
-  [ChainId.MAINNET]: '0x5FeCceEC9c3dD4b80c2D691ff35CA248Ec423C78',
-  [ChainId.TESTNET]: '0xD99D1c33F9fC3444f8101754aBC46c52416550D1',
-}
+export const ROUTER_ADDRESS ='0x5FeCceEC9c3dD4b80c2D691ff35CA248Ec423C78'
 //pancake router_address
 //export const ROUTER_ADDRESS = '0x10ed43c718714eb63d5aa57b78b54704e256024e'
 export const CHAMPAGNEROLL_ADDRESS = '0xa0E345307996b0544322D6da96298Deeab3FDaA3'

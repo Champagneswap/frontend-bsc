@@ -6,15 +6,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import useENS from 'hooks/ENS/useENS'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import { useCurrency } from 'hooks/Tokens'
-import { useTradeExactIn, useTradeExactOut } from 'hooks/Trades'
+import { useTradeExactIn, useTradeExactOut } from 'hooks/Trades_Mig'
 import useParsedQueryString from 'hooks/useParsedQueryString'
 import { useTranslation } from 'contexts/Localization'
 import { isAddress } from 'utils'
-import { computeSlippageAdjustedAmounts } from 'utils/prices'
+import { computeSlippageAdjustedAmounts } from 'utils/prices_Mig'
 import getLpAddress from 'utils/getLpAddress'
 import { getTokenAddress } from 'views/Swap/components/Chart/utils'
 import { AppDispatch, AppState } from '../index'
-import { useCurrencyBalances } from '../wallet/hooks'
+import { useCurrencyBalances } from '../wallet/hooks_Mig'
 import {
   Field,
   replaceSwapState,

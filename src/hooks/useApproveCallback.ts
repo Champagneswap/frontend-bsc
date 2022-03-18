@@ -1,6 +1,6 @@
 import { MaxUint256 } from '@ethersproject/constants'
 import { TransactionResponse } from '@ethersproject/providers'
-import { Trade, TokenAmount, CurrencyAmount, ETHER } from '@champagneswap/sdk'
+import { Trade, TokenAmount, CurrencyAmount, ETHER, ChainId } from '@champagneswap/sdk'
 import { useCallback, useMemo } from 'react'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import { logError } from 'utils/sentry'
@@ -114,5 +114,5 @@ export function useApproveCallbackFromTrade(trade?: Trade, allowedSlippage = 0) 
     [trade, allowedSlippage],
   )
 
-  return useApproveCallback(amountToApprove, ROUTER_ADDRESS)
+  return useApproveCallback(amountToApprove, '0x5FeCceEC9c3dD4b80c2D691ff35CA248Ec423C78')
 }
