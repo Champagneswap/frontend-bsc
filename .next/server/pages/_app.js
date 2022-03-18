@@ -4,7 +4,7 @@ exports.id = 2888;
 exports.ids = [2888];
 exports.modules = {
 
-/***/ 73008:
+/***/ 94131:
 /***/ (() => {
 
 global.__rewriteFramesDistDir__ = '.next';
@@ -3848,7 +3848,7 @@ module.exports = import("swr/immutable");;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [7730,1664,5152,1940,1154,9099,9770,8605,3629,1790,621,9424,8472,1621,4854,4319,8733,8118,8339], () => (__webpack_exec__(73008), __webpack_exec__(55561), __webpack_exec__(12957)));
+var __webpack_exports__ = __webpack_require__.X(0, [7730,1664,5152,1940,1154,9099,9770,8605,3629,1790,621,9424,8472,1621,4854,4319,8733,8118,8339], () => (__webpack_exec__(94131), __webpack_exec__(55561), __webpack_exec__(12957)));
 module.exports = __webpack_exports__;
 
 })();

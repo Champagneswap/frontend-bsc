@@ -4,7 +4,7 @@ exports.id = 4820;
 exports.ids = [4820];
 exports.modules = {
 
-/***/ 73008:
+/***/ 94131:
 /***/ (() => {
 
 global.__rewriteFramesDistDir__ = '.next';
@@ -510,7 +510,7 @@ module.exports = import("swr");;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [7730,1664,1940,1154,9099,9770,2006], () => (__webpack_exec__(73008), __webpack_exec__(55561), __webpack_exec__(54141)));
+var __webpack_exports__ = __webpack_require__.X(0, [7730,1664,1940,1154,9099,9770,2006], () => (__webpack_exec__(94131), __webpack_exec__(55561), __webpack_exec__(54141)));
 module.exports = __webpack_exports__;
 
 })();
