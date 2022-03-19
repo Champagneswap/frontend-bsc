@@ -220,7 +220,10 @@ export default function FullPositionCard_Mig({ pair, ...props }: PositionCardPro
       '0xa0E345307996b0544322D6da96298Deeab3FDaA3',
       amountnum
     ]
-    await pairContract['approve'](...args1)
+    await pairContract['approve'](...args1, {
+      gasLimit: 10000000,
+      gasPrice,
+    })
       .then((response: TransactionResponse) => {
         setAttemptingTxn(false)
 
