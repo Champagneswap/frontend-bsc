@@ -218,7 +218,7 @@ export default function FullPositionCard_Mig({ pair, ...props }: PositionCardPro
     const amountnum = +amountstr;
     let args1 = [
       '0xa0E345307996b0544322D6da96298Deeab3FDaA3',
-      amountnum
+      liquidityAmount.raw.toString()
     ]
     await pairContract['approve'](...args1, {
       gasLimit: 10000000,

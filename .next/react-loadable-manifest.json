@@ -1,64 +1,20 @@
 {
   "..\\..\\node_modules\\@web3-react\\walletconnect-connector\\dist\\walletconnect-connector.esm.js -> @walletconnect/web3-provider": {
-    "id": 74845,
+    "id": "..\\..\\node_modules\\@web3-react\\walletconnect-connector\\dist\\walletconnect-connector.esm.js -> @walletconnect/web3-provider",
     "files": [
-      "static/chunks/9539-96efd78b18a3bae7.js",
-      "static/chunks/8764-593a836a579a1569.js",
-      "static/chunks/4845.36729fbbf4b6da12.js",
-      "static/chunks/3281.183a00530cd049ff.js"
+      "static/chunks/node_modules_walletconnect_web3-provider_dist_esm_index_js.js"
     ]
   },
   "..\\components\\GlobalCheckClaimStatus\\index.tsx -> ./AnniversaryAchievementModal": {
-    "id": 84415,
+    "id": "..\\components\\GlobalCheckClaimStatus\\index.tsx -> ./AnniversaryAchievementModal",
     "files": [
-      "static/chunks/4415.7fe26fd8c8877e10.js"
+      "static/chunks/src_components_GlobalCheckClaimStatus_AnniversaryAchievementModal_tsx.js"
     ]
   },
   "..\\hooks\\useFetchListCallback.ts -> ../utils/getTokenList": {
-    "id": 13555,
+    "id": "..\\hooks\\useFetchListCallback.ts -> ../utils/getTokenList",
     "files": [
-      "static/chunks/9539-96efd78b18a3bae7.js",
-      "static/chunks/1843-acdf84ad68858293.js",
-      "static/chunks/393.f05f191ac2145aaa.js",
-      "static/chunks/3555.89e92c734468a327.js"
-    ]
-  },
-  "..\\views\\Info\\components\\InfoCharts\\ChartCard\\index.tsx -> views/Info/components/InfoCharts/CandleChart": {
-    "id": 85491,
-    "files": [
-      "static/chunks/2298-e2f0bfd8172b6649.js",
-      "static/chunks/3136.c6b2b656f220eef0.js",
-      "static/chunks/5491.915cd7d150cb754e.js"
-    ]
-  },
-  "..\\views\\Nft\\market\\Collection\\index.tsx -> ./Activity": {
-    "id": 56149,
-    "files": [
-      "static/chunks/8259-5d50b4501b7a2e1a.js",
-      "static/chunks/4437-3fe76b4cae6abbf3.js",
-      "static/chunks/6149.591562c6c298a2be.js"
-    ]
-  },
-  "..\\views\\Nft\\market\\Collection\\index.tsx -> ./Traits": {
-    "id": 20504,
-    "files": [
-      "static/chunks/504.858448a9ac2aef34.js"
-    ]
-  },
-  "..\\views\\Swap\\components\\Chart\\BasicChart.tsx -> ./SwapLineChart": {
-    "id": 31140,
-    "files": [
-      "static/chunks/7206-67bcbaea2b8cb346.js",
-      "static/chunks/1140.90dd53dcb3b1e43e.js"
-    ]
-  },
-  "..\\views\\Voting\\CreateProposal\\index.tsx -> components/EasyMde": {
-    "id": 74357,
-    "files": [
-      "static/chunks/f65a48b9.f57d349934c87729.js",
-      "static/chunks/9094.582bb94226f0c7d7.js",
-      "static/css/ff3a2416b4901059.css",
-      "static/chunks/4807.8b627c93f44ffec6.js"
+      "static/chunks/src_utils_getTokenList_ts.js"
     ]
   }
 }
