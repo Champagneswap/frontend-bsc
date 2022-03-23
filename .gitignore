@@ -4,6 +4,9 @@ node_modules
 /node_modules/*
 yarn.lock
 .next/*
+.next/cache/*
+.next/build-manifest.json
+next/*
 .husky/*
 .git/*
 public/images/icrebreakers.png

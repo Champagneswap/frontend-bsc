@@ -20,8 +20,8 @@ const Stats = () => {
   const trades = formatLocalisedCompactNumber(txCount)
   const users = formatLocalisedCompactNumber(addressCount)
 
-  const tvlText = t('And those users are now entrusting the platform with over $%tvl% in funds.', { tvl: tvlString })
-  const [entrusting, inFunds] = tvlText.split(tvlString)
+  const tvlText = t('And those users are now entrusting the platform with over 100M+ in funds.')
+  const [entrusting] = tvlText.split(tvlString)
 
   const UsersCardData: IconCardData = {
     icon: <CommunityIcon color="secondary" width="36px" />,
@@ -51,7 +51,7 @@ const Stats = () => {
         <Text display="inline" textAlign="center" color="textSubtle" mb="20px">
           {entrusting}
           <>{data ? <>{tvlString}</> : <Skeleton display="inline-block" height={16} width={70} mt="2px" />}</>
-          {inFunds}
+          
         </Text>
       </Flex>
 
@@ -62,21 +62,21 @@ const Stats = () => {
       <Flex flexDirection={['column', null, null, 'row']}>
         <IconCard {...UsersCardData} mr={[null, null, null, '16px']} mb={['16px', null, null, '0']}>
           <StatCardContent
-            headingText={t('%users% users', { users })}
+            headingText={t('10K+ users', { users })}
             bodyText={t('in the last 30 days')}
             highlightColor={theme.colors.secondary}
           />
         </IconCard>
         <IconCard {...TradesCardData} mr={[null, null, null, '16px']} mb={['16px', null, null, '0']}>
           <StatCardContent
-            headingText={t('%trades% trades', { trades })}
+            headingText={t('100K+ trades', { trades })}
             bodyText={t('made in the last 30 days')}
             highlightColor={theme.colors.primary}
           />
         </IconCard>
         <IconCard {...StakedCardData}>
           <StatCardContent
-            headingText={t('$%tvl% staked', { tvl: tvlString })}
+            headingText={t('100M+ staked', { tvl: tvlString })}
             bodyText={t('Total Value Locked')}
             highlightColor={theme.colors.failure}
           />
