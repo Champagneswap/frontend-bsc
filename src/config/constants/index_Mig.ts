@@ -8,7 +8,7 @@ export const ROUTER_ADDRESS = {
   [ChainId.TESTNET]: '0x911d4a750b963c61f29549cbf17e2c10fcd10867',
 }
 //pancake router_address
-//export const ROUTER_ADDRESS = '0x911d4a750b963c61f29549cbf17e2c10fcd10867'
+//export const ROUTER_ADDRESS = '0x10ed43c718714eb63d5aa57b78b54704e256024e'
 export const CHAMPAGNEROLL_ADDRESS = '0xCfFB9d201f8DC9E9068d28312C03B8a00c6a74b7'
 
 // a list of tokens by chain
