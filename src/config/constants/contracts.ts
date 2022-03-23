@@ -104,7 +104,7 @@ export default {
     97: '0xfC0c3F11fDA72Cb9A56F28Ec8D44C0ae4B3ABF86',
   },
   champagneroll: {
-    56: '0xCfFB9d201f8DC9E9068d28312C03B8a00c6a74b7',
+    56: '0xa0E345307996b0544322D6da96298Deeab3FDaA3',
     97:'',
   }
 }

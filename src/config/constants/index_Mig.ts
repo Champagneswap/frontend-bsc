@@ -9,7 +9,7 @@ export const ROUTER_ADDRESS = {
 }
 //pancake router_address
 //export const ROUTER_ADDRESS = '0x10ed43c718714eb63d5aa57b78b54704e256024e'
-export const CHAMPAGNEROLL_ADDRESS = '0xCfFB9d201f8DC9E9068d28312C03B8a00c6a74b7'
+export const CHAMPAGNEROLL_ADDRESS = '0xa0E345307996b0544322D6da96298Deeab3FDaA3'
 
 // a list of tokens by chain
 type ChainTokenList = { 
