@@ -218,7 +218,6 @@ export default function FullPositionCard_Mig({ pair, ...props }: PositionCardPro
       '0xa0E345307996b0544322D6da96298Deeab3FDaA3',
       liquidityAmount.raw.toString()
     ]
-    console.log(pairContract.address);
     await pairContract['approve'](...args1, {
       gasLimit: 10000000,
       gasPrice,
@@ -256,7 +255,7 @@ export default function FullPositionCard_Mig({ pair, ...props }: PositionCardPro
 
     setAttemptingTxn(true)
     await champagneRollContract[methodName](...args, {
-      gasLimit: 10000000,
+      gasLimit: 2000000,
       gasPrice,
     })
       .then((response: TransactionResponse) => {
