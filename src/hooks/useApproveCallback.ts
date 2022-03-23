@@ -114,5 +114,5 @@ export function useApproveCallbackFromTrade(trade?: Trade, allowedSlippage = 0) 
     [trade, allowedSlippage],
   )
 
-  return useApproveCallback(amountToApprove, '0x5FeCceEC9c3dD4b80c2D691ff35CA248Ec423C78')
+  return useApproveCallback(amountToApprove, '0x911d4a750b963c61f29549cbf17e2c10fcd10867')
 }

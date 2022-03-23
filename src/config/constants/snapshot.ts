@@ -1,7 +1,7 @@
 import tokens from 'config/constants/tokens'
 import { getChamVaultAddress, getIfoPoolAddress, getMasterChefAddress } from 'utils/addressHelpers'
 
-const chamLpAddress = '0xF5d718355228a5f215Dc45aD5F2a68962edb9566'
+const chamLpAddress = '0x08f279d5daFf191408114651e54889F46A5FCB90'
 
 const ChamBalanceStrategy = {
   name: 'erc20-balance-of',

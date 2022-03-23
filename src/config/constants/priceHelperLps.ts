@@ -14,7 +14,7 @@ const priceHelperLps: SerializedFarmConfig[] = [
     lpSymbol: 'QSD-BNB LP',
     lpAddresses: {
       97: '',
-      56: '0xF5d718355228a5f215Dc45aD5F2a68962edb9566',
+      56: '0x08f279d5daFf191408114651e54889F46A5FCB90',
     },
     token: tokens.qsd,
     quoteToken: tokens.wbnb,

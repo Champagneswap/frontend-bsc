@@ -23,7 +23,7 @@ export const getLotteryV2Address = () => {
   return getAddress(addresses.lotteryV2)
 }
 export const getChampagneProfileAddress = () => {
-  return getAddress(addresses.pancakeProfile)
+  return getAddress(addresses.champagneProfile)
 }
 export const getPancakeRabbitsAddress = () => {
   return getAddress(addresses.pancakeRabbits)

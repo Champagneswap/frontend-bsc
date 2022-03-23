@@ -1,20 +1,64 @@
 {
-  "..\\..\\node_modules\\@web3-react\\walletconnect-connector\\dist\\walletconnect-connector.esm.js -> @walletconnect/web3-provider": {
-    "id": "..\\..\\node_modules\\@web3-react\\walletconnect-connector\\dist\\walletconnect-connector.esm.js -> @walletconnect/web3-provider",
+  "../../node_modules/@web3-react/walletconnect-connector/dist/walletconnect-connector.esm.js -> @walletconnect/web3-provider": {
+    "id": 74845,
     "files": [
-      "static/chunks/node_modules_walletconnect_web3-provider_dist_esm_index_js.js"
+      "static/chunks/9539-67493e51a320234c.js",
+      "static/chunks/8764-86ee4dec8701906d.js",
+      "static/chunks/4845.2a70b3d722feb21f.js",
+      "static/chunks/3281.183a00530cd049ff.js"
     ]
   },
-  "..\\components\\GlobalCheckClaimStatus\\index.tsx -> ./AnniversaryAchievementModal": {
-    "id": "..\\components\\GlobalCheckClaimStatus\\index.tsx -> ./AnniversaryAchievementModal",
+  "../components/GlobalCheckClaimStatus/index.tsx -> ./AnniversaryAchievementModal": {
+    "id": 84415,
     "files": [
-      "static/chunks/src_components_GlobalCheckClaimStatus_AnniversaryAchievementModal_tsx.js"
+      "static/chunks/4415.d1771d35c0fd9bf4.js"
     ]
   },
-  "..\\hooks\\useFetchListCallback.ts -> ../utils/getTokenList": {
-    "id": "..\\hooks\\useFetchListCallback.ts -> ../utils/getTokenList",
+  "../hooks/useFetchListCallback.ts -> ../utils/getTokenList": {
+    "id": 13555,
     "files": [
-      "static/chunks/src_utils_getTokenList_ts.js"
+      "static/chunks/9539-67493e51a320234c.js",
+      "static/chunks/1843-06b02c733a8e79ed.js",
+      "static/chunks/393.1a46f8786c009ee1.js",
+      "static/chunks/3555.ebbb311a90851581.js"
+    ]
+  },
+  "../views/Info/components/InfoCharts/ChartCard/index.tsx -> views/Info/components/InfoCharts/CandleChart": {
+    "id": 85491,
+    "files": [
+      "static/chunks/2298-79b12c4e00a5e2bc.js",
+      "static/chunks/3136.95543ffbdb480df2.js",
+      "static/chunks/5491.c9c35a39238310a6.js"
+    ]
+  },
+  "../views/Nft/market/Collection/index.tsx -> ./Activity": {
+    "id": 56149,
+    "files": [
+      "static/chunks/8259-3663bb42537b1d3d.js",
+      "static/chunks/4437-4f5bb3012d1fa26d.js",
+      "static/chunks/6149.a9a8848abae3a56d.js"
+    ]
+  },
+  "../views/Nft/market/Collection/index.tsx -> ./Traits": {
+    "id": 20504,
+    "files": [
+      "static/chunks/504.bdb3e59b071927ca.js"
+    ]
+  },
+  "../views/Swap/components/Chart/BasicChart.tsx -> ./SwapLineChart": {
+    "id": 31140,
+    "files": [
+      "static/chunks/7206-be3cfdbcb0ba2601.js",
+      "static/chunks/1140.7f9cbda1c7408feb.js"
+    ]
+  },
+  "../views/Voting/CreateProposal/index.tsx -> components/EasyMde": {
+    "id": 74357,
+    "files": [
+      "static/chunks/f65a48b9.23d94751fcb47718.js",
+      "static/chunks/9094.69bfe09e1e25ccf1.js",
+      "static/css/29f8d34e756c7d08.css",
+      "static/chunks/4807.3b7ce522baef2da2.js"
     ]
   }
 }

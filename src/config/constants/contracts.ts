@@ -1,7 +1,7 @@
 export default {
   masterChef: {
     97: '',
-    56: '0x25389224eA20BF749740f65B5c968918529C0eF9',
+    56: '0xB50Ff96Dd15d2B3ac527A5764d99d7062E348D0D',
   },
   sousChef: {
     97: '0xd3af5fe61dbaf8f73149bfcfa9fb653ff096029a',
@@ -15,9 +15,9 @@ export default {
     56: '0x0308f65E64C97cF262F885E406B3afdcE8fd2283',
     97: '',
   },
-  pancakeProfile: {
-    56: '0xDf4dBf6536201370F95e06A0F8a7a70fE40E388a',
-    97: '0x4B683C7E13B6d5D7fd1FeA9530F451954c1A7c8A',
+  champagneProfile: {
+    56: '0x5f6133c489598f48e1f505903af10f64b5919d64',
+    97: '0x5f6133c489598f48e1f505903af10f64b5919d64',
   },
   pancakeRabbits: {
     56: '0xDf7952B35f24aCF7fC0487D01c8d5690a60DBa07',
@@ -104,7 +104,7 @@ export default {
     97: '0xfC0c3F11fDA72Cb9A56F28Ec8D44C0ae4B3ABF86',
   },
   champagneroll: {
-    56: '0xa0E345307996b0544322D6da96298Deeab3FDaA3',
+    56: '0xCfFB9d201f8DC9E9068d28312C03B8a00c6a74b7',
     97:'',
   }
 }

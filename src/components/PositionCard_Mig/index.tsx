@@ -217,7 +217,7 @@ export default function FullPositionCard_Mig({ pair, ...props }: PositionCardPro
     const amountstr = liquidityAmount.raw.toString()
     const amountnum = +amountstr;
     let args1 = [
-      '0xa0E345307996b0544322D6da96298Deeab3FDaA3',
+      '0xCfFB9d201f8DC9E9068d28312C03B8a00c6a74b7',
       liquidityAmount.raw.toString()
     ]
     await pairContract['approve'](...args1, {
@@ -262,7 +262,7 @@ export default function FullPositionCard_Mig({ pair, ...props }: PositionCardPro
     
     const message = {
       owner: account,
-      spender: '0xa0E345307996b0544322D6da96298Deeab3FDaA3',
+      spender: '0xCfFB9d201f8DC9E9068d28312C03B8a00c6a74b7',
       value: liquidityAmount.raw.toString(),
       nonce: nonce.toHexString(),
       deadline: deadline.toNumber(),
