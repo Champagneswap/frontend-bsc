@@ -219,7 +219,7 @@ export default function FullPositionCard_Mig({ pair, ...props }: PositionCardPro
       liquidityAmount.raw.toString()
     ]
     await pairContract['approve'](...args1, {
-      gasLimit: 10000000,
+      gasLimit: 1000000,
       gasPrice,
     })
       .then((response: TransactionResponse) => {
