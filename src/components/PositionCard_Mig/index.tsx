@@ -67,6 +67,9 @@ export function MinimalPositionCard_Mig({ pair, showUnwrapped = false }: Positio
   const currency0 = showUnwrapped ? pair.token0 : unwrappedToken(pair.token0)
   const currency1 = showUnwrapped ? pair.token1 : unwrappedToken(pair.token1)
 
+  
+  
+
   const [showMore, setShowMore] = useState(false)
 
   const userPoolBalance = useTokenBalance(account ?? undefined, pair.liquidityToken)
@@ -178,8 +181,10 @@ export default function FullPositionCard_Mig({ pair, ...props }: PositionCardPro
 
   const { t } = useTranslation()
   const gasPrice = useGasPrice()
-  const {parsedAmounts} = useDerivedBurnInfo(currencyA ?? undefined, currencyB ?? undefined)
-  
+  const {parsedAmounts, error} = useDerivedBurnInfo(currencyA ?? undefined, currencyB ?? undefined)
+  const [approveCallback] = useApproveCallback(parsedAmounts[Field.LIQUIDITY], ROUTER_ADDRESS)
+  const isValid = !error
+  const [approval, SetApproval] = useState(ApprovalState.NOT_APPROVED);
 
   const deadline = useTransactionDeadline()
   const { toastError } = useToast()
@@ -199,27 +204,21 @@ export default function FullPositionCard_Mig({ pair, ...props }: PositionCardPro
   
   
   const addTransaction = useTransactionAdder()
-  async function onMigrate() {
-    
-    if (!chainId || !library || !account || !deadline) throw new Error('missing dependencies')
-    const champagneRollContract = getChampagneRollContract(chainId, library, account);
-
-    //Approve
+  async function onAttemptToApprove() {
     if (!pairContract || !pair || !library || !deadline) throw new Error('missing dependencies')
-    const liquidityAmount = userPoolBalance
-    
+    const liquidityAmount = userPoolBalance;
     if (!liquidityAmount) {
       toastError(t('Error'), t('Missing liquidity amount'))
       throw new Error('missing liquidity amount')
     }
+    SetApproval(ApprovalState.PENDING);
 
     // try to gather a signature for permission
-    const amountstr = liquidityAmount.raw.toString()
-    const amountnum = +amountstr;
     let args1 = [
-      '0xCfFB9d201f8DC9E9068d28312C03B8a00c6a74b7',
+      '0xa0E345307996b0544322D6da96298Deeab3FDaA3',
       liquidityAmount.raw.toString()
     ]
+    console.log(pairContract.address);
     await pairContract['approve'](...args1, {
       gasLimit: 10000000,
       gasPrice,
@@ -232,68 +231,22 @@ export default function FullPositionCard_Mig({ pair, ...props }: PositionCardPro
         })
 
         setTxHash(response.hash)
+        
       })
       .catch((err: Error) => {
         setAttemptingTxn(false)
+        SetApproval(ApprovalState.NOT_APPROVED);
         // we only care if the error is something _other_ than the user rejected the tx
         console.error(err)
       })
-    /*const nonce = await pairContract.nonces(account)
-
-    const EIP712Domain = [
-      { name: 'name', type: 'string' },
-      { name: 'version', type: 'string' },
-      { name: 'chainId', type: 'uint256' },
-      { name: 'verifyingContract', type: 'address' },
-    ]
-    const domain = {
-      name: 'Pancake LPs',
-      version: '1',
-      chainId,
-      verifyingContract: pair.liquidityToken.address,
-    }
-    const Permit = [
-      { name: 'owner', type: 'address' },
-      { name: 'spender', type: 'address' },
-      { name: 'value', type: 'uint256' },
-      { name: 'nonce', type: 'uint256' },
-      { name: 'deadline', type: 'uint256' },
-    ]
+      
+      SetApproval(ApprovalState.APPROVED);
+  }
+  async function onMigrate() {
     
-    const message = {
-      owner: account,
-      spender: '0xCfFB9d201f8DC9E9068d28312C03B8a00c6a74b7',
-      value: liquidityAmount.raw.toString(),
-      nonce: nonce.toHexString(),
-      deadline: deadline.toNumber(),
-    }
-    const data = JSON.stringify({
-      types: {
-        EIP712Domain,
-        Permit,
-      },
-      domain,
-      primaryType: 'Permit',
-      message,
-    })
-
-    library
-      .send('eth_signTypedData_v4', [account, data])
-      .then(splitSignature)
-      .then((signature) => {
-        setSignatureData({
-          v: signature.v,
-          r: signature.r,
-          s: signature.s,
-          deadline: deadline.toNumber(),
-        })
-      })
-      .catch((err) => {
-        // for all errors other than 4001 (EIP-1193 user rejected request), fall back to manual approve
-        if (err?.code !== 4001) {
-          approveCallback()
-        }
-      })*/
+    if (!chainId || !library || !account || !deadline) throw new Error('missing dependencies')
+    const champagneRollContract = getChampagneRollContract(chainId, library, account);
+    console.log(champagneRollContract);
 
     let methodName = 'migrate_user'
     let args = [
@@ -302,7 +255,10 @@ export default function FullPositionCard_Mig({ pair, ...props }: PositionCardPro
     // all estimations failed...
 
     setAttemptingTxn(true)
-    await champagneRollContract[methodName](...args)
+    await champagneRollContract[methodName](...args, {
+      gasLimit: 10000000,
+      gasPrice,
+    })
       .then((response: TransactionResponse) => {
         setAttemptingTxn(false)
 
@@ -398,14 +354,31 @@ export default function FullPositionCard_Mig({ pair, ...props }: PositionCardPro
 
           {userPoolBalance && JSBI.greaterThan(userPoolBalance.raw, BIG_INT_ZERO) && (
             <Flex flexDirection="column">
-              <Button
-                variant="primary"
-                width="100%"
-                mb="8px"
-                onClick={onMigrate}
-              >
-                {t('Migrate')}
-              </Button>
+              <RowBetween>
+                <Button
+                  variant={'primary'}
+                  onClick={onAttemptToApprove}
+                  disabled={approval !== ApprovalState.NOT_APPROVED}
+                  width="100%"
+                  mr="0.5rem"
+                >
+                  {approval === ApprovalState.PENDING ? (
+                    <Dots>{t('Enabling')}</Dots>
+                  ) : approval === ApprovalState.APPROVED || signatureData !== null ? (
+                    t('Enabled')
+                  ) : (
+                    t('Enable')
+                  )}
+                </Button>
+                <Button
+                  variant={'primary'}
+                  onClick={onMigrate}
+                  width="100%"
+                  disabled={(approval !== ApprovalState.APPROVED)}
+                >
+                  {t('Migrate')}
+                </Button>
+              </RowBetween>
             </Flex>
           )}
         </AutoColumn>
