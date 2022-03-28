@@ -25,7 +25,7 @@ export type LotteryStruct = {
   discountDivisor: BigNumberish;
   rewardsBreakdown: BigNumberish[];
   treasuryFee: BigNumberish;
-  chamPerBracket: BigNumberish[];
+  cakePerBracket: BigNumberish[];
   countWinnersPerBracket: BigNumberish[];
   firstTicketId: BigNumberish;
   firstTicketIdNextLottery: BigNumberish;
@@ -55,7 +55,7 @@ export type LotteryStructOutput = [
   discountDivisor: BigNumber;
   rewardsBreakdown: BigNumber[];
   treasuryFee: BigNumber;
-  chamPerBracket: BigNumber[];
+  cakePerBracket: BigNumber[];
   countWinnersPerBracket: BigNumber[];
   firstTicketId: BigNumber;
   firstTicketIdNextLottery: BigNumber;

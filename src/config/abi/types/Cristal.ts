@@ -25,7 +25,7 @@ export interface CristalInterface extends utils.Interface {
     "approve(address,uint256)": FunctionFragment;
     "balanceOf(address)": FunctionFragment;
     "burn(address,uint256)": FunctionFragment;
-    "cham()": FunctionFragment;
+    "cake()": FunctionFragment;
     "checkpoints(address,uint32)": FunctionFragment;
     "decimals()": FunctionFragment;
     "decreaseAllowance(address,uint256)": FunctionFragment;
@@ -71,7 +71,7 @@ export interface CristalInterface extends utils.Interface {
     functionFragment: "burn",
     values: [string, BigNumberish]
   ): string;
-  encodeFunctionData(functionFragment: "cham", values?: undefined): string;
+  encodeFunctionData(functionFragment: "cake", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "checkpoints",
     values: [string, BigNumberish]
@@ -156,7 +156,7 @@ export interface CristalInterface extends utils.Interface {
   decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "burn", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "cham", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "cake", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "checkpoints",
     data: BytesLike
@@ -319,7 +319,7 @@ export interface Cristal extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    cham(overrides?: CallOverrides): Promise<[string]>;
+    cake(overrides?: CallOverrides): Promise<[string]>;
 
     checkpoints(
       arg0: string,
@@ -447,7 +447,7 @@ export interface Cristal extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  cham(overrides?: CallOverrides): Promise<string>;
+  cake(overrides?: CallOverrides): Promise<string>;
 
   checkpoints(
     arg0: string,
@@ -575,7 +575,7 @@ export interface Cristal extends BaseContract {
       overrides?: CallOverrides
     ): Promise<void>;
 
-    cham(overrides?: CallOverrides): Promise<string>;
+    cake(overrides?: CallOverrides): Promise<string>;
 
     checkpoints(
       arg0: string,
@@ -754,7 +754,7 @@ export interface Cristal extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    cham(overrides?: CallOverrides): Promise<BigNumber>;
+    cake(overrides?: CallOverrides): Promise<BigNumber>;
 
     checkpoints(
       arg0: string,
@@ -888,7 +888,7 @@ export interface Cristal extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    cham(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    cake(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     checkpoints(
       arg0: string,

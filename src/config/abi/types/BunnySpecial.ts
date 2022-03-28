@@ -32,7 +32,7 @@ export interface BunnySpecialInterface extends utils.Interface {
     "mintNFT(uint8)": FunctionFragment;
     "numberDifferentBunnies()": FunctionFragment;
     "owner()": FunctionFragment;
-    "champagneProfile()": FunctionFragment;
+    "pancakeProfile()": FunctionFragment;
     "renounceOwnership()": FunctionFragment;
     "transferOwnership(address)": FunctionFragment;
     "updateBunny(uint8,uint256,uint256,bool)": FunctionFragment;
@@ -86,7 +86,7 @@ export interface BunnySpecialInterface extends utils.Interface {
   ): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
   encodeFunctionData(
-    functionFragment: "champagneProfile",
+    functionFragment: "pancakeProfile",
     values?: undefined
   ): string;
   encodeFunctionData(
@@ -141,7 +141,7 @@ export interface BunnySpecialInterface extends utils.Interface {
   ): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
   decodeFunctionResult(
-    functionFragment: "champagneProfile",
+    functionFragment: "pancakeProfile",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -239,7 +239,7 @@ export interface BunnySpecial extends BaseContract {
       _bunnyId: BigNumberish,
       _tokenURI: string,
       _thresholdUser: BigNumberish,
-      _chamCost: BigNumberish,
+      _cakeCost: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
@@ -250,7 +250,7 @@ export interface BunnySpecial extends BaseContract {
       [string, BigNumber, BigNumber, boolean, boolean] & {
         tokenURI: string;
         thresholdUser: BigNumber;
-        chamCost: BigNumber;
+        cakeCost: BigNumber;
         isActive: boolean;
         isCreated: boolean;
       }
@@ -299,7 +299,7 @@ export interface BunnySpecial extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<[string]>;
 
-    champagneProfile(overrides?: CallOverrides): Promise<[string]>;
+    pancakeProfile(overrides?: CallOverrides): Promise<[string]>;
 
     renounceOwnership(
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -313,7 +313,7 @@ export interface BunnySpecial extends BaseContract {
     updateBunny(
       _bunnyId: BigNumberish,
       _thresholdUser: BigNumberish,
-      _chamCost: BigNumberish,
+      _cakeCost: BigNumberish,
       _isActive: boolean,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
@@ -328,7 +328,7 @@ export interface BunnySpecial extends BaseContract {
     _bunnyId: BigNumberish,
     _tokenURI: string,
     _thresholdUser: BigNumberish,
-    _chamCost: BigNumberish,
+    _cakeCost: BigNumberish,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
@@ -339,7 +339,7 @@ export interface BunnySpecial extends BaseContract {
     [string, BigNumber, BigNumber, boolean, boolean] & {
       tokenURI: string;
       thresholdUser: BigNumber;
-      chamCost: BigNumber;
+      cakeCost: BigNumber;
       isActive: boolean;
       isCreated: boolean;
     }
@@ -388,7 +388,7 @@ export interface BunnySpecial extends BaseContract {
 
   owner(overrides?: CallOverrides): Promise<string>;
 
-  champagneProfile(overrides?: CallOverrides): Promise<string>;
+  pancakeProfile(overrides?: CallOverrides): Promise<string>;
 
   renounceOwnership(
     overrides?: Overrides & { from?: string | Promise<string> }
@@ -402,7 +402,7 @@ export interface BunnySpecial extends BaseContract {
   updateBunny(
     _bunnyId: BigNumberish,
     _thresholdUser: BigNumberish,
-    _chamCost: BigNumberish,
+    _cakeCost: BigNumberish,
     _isActive: boolean,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
@@ -417,7 +417,7 @@ export interface BunnySpecial extends BaseContract {
       _bunnyId: BigNumberish,
       _tokenURI: string,
       _thresholdUser: BigNumberish,
-      _chamCost: BigNumberish,
+      _cakeCost: BigNumberish,
       overrides?: CallOverrides
     ): Promise<void>;
 
@@ -428,7 +428,7 @@ export interface BunnySpecial extends BaseContract {
       [string, BigNumber, BigNumber, boolean, boolean] & {
         tokenURI: string;
         thresholdUser: BigNumber;
-        chamCost: BigNumber;
+        cakeCost: BigNumber;
         isActive: boolean;
         isCreated: boolean;
       }
@@ -471,7 +471,7 @@ export interface BunnySpecial extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<string>;
 
-    champagneProfile(overrides?: CallOverrides): Promise<string>;
+    pancakeProfile(overrides?: CallOverrides): Promise<string>;
 
     renounceOwnership(overrides?: CallOverrides): Promise<void>;
 
@@ -483,7 +483,7 @@ export interface BunnySpecial extends BaseContract {
     updateBunny(
       _bunnyId: BigNumberish,
       _thresholdUser: BigNumberish,
-      _chamCost: BigNumberish,
+      _cakeCost: BigNumberish,
       _isActive: boolean,
       overrides?: CallOverrides
     ): Promise<void>;
@@ -545,7 +545,7 @@ export interface BunnySpecial extends BaseContract {
       _bunnyId: BigNumberish,
       _tokenURI: string,
       _thresholdUser: BigNumberish,
-      _chamCost: BigNumberish,
+      _cakeCost: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
@@ -597,7 +597,7 @@ export interface BunnySpecial extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<BigNumber>;
 
-    champagneProfile(overrides?: CallOverrides): Promise<BigNumber>;
+    pancakeProfile(overrides?: CallOverrides): Promise<BigNumber>;
 
     renounceOwnership(
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -611,7 +611,7 @@ export interface BunnySpecial extends BaseContract {
     updateBunny(
       _bunnyId: BigNumberish,
       _thresholdUser: BigNumberish,
-      _chamCost: BigNumberish,
+      _cakeCost: BigNumberish,
       _isActive: boolean,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
@@ -627,7 +627,7 @@ export interface BunnySpecial extends BaseContract {
       _bunnyId: BigNumberish,
       _tokenURI: string,
       _thresholdUser: BigNumberish,
-      _chamCost: BigNumberish,
+      _cakeCost: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
@@ -683,7 +683,7 @@ export interface BunnySpecial extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    champagneProfile(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    pancakeProfile(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     renounceOwnership(
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -697,7 +697,7 @@ export interface BunnySpecial extends BaseContract {
     updateBunny(
       _bunnyId: BigNumberish,
       _thresholdUser: BigNumberish,
-      _chamCost: BigNumberish,
+      _cakeCost: BigNumberish,
       _isActive: boolean,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;

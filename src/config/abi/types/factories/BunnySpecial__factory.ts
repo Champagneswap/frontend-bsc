@@ -21,7 +21,7 @@ const _abi = [
       },
       {
         internalType: "contract IChampagneProfile",
-        name: "_champagneProfile",
+        name: "_pancakeProfile",
         type: "address",
       },
       {
@@ -152,7 +152,7 @@ const _abi = [
       },
       {
         internalType: "uint256",
-        name: "_chamCost",
+        name: "_cakeCost",
         type: "uint256",
       },
     ],
@@ -183,7 +183,7 @@ const _abi = [
       },
       {
         internalType: "uint256",
-        name: "chamCost",
+        name: "cakeCost",
         type: "uint256",
       },
       {
@@ -378,7 +378,7 @@ const _abi = [
   },
   {
     inputs: [],
-    name: "champagneProfile",
+    name: "pancakeProfile",
     outputs: [
       {
         internalType: "contract IChampagneProfile",
@@ -423,7 +423,7 @@ const _abi = [
       },
       {
         internalType: "uint256",
-        name: "_chamCost",
+        name: "_cakeCost",
         type: "uint256",
       },
       {
