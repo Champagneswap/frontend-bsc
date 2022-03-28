@@ -25,7 +25,7 @@ export type CompetitionRewardsStruct = {
     BigNumberish,
     BigNumberish
   ];
-  cakeRewards: [
+  chamRewards: [
     BigNumberish,
     BigNumberish,
     BigNumberish,
@@ -71,7 +71,7 @@ export type CompetitionRewardsStructOutput = [
   [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber]
 ] & {
   userCampaignId: [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber];
-  cakeRewards: [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber];
+  chamRewards: [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber];
   lazioRewards: [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber];
   portoRewards: [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber];
   santosRewards: [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber];
@@ -94,7 +94,7 @@ export interface TradingCompetitionV2Interface extends utils.Interface {
     "lazioToken()": FunctionFragment;
     "numberTeams()": FunctionFragment;
     "owner()": FunctionFragment;
-    "pancakeProfile()": FunctionFragment;
+    "champagneProfile()": FunctionFragment;
     "portoToken()": FunctionFragment;
     "register()": FunctionFragment;
     "renounceOwnership()": FunctionFragment;
@@ -158,7 +158,7 @@ export interface TradingCompetitionV2Interface extends utils.Interface {
   ): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
   encodeFunctionData(
-    functionFragment: "pancakeProfile",
+    functionFragment: "champagneProfile",
     values?: undefined
   ): string;
   encodeFunctionData(
@@ -261,7 +261,7 @@ export interface TradingCompetitionV2Interface extends utils.Interface {
   ): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
   decodeFunctionResult(
-    functionFragment: "pancakeProfile",
+    functionFragment: "champagneProfile",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "portoToken", data: BytesLike): Result;
@@ -455,7 +455,7 @@ export interface TradingCompetitionV2 extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<[string]>;
 
-    pancakeProfile(overrides?: CallOverrides): Promise<[string]>;
+    champagneProfile(overrides?: CallOverrides): Promise<[string]>;
 
     portoToken(overrides?: CallOverrides): Promise<[string]>;
 
@@ -490,7 +490,7 @@ export interface TradingCompetitionV2 extends BaseContract {
         BigNumberish,
         BigNumberish
       ],
-      _cakeRewards: [
+      _chamRewards: [
         BigNumberish,
         BigNumberish,
         BigNumberish,
@@ -617,7 +617,7 @@ export interface TradingCompetitionV2 extends BaseContract {
 
   owner(overrides?: CallOverrides): Promise<string>;
 
-  pancakeProfile(overrides?: CallOverrides): Promise<string>;
+  champagneProfile(overrides?: CallOverrides): Promise<string>;
 
   portoToken(overrides?: CallOverrides): Promise<string>;
 
@@ -652,7 +652,7 @@ export interface TradingCompetitionV2 extends BaseContract {
       BigNumberish,
       BigNumberish
     ],
-    _cakeRewards: [
+    _chamRewards: [
       BigNumberish,
       BigNumberish,
       BigNumberish,
@@ -777,7 +777,7 @@ export interface TradingCompetitionV2 extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<string>;
 
-    pancakeProfile(overrides?: CallOverrides): Promise<string>;
+    champagneProfile(overrides?: CallOverrides): Promise<string>;
 
     portoToken(overrides?: CallOverrides): Promise<string>;
 
@@ -808,7 +808,7 @@ export interface TradingCompetitionV2 extends BaseContract {
         BigNumberish,
         BigNumberish
       ],
-      _cakeRewards: [
+      _chamRewards: [
         BigNumberish,
         BigNumberish,
         BigNumberish,
@@ -981,7 +981,7 @@ export interface TradingCompetitionV2 extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<BigNumber>;
 
-    pancakeProfile(overrides?: CallOverrides): Promise<BigNumber>;
+    champagneProfile(overrides?: CallOverrides): Promise<BigNumber>;
 
     portoToken(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1016,7 +1016,7 @@ export interface TradingCompetitionV2 extends BaseContract {
         BigNumberish,
         BigNumberish
       ],
-      _cakeRewards: [
+      _chamRewards: [
         BigNumberish,
         BigNumberish,
         BigNumberish,
@@ -1125,7 +1125,7 @@ export interface TradingCompetitionV2 extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    pancakeProfile(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    champagneProfile(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     portoToken(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
@@ -1160,7 +1160,7 @@ export interface TradingCompetitionV2 extends BaseContract {
         BigNumberish,
         BigNumberish
       ],
-      _cakeRewards: [
+      _chamRewards: [
         BigNumberish,
         BigNumberish,
         BigNumberish,

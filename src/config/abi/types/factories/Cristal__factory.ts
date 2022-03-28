@@ -11,7 +11,7 @@ const _abi = [
     inputs: [
       {
         internalType: "contract ChamToken",
-        name: "_cake",
+        name: "_cham",
         type: "address",
       },
     ],
@@ -250,7 +250,7 @@ const _abi = [
   },
   {
     inputs: [],
-    name: "cake",
+    name: "cham",
     outputs: [
       {
         internalType: "contract ChamToken",

@@ -57,7 +57,7 @@ const BuyTicketsButtons: React.FC<BuyTicketsProps> = ({
   const { callWithGasPrice } = useCallWithGasPrice()
   const nftSaleContract = useNftSaleContract()
   const { toastSuccess } = useToast()
-  const cakeContract = useCham()
+  const chamContract = useCham()
   const { isUserEnabled, setIsUserEnabled } = useContext(ChampagneSquadContext)
 
   const canBuySaleTicket =
@@ -72,7 +72,7 @@ const BuyTicketsButtons: React.FC<BuyTicketsProps> = ({
     useApproveConfirmTransaction({
       onRequiresApproval: async () => {
         try {
-          const response = await cakeContract.allowance(account, nftSaleContract.address)
+          const response = await chamContract.allowance(account, nftSaleContract.address)
           const currentAllowance = ethersToBigNumber(response)
           return currentAllowance.gt(0)
         } catch (error) {
@@ -80,7 +80,7 @@ const BuyTicketsButtons: React.FC<BuyTicketsProps> = ({
         }
       },
       onApprove: () => {
-        return callWithGasPrice(cakeContract, 'approve', [nftSaleContract.address, MaxUint256])
+        return callWithGasPrice(chamContract, 'approve', [nftSaleContract.address, MaxUint256])
       },
       onApproveSuccess: async ({ receipt }) => {
         toastSuccess(t('Transaction has succeeded!'), <ToastDescriptionWithTx txHash={receipt.transactionHash} />)

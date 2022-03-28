@@ -81,7 +81,7 @@ const BuyTicketsModal: React.FC<BuyTicketsModalProps> = ({ onDismiss }) => {
   const [maxTicketPurchaseExceeded, setMaxTicketPurchaseExceeded] = useState(false)
   const [userNotEnoughCham, setUserNotEnoughCham] = useState(false)
   const lotteryContract = useLotteryV2Contract()
-  const cakeContract = useCham()
+  const chamContract = useCham()
   const { toastSuccess } = useToast()
   const { balance: userCham, fetchStatus } = useTokenBalance(tokens.cham.address)
   // balance from useTokenBalance causes rerenders in effects as a new BigNumber is instantiated on each render, hence memoising it using the stringified value below.
@@ -143,9 +143,9 @@ const BuyTicketsModal: React.FC<BuyTicketsModalProps> = ({ onDismiss }) => {
   const validateInput = useCallback(
     (inputNumber: BigNumber) => {
       const limitedNumberTickets = limitNumberByMaxTicketsPerBuy(inputNumber)
-      const cakeCostAfterDiscount = getTicketCostAfterDiscount(limitedNumberTickets)
+      const chamCostAfterDiscount = getTicketCostAfterDiscount(limitedNumberTickets)
 
-      if (cakeCostAfterDiscount.gt(userCham)) {
+      if (chamCostAfterDiscount.gt(userCham)) {
         setUserNotEnoughCham(true)
       } else if (limitedNumberTickets.eq(maxNumberTicketsPerBuyOrClaim)) {
         setMaxTicketPurchaseExceeded(true)
@@ -243,7 +243,7 @@ const BuyTicketsModal: React.FC<BuyTicketsModalProps> = ({ onDismiss }) => {
     useApproveConfirmTransaction({
       onRequiresApproval: async () => {
         try {
-          const response = await cakeContract.allowance(account, lotteryContract.address)
+          const response = await chamContract.allowance(account, lotteryContract.address)
           const currentAllowance = ethersToBigNumber(response)
           return currentAllowance.gt(0)
         } catch (error) {
@@ -251,7 +251,7 @@ const BuyTicketsModal: React.FC<BuyTicketsModalProps> = ({ onDismiss }) => {
         }
       },
       onApprove: () => {
-        return callWithGasPrice(cakeContract, 'approve', [lotteryContract.address, MaxUint256])
+        return callWithGasPrice(chamContract, 'approve', [lotteryContract.address, MaxUint256])
       },
       onApproveSuccess: async ({ receipt }) => {
         toastSuccess(

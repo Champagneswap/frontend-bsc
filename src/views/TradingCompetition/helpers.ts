@@ -43,7 +43,7 @@ export const useCompetitionRewards = ({
       : null
 
   return {
-    cakeReward: chamBalance,
+    chamReward: chamBalance,
     lazioReward: lazioBalance,
     portoReward: portoBalance,
     santosReward: santosBalance,

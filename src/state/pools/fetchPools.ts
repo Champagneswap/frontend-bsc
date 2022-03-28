@@ -40,10 +40,10 @@ export const fetchPoolsBlockLimits = async () => {
     return resultArray
   }, [])
 
-  return poolsWithEnd.map((cakePoolConfig, index) => {
+  return poolsWithEnd.map((chamPoolConfig, index) => {
     const [startBlock, endBlock] = startEndBlockResult[index]
     return {
-      sousId: cakePoolConfig.sousId,
+      sousId: chamPoolConfig.sousId,
       startBlock: new BigNumber(startBlock).toJSON(),
       endBlock: new BigNumber(endBlock).toJSON(),
     }
@@ -109,7 +109,7 @@ export const fetchPoolsProfileRequirement = async (): Promise<{
   const poolProfileRequireCalls = poolsWithV3
     .map((validPool) => {
       const contractAddress = getAddress(validPool.contractAddress)
-      return ['pancakeProfileIsRequested', 'pancakeProfileThresholdPoints'].map((method) => ({
+      return ['champagneProfileIsRequested', 'champagneProfileThresholdPoints'].map((method) => ({
         address: contractAddress,
         name: method,
       }))

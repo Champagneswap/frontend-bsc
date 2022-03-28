@@ -43,7 +43,7 @@ const AvatarWrapper = styled.div`
 const StartPage: React.FC<StartPageProps> = ({ goToApprove, goToChange, goToRemove, onDismiss }) => {
   const { t } = useTranslation()
   const { account } = useWeb3React()
-  const cakeContract = useCham()
+  const chamContract = useCham()
   const { profile } = useProfile()
   const { balance: chamBalance, fetchStatus } = useGetChamBalance()
   const {
@@ -60,14 +60,14 @@ const StartPage: React.FC<StartPageProps> = ({ goToApprove, goToChange, goToRemo
    */
   useEffect(() => {
     const checkApprovalStatus = async () => {
-      const response = await cakeContract.allowance(account, getChampagneProfileAddress())
+      const response = await chamContract.allowance(account, getChampagneProfileAddress())
       setNeedsApproval(response.lt(minimumChamRequired))
     }
 
     if (account && !isProfileCostsLoading) {
       checkApprovalStatus()
     }
-  }, [account, minimumChamRequired, setNeedsApproval, cakeContract, isProfileCostsLoading])
+  }, [account, minimumChamRequired, setNeedsApproval, chamContract, isProfileCostsLoading])
 
   if (!profile) {
     return null

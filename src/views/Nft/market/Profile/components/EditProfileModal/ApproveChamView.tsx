@@ -20,12 +20,12 @@ const ApproveChamPage: React.FC<ApproveChamPageProps> = ({ goToChange, onDismiss
   const {
     costs: { numberChamToUpdate, numberChamToReactivate },
   } = useGetProfileCosts()
-  const cakeContract = useCham()
+  const chamContract = useCham()
   const cost = profile.isActive ? numberChamToUpdate : numberChamToReactivate
 
   const handleApprove = async () => {
     const receipt = await fetchWithCatchTxError(() => {
-      return cakeContract.approve(getChampagneProfileAddress(), cost.mul(2).toString())
+      return chamContract.approve(getChampagneProfileAddress(), cost.mul(2).toString())
     })
     if (receipt?.status) {
       goToChange()

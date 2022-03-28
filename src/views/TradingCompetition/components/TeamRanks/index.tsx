@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Flex, Box } from '@champagneswap/uikit'
 import Image from 'next/image'
 import { TeamRanksProps } from '../../types'
-import ChamrBunny from '../../pngs/cakers.png'
+import ChamrBunny from '../../pngs/chamr.png'
 import TopTradersCard from './TopTradersCard'
 import Podium from './Podium'
 

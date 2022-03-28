@@ -788,7 +788,7 @@ const _abi = [
           },
           {
             internalType: "uint256[6]",
-            name: "cakePerBracket",
+            name: "chamPerBracket",
             type: "uint256[6]",
           },
           {

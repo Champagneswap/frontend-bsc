@@ -14,7 +14,7 @@ const _abi = [
     inputs: [
       {
         internalType: "address",
-        name: "_pancakeProfileAddress",
+        name: "_champagneProfileAddress",
         type: "address",
       },
       {
@@ -271,7 +271,7 @@ const _abi = [
   },
   {
     inputs: [],
-    name: "pancakeProfile",
+    name: "champagneProfile",
     outputs: [
       {
         internalType: "contract IChampagneProfile",
@@ -349,7 +349,7 @@ const _abi = [
       },
       {
         internalType: "uint256[5]",
-        name: "_cakeRewards",
+        name: "_chamRewards",
         type: "uint256[5]",
       },
       {
@@ -451,7 +451,7 @@ const _abi = [
           },
           {
             internalType: "uint256[5]",
-            name: "cakeRewards",
+            name: "chamRewards",
             type: "uint256[5]",
           },
           {

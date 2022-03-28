@@ -39,9 +39,9 @@ const ClaimInnerContainer: React.FC<ClaimInnerProps> = ({ onSuccess, roundsToCla
   const activeClaimData = roundsToClaim[activeClaimIndex]
 
   const chamPriceBusd = usePriceChamBusd()
-  const cakeReward = activeClaimData.cakeTotal
-  const dollarReward = cakeReward.times(chamPriceBusd)
-  const rewardAsBalance = getBalanceAmount(cakeReward).toNumber()
+  const chamReward = activeClaimData.chamTotal
+  const dollarReward = chamReward.times(chamPriceBusd)
+  const rewardAsBalance = getBalanceAmount(chamReward).toNumber()
   const dollarRewardAsBalance = getBalanceAmount(dollarReward).toNumber()
 
   const parseUnclaimedTicketDataForClaimCall = (ticketsWithUnclaimedRewards: LotteryTicket[], lotteryId: string) => {

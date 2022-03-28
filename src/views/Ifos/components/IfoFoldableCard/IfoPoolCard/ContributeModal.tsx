@@ -180,7 +180,7 @@ const ContributeModal: React.FC<Props> = ({
               <Image
                 src={
                   ifo.currency.symbol === 'CHAM'
-                    ? '/images/cake.svg'
+                    ? '/images/cham.svg'
                     : `/images/farms/${currency.symbol.split(' ')[0].toLocaleLowerCase()}.svg`
                 }
                 width={24}
@@ -240,7 +240,7 @@ const ContributeModal: React.FC<Props> = ({
             <Link
               fontSize="12px"
               display="inline"
-              href="https://docs.pancakeswap.finance/products/ifo-initial-farm-offering"
+              href="https://docs.champagneswap.com/products/ifo-initial-farm-offering"
               external
             >
               {t('Read more')}

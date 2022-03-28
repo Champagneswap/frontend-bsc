@@ -33,7 +33,7 @@ export interface SousChefInterface extends utils.Interface {
     "rewardToken()": FunctionFragment;
     "startBlock()": FunctionFragment;
     "stopReward()": FunctionFragment;
-    "syrup()": FunctionFragment;
+    "cristal()": FunctionFragment;
     "transferOwnership(address)": FunctionFragment;
     "updatePool(uint256)": FunctionFragment;
     "userInfo(address)": FunctionFragment;
@@ -93,7 +93,7 @@ export interface SousChefInterface extends utils.Interface {
     functionFragment: "stopReward",
     values?: undefined
   ): string;
-  encodeFunctionData(functionFragment: "syrup", values?: undefined): string;
+  encodeFunctionData(functionFragment: "cristal", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "transferOwnership",
     values: [string]
@@ -149,7 +149,7 @@ export interface SousChefInterface extends utils.Interface {
   ): Result;
   decodeFunctionResult(functionFragment: "startBlock", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "stopReward", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "syrup", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "cristal", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "transferOwnership",
     data: BytesLike
@@ -287,7 +287,7 @@ export interface SousChef extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    syrup(overrides?: CallOverrides): Promise<[string]>;
+    cristal(overrides?: CallOverrides): Promise<[string]>;
 
     transferOwnership(
       newOwner: string,
@@ -368,7 +368,7 @@ export interface SousChef extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  syrup(overrides?: CallOverrides): Promise<string>;
+  cristal(overrides?: CallOverrides): Promise<string>;
 
   transferOwnership(
     newOwner: string,
@@ -438,7 +438,7 @@ export interface SousChef extends BaseContract {
 
     stopReward(overrides?: CallOverrides): Promise<void>;
 
-    syrup(overrides?: CallOverrides): Promise<string>;
+    cristal(overrides?: CallOverrides): Promise<string>;
 
     transferOwnership(
       newOwner: string,
@@ -536,7 +536,7 @@ export interface SousChef extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    syrup(overrides?: CallOverrides): Promise<BigNumber>;
+    cristal(overrides?: CallOverrides): Promise<BigNumber>;
 
     transferOwnership(
       newOwner: string,
@@ -609,7 +609,7 @@ export interface SousChef extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    syrup(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    cristal(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     transferOwnership(
       newOwner: string,

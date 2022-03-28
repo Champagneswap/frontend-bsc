@@ -29,7 +29,7 @@ const Mint: React.FC = () => {
   const { toastSuccess } = useToast()
 
   const { account } = useWeb3React()
-  const cakeContract = useCham()
+  const chamContract = useCham()
   const bunnyFactoryContract = useBunnyFactory()
   const { t } = useTranslation()
   const { balance: chamBalance, fetchStatus } = useGetChamBalance()
@@ -57,14 +57,14 @@ const Mint: React.FC = () => {
       onRequiresApproval: async () => {
         // TODO: Move this to a helper, this check will be probably be used many times
         try {
-          const response = await cakeContract.allowance(account, bunnyFactoryContract.address)
+          const response = await chamContract.allowance(account, bunnyFactoryContract.address)
           return response.gte(minimumChamRequired)
         } catch (error) {
           return false
         }
       },
       onApprove: () => {
-        return callWithGasPrice(cakeContract, 'approve', [bunnyFactoryContract.address, allowance.toString()])
+        return callWithGasPrice(chamContract, 'approve', [bunnyFactoryContract.address, allowance.toString()])
       },
       onConfirm: () => {
         return callWithGasPrice(bunnyFactoryContract, 'mintNFT', [selectedBunnyId])
@@ -89,7 +89,7 @@ const Mint: React.FC = () => {
       <Text as="p">{t('Every profile starts by making a “starter” collectible (NFT).')}</Text>
       <Text as="p">{t('This starter will also become your first profile picture.')}</Text>
       <Text as="p" mb="24px">
-        {t('You can change your profile pic later if you get another approved Pancake Collectible.')}
+        {t('You can change your profile pic later if you get another approved Champagne Collectible.')}
       </Text>
       <Card mb="24px">
         <CardBody>
