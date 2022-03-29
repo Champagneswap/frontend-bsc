@@ -40,11 +40,10 @@ export const earnSectionData = (t: TranslateFunction): SalesSectionProps => ({
     external: true,
   },
   images: {
-    path: '/images/home/earn/',
+    path: '/images/home/trade/',
     attributes: [
-      { src: 'pie', alt: t('Pie chart') },
-      { src: 'stonks', alt: t('Stocks chart') },
-      { src: 'folder', alt: t('Folder with cham token') },
+                { src: 'BTC', alt: t('BTC token') },
+     
     ],
   },
 })
@@ -69,10 +68,9 @@ export const chamSectionData = (t: TranslateFunction): SalesSectionProps => ({
   images: {
     path: '/images/home/cham/',
     attributes: [
-      { src: 'bottom-right', alt: t('Small 3d champagne') },
-      { src: 'top-right', alt: t('Small 3d champagne') },
+    
       { src: 'coin', alt: t('CHAM token') },
-      { src: 'top-left', alt: t('Small 3d champagne') },
+    
     ],
   },
 })
