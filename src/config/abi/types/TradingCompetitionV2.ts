@@ -94,7 +94,7 @@ export interface TradingCompetitionV2Interface extends utils.Interface {
     "lazioToken()": FunctionFragment;
     "numberTeams()": FunctionFragment;
     "owner()": FunctionFragment;
-    "champagneProfile()": FunctionFragment;
+    "pancakeProfile()": FunctionFragment;
     "portoToken()": FunctionFragment;
     "register()": FunctionFragment;
     "renounceOwnership()": FunctionFragment;
@@ -158,7 +158,7 @@ export interface TradingCompetitionV2Interface extends utils.Interface {
   ): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
   encodeFunctionData(
-    functionFragment: "champagneProfile",
+    functionFragment: "pancakeProfile",
     values?: undefined
   ): string;
   encodeFunctionData(
@@ -261,7 +261,7 @@ export interface TradingCompetitionV2Interface extends utils.Interface {
   ): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
   decodeFunctionResult(
-    functionFragment: "champagneProfile",
+    functionFragment: "pancakeProfile",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "portoToken", data: BytesLike): Result;
@@ -455,7 +455,7 @@ export interface TradingCompetitionV2 extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<[string]>;
 
-   champagneProfile(overrides?: CallOverrides): Promise<[string]>;
+    pancakeProfile(overrides?: CallOverrides): Promise<[string]>;
 
     portoToken(overrides?: CallOverrides): Promise<[string]>;
 
@@ -617,7 +617,7 @@ export interface TradingCompetitionV2 extends BaseContract {
 
   owner(overrides?: CallOverrides): Promise<string>;
 
-  champagneProfile(overrides?: CallOverrides): Promise<string>;
+  pancakeProfile(overrides?: CallOverrides): Promise<string>;
 
   portoToken(overrides?: CallOverrides): Promise<string>;
 
@@ -777,7 +777,7 @@ export interface TradingCompetitionV2 extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<string>;
 
-    champagneProfile(overrides?: CallOverrides): Promise<string>;
+    pancakeProfile(overrides?: CallOverrides): Promise<string>;
 
     portoToken(overrides?: CallOverrides): Promise<string>;
 
@@ -981,7 +981,7 @@ export interface TradingCompetitionV2 extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<BigNumber>;
 
-    champagneProfile(overrides?: CallOverrides): Promise<BigNumber>;
+    pancakeProfile(overrides?: CallOverrides): Promise<BigNumber>;
 
     portoToken(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1125,7 +1125,7 @@ export interface TradingCompetitionV2 extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    champagneProfile(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    pancakeProfile(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     portoToken(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 

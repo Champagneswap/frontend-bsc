@@ -62,7 +62,7 @@ export interface TradingCompetitionInterface extends utils.Interface {
     "currentStatus()": FunctionFragment;
     "numberTeams()": FunctionFragment;
     "owner()": FunctionFragment;
-    "champagneProfile()": FunctionFragment;
+    "pancakeProfile()": FunctionFragment;
     "register()": FunctionFragment;
     "renounceOwnership()": FunctionFragment;
     "tokenURI()": FunctionFragment;
@@ -104,7 +104,7 @@ export interface TradingCompetitionInterface extends utils.Interface {
   ): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
   encodeFunctionData(
-    functionFragment: "champagneProfile",
+    functionFragment: "pancakeProfile",
     values?: undefined
   ): string;
   encodeFunctionData(functionFragment: "register", values?: undefined): string;
@@ -179,7 +179,7 @@ export interface TradingCompetitionInterface extends utils.Interface {
   ): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
   decodeFunctionResult(
-    functionFragment: "champagneProfile",
+    functionFragment: "pancakeProfile",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "register", data: BytesLike): Result;
@@ -334,7 +334,7 @@ export interface TradingCompetition extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<[string]>;
 
-    champagneProfile(overrides?: CallOverrides): Promise<[string]>;
+    pancakeProfile(overrides?: CallOverrides): Promise<[string]>;
 
     register(
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -440,7 +440,7 @@ export interface TradingCompetition extends BaseContract {
 
   owner(overrides?: CallOverrides): Promise<string>;
 
-  champagneProfile(overrides?: CallOverrides): Promise<string>;
+  pancakeProfile(overrides?: CallOverrides): Promise<string>;
 
   register(
     overrides?: Overrides & { from?: string | Promise<string> }
@@ -544,7 +544,7 @@ export interface TradingCompetition extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<string>;
 
-    champagneProfile(overrides?: CallOverrides): Promise<string>;
+    pancakeProfile(overrides?: CallOverrides): Promise<string>;
 
     register(overrides?: CallOverrides): Promise<void>;
 
@@ -684,7 +684,7 @@ export interface TradingCompetition extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<BigNumber>;
 
-    champagneProfile(overrides?: CallOverrides): Promise<BigNumber>;
+    pancakeProfile(overrides?: CallOverrides): Promise<BigNumber>;
 
     register(
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -784,7 +784,7 @@ export interface TradingCompetition extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    champagneProfile(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    pancakeProfile(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     register(
       overrides?: Overrides & { from?: string | Promise<string> }

@@ -36,7 +36,7 @@ const stepsConfigBuilder = ({ t, userInfos, eventInfos, userStatus, account, the
         eventStatus: [SaleStatusEnum.Pending, SaleStatusEnum.Premint],
       }),
       title: t('Activate your profile'),
-      bodyText: [t('You’ll need an active ChampagneSwap Profile to buy Minting Tickets and mint a Pancake Squad NFT!')],
+      bodyText: [t('You’ll need an active ChampagneSwap Profile to buy Minting Tickets and mint a champagne Squad NFT!')],
       buttons: (
         <>
           <ActivateProfileButton userStatus={userStatus} t={t} />
@@ -57,7 +57,7 @@ const stepsConfigBuilder = ({ t, userInfos, eventInfos, userStatus, account, the
         <>
           <Button
             as="a"
-            href="https://pancakeswap.finance/swap?outputCurrency=0xde5863dE281Df4e4493963855887BA9951dE4Fe3"
+            href="https://champagneswap.com/swap?outputCurrency=0xcB68625F85578dB189e1Dd3F1dF61D4375b2d84A"
             target="_blank"
             width="100%"
           >

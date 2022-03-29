@@ -7,8 +7,8 @@
     "patch": 0
   },
   "tags": {},
-  "logoURI": "https://pancakeswap.finance/logo.png",
-  "keywords": ["pancake", "default"],
+  "logoURI": "https://champagneswap.com/logo.png",
+  "keywords": ["champagne", "default"],
   "tokens": [
     {
       "name": "WBNB Token",
@@ -53,10 +53,10 @@
     {
       "name": "ChampagneSwap Token",
       "symbol": "CHAM",
-      "address": "0xde5863dE281Df4e4493963855887BA9951dE4Fe3",
+      "address": "0xcB68625F85578dB189e1Dd3F1dF61D4375b2d84A",
       "chainId": 56,
       "decimals": 18,
-      "logoURI": "https://pancakeswap.finance/images/tokens/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82.png"
+      "logoURI": "https://champagneswap.com/images/tokens/0xcB68625F85578dB189e1Dd3F1dF61D4375b2d84A.png"
     },
     {
       "name": "Venus",
