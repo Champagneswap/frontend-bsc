@@ -5,12 +5,14 @@ import { NextLinkFromReactRouter } from 'components/NextLink'
 import { useTranslation } from 'contexts/Localization'
 
 const StyledSubheading = styled(Heading)`
-  background: -webkit-linear-gradient(#ffd800, #eb8c00);
+ color: #ffffff;
+  background: -webkit-linear-gradient(#ffffff 100%);
   font-size: 24px;
-  background-clip: text;
+ background-clip: text;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
+  -webkit-text-stroke: 6px transparent;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+ 
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   ${({ theme }) => theme.mediaQueries.xs} {
     font-size: 20px;
@@ -23,7 +25,7 @@ const StyledSubheading = styled(Heading)`
 
 const StyledHeading = styled(Heading)`
   color: #ffffff;
-  background: -webkit-linear-gradient(#7645d9 0%, #452a7a 100%);
+  background: -webkit-linear-gradient(#ffffff 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-stroke: 6px transparent;
@@ -33,7 +35,7 @@ const StyledHeading = styled(Heading)`
 const Wrapper = styled.div`
   border-radius: 32px;
   width: 100%;
-  background-image: linear-gradient(#7645d9, #452a7a);
+  background-image: linear-gradient(#7645D9, #0db0f7);
   max-height: max-content;
   overflow: hidden;
   min-height: 162px;
@@ -94,20 +96,20 @@ const CompetitionBanner = () => {
         <ImageWrapper>
           <img
             src={isDesktop ? '/images/competition/banner.png' : '/images/competition/banner_sm.png'}
-            alt="Trading Competition bunny"
+            alt="Migrate Liqudity bunny"
           />
         </ImageWrapper>
         <RightWrapper>
           <Flex flexDirection="column" justifyContent="center">
-            <StyledSubheading>{t('Binance Fan Token Trading Competition')}</StyledSubheading>
+            <StyledSubheading>{t('Migrate your PancakeSwap Liqudity in one click (limited time)')}</StyledSubheading>
             <StyledHeading mb={0} scale="xl">
-              {t('$120,000 in Prizes!')}
+              {t('Earn 10X Champagne Tokens!')}
             </StyledHeading>
           </Flex>
-          <NextLinkFromReactRouter to="/competition">
+          <NextLinkFromReactRouter to="/migration">
             <Button>
               <Text color="invertedContrast" bold fontSize="16px" mr="4px">
-                {t('Trade Now')}
+                {t('Migrate Now')}
               </Text>
               <ArrowForwardIcon color="invertedContrast" />
             </Button>
