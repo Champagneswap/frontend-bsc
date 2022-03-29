@@ -12,20 +12,20 @@ const whitelist = [
   ...teams.map((t) => t.description),
   // NFT description moved to profile sdk
   `Oopsie daisy! Hiccup's had a bit of an accident. Poor little fella.`,
-  'Eggscellent! Celebrating Syrup Storm winning the Easter Battle!',
+  'Eggscellent! Celebrating Cristal Storm winning the Easter Battle!',
   'Melting Easter eggs and melting hearts!',
   'Watch out for Flipsie’s spatula smash!',
-  'Do you like chocolate with your syrup? Go long!',
+  'Do you like chocolate with your Cristal? Go long!',
   'Happy Niu Year! This bunny’s excited for the year of the bull (market!)',
-  'Sunny is always cheerful when there are pancakes around. Smile!',
+  'Sunny is always cheerful when there are Champagne around. Smile!',
   `Don't let that dopey smile deceive you... Churro's a master CHAM chef!`,
   `Nommm... Oh hi, I'm just meditating on the meaning of CHAM.`,
   `Three guesses what's put that twinkle in those eyes! (Hint: it's CHAM)`,
-  'These bunnies love nothing more than swapping pancakes. Especially on BSC.',
-  `It's raining syrup on this bunny, but he doesn't seem to mind. Can you blame him?`,
-  `These bunnies like their pancakes with blueberries. What's your favorite topping?`,
-  "Love makes the world go 'round... but so do pancakes. And these bunnies know it.",
-  `It’s sparkling syrup, pancakes, and even lottery tickets! This bunny really loves it.`,
+  'These bunnies love nothing more than swapping Champagne. Especially on BSC.',
+  `It's raining Cristal on this bunny, but he doesn't seem to mind. Can you blame him?`,
+  `These bunnies like their Champagne with blueberries. What's your favorite topping?`,
+  "Love makes the world go 'round... but so do Champagne. And these bunnies know it.",
+  `It’s sparkling Cristal, Champagne, and even lottery tickets! This bunny really loves it.`,
 ]
 
 describe('Check translations integrity', () => {

@@ -24,7 +24,7 @@ export const mainnetTokens = defineTokens({
   bnb: new Token(MAINNET, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'BNB', 'BNB', 'https://www.binance.com/'),
   cham: new Token(
     MAINNET,
-    '0xde5863dE281Df4e4493963855887BA9951dE4Fe3',
+    '0xcB68625F85578dB189e1Dd3F1dF61D4375b2d84A',
     18,
     'CHAM',
     'Champagne Token',
@@ -1997,7 +1997,7 @@ export const testnetTokens = defineTokens({
   ),
   cham: new Token(
     TESTNET,
-    '0xde5863dE281Df4e4493963855887BA9951dE4Fe3',
+    '0xcB68625F85578dB189e1Dd3F1dF61D4375b2d84A',
     18,
     'CHAM',
     'ChampagneSwap Token',

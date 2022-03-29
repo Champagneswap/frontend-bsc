@@ -22,8 +22,8 @@ const farms: SerializedFarmConfig[] = [
     pid: 251,
     lpSymbol: 'CHAM-BNB LP',
     lpAddresses: {
-      97: '0x08f279d5daFf191408114651e54889F46A5FCB90',
-      56: '0x08f279d5daFf191408114651e54889F46A5FCB90',
+      97: '0x5b4be66339c4effe4d643c1f5a384a5233f6f481',
+      56: '0x5b4be66339c4effe4d643c1f5a384a5233f6f481',
     },
     token: serializedTokens.cham,
     quoteToken: serializedTokens.wbnb,

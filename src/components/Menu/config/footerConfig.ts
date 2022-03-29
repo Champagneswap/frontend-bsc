@@ -23,7 +23,7 @@ export const footerLinks: (t: ContextApi['t']) => FooterLinkType[] = (t) => [
       },
       {
         label: t('CHAM token'),
-        href: 'https://champagneswap.com/tokenomics/cake',
+        href: 'https://champagneswap.com/tokenomics/cham',
       },
       
       

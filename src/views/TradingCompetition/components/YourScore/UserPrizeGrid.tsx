@@ -23,7 +23,7 @@ const UserPrizeGrid: React.FC<{ userTradingInformation?: UserTradingInformationP
     userPointReward,
     canClaimNFT,
   } = userTradingInformation
-  const { cakeReward, lazioReward, portoReward, santosReward, dollarValueOfTokensReward } = useCompetitionRewards({
+  const { chamReward, lazioReward, portoReward, santosReward, dollarValueOfTokensReward } = useCompetitionRewards({
     userChamRewards,
     userLazioRewards,
     userPortoRewards,
@@ -45,7 +45,7 @@ const UserPrizeGrid: React.FC<{ userTradingInformation?: UserTradingInformationP
         <tr>
           <BoldTd>
             <Flex flexDirection="column">
-              <Text bold>{cakeReward.toFixed(4)} CHAM</Text>
+              <Text bold>{chamReward.toFixed(4)} CHAM</Text>
               <Text bold>{lazioReward.toFixed(4)} LAZIO</Text>
               <Text bold>{portoReward.toFixed(4)} PORTO</Text>
               <Text bold>{santosReward.toFixed(4)} SANTOS</Text>

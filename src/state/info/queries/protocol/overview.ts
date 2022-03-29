@@ -6,14 +6,14 @@ import { useBlocksFromTimestamps } from 'views/Info/hooks/useBlocksFromTimestamp
 import { getChangeForPeriod, getPercentChange } from 'views/Info/utils/infoDataHelpers'
 import { getDeltaTimestamps } from 'views/Info/utils/infoQueryHelpers'
 
-interface PancakeFactory {
+interface ChampagneFactory {
   totalTransactions: string
   totalVolumeUSD: string
   totalLiquidityUSD: string
 }
 
 interface OverviewResponse {
-  pancakeFactories: PancakeFactory[]
+  champagneFactories: ChampagneFactory[]
 }
 
 /**
@@ -22,7 +22,7 @@ interface OverviewResponse {
 const getOverviewData = async (block?: number): Promise<{ data?: OverviewResponse; error: boolean }> => {
   try {
     const query = gql`query overview {
-      pancakeFactories(
+      champagneFactories(
         ${block ? `block: { number: ${block}}` : ``}
         first: 1) {
         totalTransactions
@@ -38,12 +38,12 @@ const getOverviewData = async (block?: number): Promise<{ data?: OverviewRespons
   }
 }
 
-const formatPancakeFactoryResponse = (rawPancakeFactory?: PancakeFactory) => {
-  if (rawPancakeFactory) {
+const formatChampagneFactoryResponse = (rawChampagneFactory?: ChampagneFactory) => {
+  if (rawChampagneFactory) {
     return {
-      totalTransactions: parseFloat(rawPancakeFactory.totalTransactions),
-      totalVolumeUSD: parseFloat(rawPancakeFactory.totalVolumeUSD),
-      totalLiquidityUSD: parseFloat(rawPancakeFactory.totalLiquidityUSD),
+      totalTransactions: parseFloat(rawChampagneFactory.totalTransactions),
+      totalVolumeUSD: parseFloat(rawChampagneFactory.totalVolumeUSD),
+      totalLiquidityUSD: parseFloat(rawChampagneFactory.totalLiquidityUSD),
     }
   }
   return null
@@ -68,9 +68,9 @@ const useFetchProtocolData = (): ProtocolFetchState => {
       const { error: error24, data: data24 } = await getOverviewData(block24?.number ?? undefined)
       const { error: error48, data: data48 } = await getOverviewData(block48?.number ?? undefined)
       const anyError = error || error24 || error48
-      const overviewData = formatPancakeFactoryResponse(data?.pancakeFactories?.[0])
-      const overviewData24 = formatPancakeFactoryResponse(data24?.pancakeFactories?.[0])
-      const overviewData48 = formatPancakeFactoryResponse(data48?.pancakeFactories?.[0])
+      const overviewData = formatChampagneFactoryResponse(data?.champagneFactories?.[0])
+      const overviewData24 = formatChampagneFactoryResponse(data24?.champagneFactories?.[0])
+      const overviewData48 = formatChampagneFactoryResponse(data48?.champagneFactories?.[0])
       const allDataAvailable = overviewData && overviewData24 && overviewData48
       if (anyError || !allDataAvailable) {
         setFetchState({

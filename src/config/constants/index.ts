@@ -4,7 +4,7 @@ import { mainnetTokens, testnetTokens } from './tokens'
 //champagne router_address
 
 export const ROUTER_ADDRESS ='0x911d4a750b963c61f29549cbf17e2c10fcd10867'
-//pancake router_address
+//champagne router_address
 //export const ROUTER_ADDRESS = '0x911d4a750b963c61f29549cbf17e2c10fcd10867'
 export const CHAMPAGNEROLL_ADDRESS = '0xa0E345307996b0544322D6da96298Deeab3FDaA3'
 

@@ -66,7 +66,7 @@ function MyApp(props: AppProps) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="🥞 ChampagneSwap - A next evolution DeFi exchange on Binance Smart Chain (BSC)"
+          content="🍾 ChampagneSwap - A next evolution DeFi exchange on Binance Smart Chain (BSC)"
         />
         <title>ChampagneSwap</title>
       </Head>

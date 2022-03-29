@@ -17,9 +17,9 @@ import Footer from './components/Footer'
 import ChamDataRow from './components/ChamDataRow'
 import { WedgeTopLeft, InnerWedgeWrapper, OuterWedgeWrapper, WedgeTopRight } from './components/WedgeSvgs'
 import UserBanner from './components/UserBanner'
-import FarmAuctionsBanner from './components/Banners/FarmAuctionsBanner'
+import FarmAuctionsBanner from './components/Banners/CompetitionBanner'
 
-const showBanner = false
+const showBanner = true
 
 const HomeBanner = ({ account }: { account: string }) => {
   if (!showBanner) {

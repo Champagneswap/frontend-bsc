@@ -16,7 +16,7 @@ import useLastUpdated from 'hooks/useLastUpdated'
 import usePreviousValue from 'hooks/usePreviousValue'
 import { useFastRefreshEffect } from 'hooks/useRefreshEffect'
 import useIsWindowVisible from 'hooks/useIsWindowVisible'
-import { PANCHAM_BUNNIES_UPDATE_FREQUENCY } from 'config'
+import { CHAMPAGNE_BUNNIES_UPDATE_FREQUENCY } from 'config'
 import { useGetCollectionDistributionPB } from 'views/Nft/market/hooks/useGetCollectionDistribution'
 import MainPancakeBunnyCard from './MainPancakeBunnyCard'
 import ManagePancakeBunniesCard from './ManagePancakeBunniesCard'
@@ -79,7 +79,7 @@ const IndividualPancakeBunnyPageBase: React.FC<IndividualPancakeBunnyPageProps> 
     if (
       prevBunnyId !== bunnyId ||
       refreshTriggered ||
-      (msSinceLastUpdate > PANCHAM_BUNNIES_UPDATE_FREQUENCY && !isUpdatingPancakeBunnies && isWindowVisible)
+      (msSinceLastUpdate > CHAMPAGNE_BUNNIES_UPDATE_FREQUENCY && !isUpdatingPancakeBunnies && isWindowVisible)
     ) {
       fetchMorePancakeBunnies(priceSort)
     }

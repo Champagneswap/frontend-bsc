@@ -5,5 +5,10 @@ Before adding a new **farm** or **pool** you need to make sure the Tokens are in
 To add a Token to the exchange lists:
 
 - For the default list: `/config/constant/tokenLists/champagne-default.tokenlist.json`
+<<<<<<< HEAD
 - For other lists, check the token-lists project in the `pancake-toolkit` repo
 - To blacklist a token: `/config/constant/tokenListspancake-unsupported.tokenlist.json`
+=======
+- For other lists, check the token-lists project in the `champagen-toolkit` repo
+- To blacklist a token: `/config/constant/tokenListschampagen-unsupported.tokenlist.json`
+>>>>>>> 73f123bb79c7b50769db848fb6844de79250c571

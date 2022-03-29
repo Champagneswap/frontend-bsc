@@ -35,16 +35,15 @@ export const earnSectionData = (t: TranslateFunction): SalesSectionProps => ({
     external: false,
   },
   secondaryButton: {
-    to: 'https://docs.pancakeswap.finance/products/yield-farming',
+    to: 'https://docs.champagneswap.com/products/yield-farming',
     text: t('Learn'),
     external: true,
   },
   images: {
-    path: '/images/home/earn/',
+    path: '/images/home/trade/',
     attributes: [
-      { src: 'pie', alt: t('Pie chart') },
-      { src: 'stonks', alt: t('Stocks chart') },
-      { src: 'folder', alt: t('Folder with cham token') },
+                { src: 'BTC', alt: t('BTC token') },
+     
     ],
   },
 })
@@ -56,7 +55,7 @@ export const chamSectionData = (t: TranslateFunction): SalesSectionProps => ({
   ),
   reverse: false,
   primaryButton: {
-    to: '/swap?outputCurrency=0xde5863dE281Df4e4493963855887BA9951dE4Fe3',
+    to: '/swap?outputCurrency=0xcB68625F85578dB189e1Dd3F1dF61D4375b2d84A',
     text: t('Buy CHAM'),
     external: false,
   },
@@ -69,10 +68,9 @@ export const chamSectionData = (t: TranslateFunction): SalesSectionProps => ({
   images: {
     path: '/images/home/cham/',
     attributes: [
-      { src: 'bottom-right', alt: t('Small 3d pancake') },
-      { src: 'top-right', alt: t('Small 3d pancake') },
+    
       { src: 'coin', alt: t('CHAM token') },
-      { src: 'top-left', alt: t('Small 3d pancake') },
+    
     ],
   },
 })
