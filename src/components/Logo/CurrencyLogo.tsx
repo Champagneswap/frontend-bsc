@@ -38,6 +38,11 @@ export default function CurrencyLogo({
   if (currency === ETHER) {
     return <BinanceIcon width={size} style={style} />
   }
+  if (currency.symbol == "CHAM") {
+    return <StyledLogo size = {size}
+    srcs = {['https://tokens.champagneswap.com/images/0xcB68625F85578dB189e1Dd3F1dF61D4375b2d84A.png']}
+    alt={`${currency?.symbol ?? 'token'} logo`} style={style} />
+  }
 
   return <StyledLogo size={size} srcs={srcs} alt={`${currency?.symbol ?? 'token'} logo`} style={style} />
 }

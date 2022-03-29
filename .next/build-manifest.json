@@ -25,15 +25,21 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
+    "/_middleware": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "server/middleware-runtime.js",
+      "server/pages/_middleware.js"
+    ],
     "/add/[[...currency]]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/add/[[...currency]].js"
     ],
-    "/migration": [
+    "/swap": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/migration.js"
+      "static/chunks/pages/swap.js"
     ]
   },
   "ampFirstPages": []

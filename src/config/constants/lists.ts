@@ -1,5 +1,5 @@
-const PANCHAM_EXTENDED = 'https://tokens.pancakeswap.finance/pancakeswap-extended.json'
-const PANCHAM_TOP100 = 'https://tokens.pancakeswap.finance/pancakeswap-top-100.json'
+const PANCHAM_EXTENDED = 'https://tokens.champagneswap.com/champagneswap-extended.json'
+const PANCHAM_TOP100 = 'https://tokens.champagneswap.com/champagneswap-default.json'
 
 export const UNSUPPORTED_LIST_URLS: string[] = []
 

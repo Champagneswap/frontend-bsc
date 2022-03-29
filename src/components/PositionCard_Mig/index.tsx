@@ -245,16 +245,26 @@ export default function FullPositionCard_Mig({ pair, ...props }: PositionCardPro
     
     if (!chainId || !library || !account || !deadline) throw new Error('missing dependencies')
     const champagneRollContract = getChampagneRollContract(chainId, library, account);
-    console.log(champagneRollContract);
 
     let methodName = 'migrate_user'
     let args = [
       pair.liquidityToken.address
     ]
     // all estimations failed...
+    const safeGasEstimates: (BigNumber) =
+      champagneRollContract.estimateGas[methodName](...args)
+          .then(calculateGasMargin)
+          .catch((err) => {
+            console.error(`estimateGas failed`, methodName, args, err)
+            return undefined
+          })
+
 
     setAttemptingTxn(true)
-    await champagneRollContract[methodName](...args)
+    await champagneRollContract[methodName](...args, {
+      gasLimit: safeGasEstimates,
+      gasPrice,
+    })
       .then((response: TransactionResponse) => {
         setAttemptingTxn(false)
 

@@ -89,6 +89,7 @@ const SwitchIconButton = styled(IconButton)`
 `
 
 export default function Swap() {
+  
   const router = useRouter()
   const loadedUrlParams = useDefaultsFromURLSearch()
   const { t } = useTranslation()
@@ -111,6 +112,7 @@ export default function Swap() {
     () => [loadedInputCurrency, loadedOutputCurrency]?.filter((c): c is Token => c instanceof Token) ?? [],
     [loadedInputCurrency, loadedOutputCurrency],
   )
+  
 
   // dismiss warning if all imported tokens are in active lists
   const defaultTokens = useAllTokens()
@@ -130,6 +132,7 @@ export default function Swap() {
 
   // swap state
   const { independentField, typedValue, recipient } = useSwapState()
+  console.log(currencies);
   const { v2Trade, currencyBalances, parsedAmount, currencies, inputError: swapInputError } = useDerivedSwapInfo()
 
   // Price data
@@ -137,7 +140,7 @@ export default function Swap() {
     [Field.INPUT]: { currencyId: inputCurrencyId },
     [Field.OUTPUT]: { currencyId: outputCurrencyId },
   } = useSwapState()
-
+  
   const {
     wrapType,
     execute: onWrap,
@@ -358,6 +361,7 @@ export default function Swap() {
   )
 
   const hasAmount = Boolean(parsedAmount)
+  
 
   const onRefreshPrice = React.useCallback(() => {
     if (hasAmount) {

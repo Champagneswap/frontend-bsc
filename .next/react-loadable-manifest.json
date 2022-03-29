@@ -16,5 +16,11 @@
     "files": [
       "static/chunks/src_utils_getTokenList_ts.js"
     ]
+  },
+  "..\\views\\Swap\\components\\Chart\\BasicChart.tsx -> ./SwapLineChart": {
+    "id": "..\\views\\Swap\\components\\Chart\\BasicChart.tsx -> ./SwapLineChart",
+    "files": [
+      "static/chunks/src_views_Swap_components_Chart_SwapLineChart_tsx.js"
+    ]
   }
 }

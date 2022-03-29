@@ -165,6 +165,7 @@ export function useDerivedSwapInfo(): {
 } {
   const { account } = useActiveWeb3React()
   const { t } = useTranslation()
+  
 
   const {
     independentField,
@@ -173,16 +174,20 @@ export function useDerivedSwapInfo(): {
     [Field.OUTPUT]: { currencyId: outputCurrencyId },
     recipient,
   } = useSwapState()
+  console.log(outputCurrencyId);
 
   const inputCurrency = useCurrency(inputCurrencyId)
   const outputCurrency = useCurrency(outputCurrencyId)
+  
   const recipientLookup = useENS(recipient ?? undefined)
   const to: string | null = (recipient === null ? account : recipientLookup.address) ?? null
+  
 
   const relevantTokenBalances = useCurrencyBalances(account ?? undefined, [
     inputCurrency ?? undefined,
     outputCurrency ?? undefined,
   ])
+  
 
   const isExactIn: boolean = independentField === Field.INPUT
   const parsedAmount = tryParseAmount(typedValue, (isExactIn ? inputCurrency : outputCurrency) ?? undefined)
@@ -196,11 +201,12 @@ export function useDerivedSwapInfo(): {
     [Field.INPUT]: relevantTokenBalances[0],
     [Field.OUTPUT]: relevantTokenBalances[1],
   }
-
+  
   const currencies: { [field in Field]?: Currency } = {
     [Field.INPUT]: inputCurrency ?? undefined,
     [Field.OUTPUT]: outputCurrency ?? undefined,
   }
+  
 
   let inputError: string | undefined
   if (!account) {
@@ -210,10 +216,11 @@ export function useDerivedSwapInfo(): {
   if (!parsedAmount) {
     inputError = inputError ?? t('Enter an amount')
   }
-
+  
   if (!currencies[Field.INPUT] || !currencies[Field.OUTPUT]) {
     inputError = inputError ?? t('Select a token')
   }
+  
 
   const formattedTo = isAddress(to)
   if (!to || !formattedTo) {
