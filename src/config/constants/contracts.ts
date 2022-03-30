@@ -4,15 +4,15 @@ export default {
     56: '0xB50Ff96Dd15d2B3ac527A5764d99d7062E348D0D',
   },
   sousChef: {
-    97: '0xd3af5fe61dbaf8f73149bfcfa9fb653ff096029a',
-    56: '0x6ab8463a4185b80905e05a9ff80a2d6b714b9e95',
+    97: '',
+    56: '0x8Ada0FB32AEF6caB1A90990674Ee21512550d90B',
   },
   lotteryV2: {
     97: '0x5790c3534F30437641541a0FA04C992799602998',
     56: '0x5aF6D33DE2ccEC94efb1bDF8f92Bd58085432d2c',
   },
   multiCall: {
-    56: '0x0308f65E64C97cF262F885E406B3afdcE8fd2283',
+    56: '0x40e8CA23e53C2943a0Ed86C93d63866E07DB3919',
     97: '',
   },
   champagneProfile: {
