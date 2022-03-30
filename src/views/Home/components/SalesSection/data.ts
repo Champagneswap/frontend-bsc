@@ -43,15 +43,16 @@ export const earnSectionData = (t: TranslateFunction): SalesSectionProps => ({
     path: '/images/home/trade/',
     attributes: [
                 { src: 'BTC', alt: t('BTC token') },
+                { src: 'CHAM', alt: t('CHAM token') },
      
     ],
   },
 })
 
 export const chamSectionData = (t: TranslateFunction): SalesSectionProps => ({
-  headingText: t('CHAM makes our world go round.'),
+  headingText: t('CHAM is our grapes and it yields Champagne.'),
   bodyText: t(
-    'CHAM token is at the heart of the ChampagneSwap ecosystem. Buy it, win it, farm it, spend it, stake it... heck, you can even vote with it!',
+    'CHAM token is at the heart of the ChampagneSwap ecosystem. Buy it, win it, farm it, spend it, stake it... yes, you can even vote with it!',
   ),
   reverse: false,
   primaryButton: {
