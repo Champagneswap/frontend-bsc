@@ -57,7 +57,7 @@ const stepsConfigBuilder = ({ t, userInfos, eventInfos, userStatus, account, the
         <>
           <Button
             as="a"
-            href="https://champagneswap.com/swap?outputCurrency=0xcB68625F85578dB189e1Dd3F1dF61D4375b2d84A"
+            href="https://champagneswap.com/swap?outputCurrency=0x4957c1c073557BFf33C01A7cA1436D0d2409d439"
             target="_blank"
             width="100%"
           >

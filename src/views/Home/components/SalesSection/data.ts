@@ -56,7 +56,7 @@ export const chamSectionData = (t: TranslateFunction): SalesSectionProps => ({
   ),
   reverse: false,
   primaryButton: {
-    to: '/swap?outputCurrency=0xcB68625F85578dB189e1Dd3F1dF61D4375b2d84A',
+    to: '/swap?outputCurrency=0x4957c1c073557BFf33C01A7cA1436D0d2409d439',
     text: t('Buy CHAM'),
     external: false,
   },

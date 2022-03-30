@@ -36,8 +36,8 @@ const pools: SerializedPoolConfig[] = [
     stakingToken: serializedTokens.cham,
     earningToken: serializedTokens.cham,
     contractAddress: {
-      97: '0xB50Ff96Dd15d2B3ac527A5764d99d7062E348D0D',
-      56: '0xB50Ff96Dd15d2B3ac527A5764d99d7062E348D0D',
+      97: '0x15C17442eb2Cd3a56139e877ec7784b2dbD97270',
+      56: '0x15C17442eb2Cd3a56139e877ec7784b2dbD97270',
     },
     poolCategory: PoolCategory.CORE,
     harvest: true,
