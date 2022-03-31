@@ -22,8 +22,8 @@ const farms: SerializedFarmConfig[] = [
     pid: 251,
     lpSymbol: 'CHAM-BNB LP',
     lpAddresses: {
-      97: '0x5b4be66339c4effe4d643c1f5a384a5233f6f481',
-      56: '0x5b4be66339c4effe4d643c1f5a384a5233f6f481',
+      97: '0x57bc6f5f1c2985ec7058aff8c2a6336a1115a41b',
+      56: '0x57bc6f5f1c2985ec7058aff8c2a6336a1115a41b',
     },
     token: serializedTokens.cham,
     quoteToken: serializedTokens.wbnb,
@@ -33,7 +33,7 @@ const farms: SerializedFarmConfig[] = [
     lpSymbol: 'BNB-BUSD LP',
     lpAddresses: {
       97: '',
-      56: '0x4e9ca7990c4cbb96050f054c9ca7b41f48d799f8',
+      56: '0xfbc4bd5ad33783a67d2cde85c07ac5febe614a6c',
     },
     token: serializedTokens.busd,
     quoteToken: serializedTokens.wbnb,

@@ -52,7 +52,7 @@ export default {
     97: '0x24ec6962dbe874F6B67B5C50857565667fA0854F',
   },
   chamVault: {
-    56: '0xa80240Eb5d7E05d3F250cF000eEc0891d00b51CC',
+    56: '0x02ca2b5b14f6b0929b5192470a8db87d58f58580',
     97: '',
   },
   ifoPool: {
