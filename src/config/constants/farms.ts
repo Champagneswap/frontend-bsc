@@ -26,7 +26,7 @@ const farms: SerializedFarmConfig[] = [
       56: '0x57bc6f5f1c2985ec7058aff8c2a6336a1115a41b',
     },
     token: serializedTokens.cham,
-    quoteToken: serializedTokens.wbnb,
+    quoteToken: serializedTokens.bnb,
   },
   {
     pid: 252,
@@ -35,8 +35,8 @@ const farms: SerializedFarmConfig[] = [
       97: '',
       56: '0xfbc4bd5ad33783a67d2cde85c07ac5febe614a6c',
     },
-    token: serializedTokens.busd,
-    quoteToken: serializedTokens.wbnb,
+    token: serializedTokens.wbnb,
+    quoteToken: serializedTokens.busd,
   },
   /**
    * V3 by order of release (some may be out of PID order due to multiplier boost)

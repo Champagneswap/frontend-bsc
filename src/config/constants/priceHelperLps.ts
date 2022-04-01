@@ -10,7 +10,7 @@ const priceHelperLps: SerializedFarmConfig[] = [
    * Before storing to redux, farms without a PID are filtered out.
    */
   {
-    pid: null,
+    pid: 252,
     lpSymbol: 'WBNB-BUSD LP',
     lpAddresses: {
       97: '',
