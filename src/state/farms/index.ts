@@ -55,7 +55,11 @@ export const fetchFarmsPublicDataAsync = createAsyncThunk<
     const farmsWithPriceHelpers = farmsToFetch.concat(priceHelperLpsConfig)
 
     const farms = await fetchFarms(farmsWithPriceHelpers)
+
+    // console.log("farms: ", farms)
     const farmsWithPrices = getFarmsPrices(farms)
+    // console.log("farmsWithPrices: ", farmsWithPrices)
+
 
     // Filter out price helper LP config farms
     const farmsWithoutHelperLps = farmsWithPrices.filter((farm: SerializedFarm) => {
@@ -93,6 +97,7 @@ export const fetchFarmUserDataAsync = createAsyncThunk<
 >(
   'farms/fetchFarmUserDataAsync',
   async ({ account, pids }) => {
+    // console.log("assssssssssssssssss",account, pids)
     const farmsToFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.pid))
     const userFarmAllowances = await fetchFarmUserAllowances(account, farmsToFetch)
     const userFarmTokenBalances = await fetchFarmUserTokenBalances(account, farmsToFetch)

@@ -245,7 +245,7 @@ const ChamBnbLpChamBnbBalanceStrategy = {
   params: {
     address: getMasterChefAddress(),
     decimals: 0,
-    args: [251, '%{address}'],
+    args: [2, '%{address}'],
     output: 'amount',
     methodABI: {
       inputs: [

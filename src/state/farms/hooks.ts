@@ -11,6 +11,8 @@ import { getBalanceAmount } from 'utils/formatBalance'
 import { fetchFarmsPublicDataAsync, fetchFarmUserDataAsync, nonArchivedFarms } from '.'
 import { DeserializedFarm, DeserializedFarmsState, DeserializedFarmUserData, SerializedFarm, State } from '../types'
 
+
+// console.log("farmsConfig: ", farmsConfig)
 const deserializeFarmUserData = (farm: SerializedFarm): DeserializedFarmUserData => {
   return {
     allowance: farm.userData ? new BigNumber(farm.userData.allowance) : BIG_ZERO,
@@ -79,7 +81,7 @@ export const usePollCoreFarmData = () => {
   const dispatch = useAppDispatch()
 
   useFastRefreshEffect(() => {
-    dispatch(fetchFarmsPublicDataAsync([251, 252]))
+    dispatch(fetchFarmsPublicDataAsync([2]))
   }, [dispatch])
 }
 
@@ -139,11 +141,11 @@ export const useLpTokenPrice = (symbol: string) => {
   return lpTokenPrice
 }
 
-/**
- * @@deprecated use the BUSD hook in /hooks
- */
+
 export const usePriceChamBusd = (): BigNumber => {
-  const chamBnbFarm = useFarmFromPid(251)
+  const chamBnbFarm = useFarmFromPid(2)
+
+  // console.log("chamBnbFarm: ", chamBnbFarm)
 
   const chamPriceBusdAsString = chamBnbFarm.tokenPriceBusd
 

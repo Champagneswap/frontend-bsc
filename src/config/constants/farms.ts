@@ -19,7 +19,7 @@ const farms: SerializedFarmConfig[] = [
     quoteToken: serializedTokens.wbnb,
   },
   {
-    pid: 251,
+    pid: 2,
     lpSymbol: 'CHAM-BNB LP',
     lpAddresses: {
       97: '0x57bc6f5f1c2985ec7058aff8c2a6336a1115a41b',
@@ -29,7 +29,7 @@ const farms: SerializedFarmConfig[] = [
     quoteToken: serializedTokens.bnb,
   },
   {
-    pid: 252,
+    pid: 3,
     lpSymbol: 'BNB-BUSD LP',
     lpAddresses: {
       97: '',

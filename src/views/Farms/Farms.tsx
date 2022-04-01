@@ -137,7 +137,7 @@ const Farms: React.FC = ({ children }) => {
   const userDataReady = !account || (!!account && userDataLoaded)
 
   const [stakedOnly, setStakedOnly] = useUserFarmStakedOnly(isActive)
-
+  // console.log("farmsLP:",farmsLP)
   const activeFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.multiplier !== '0X' && !isArchivedPid(farm.pid))
   const inactiveFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.multiplier === '0X' && !isArchivedPid(farm.pid))
   const archivedFarms = farmsLP.filter((farm) => isArchivedPid(farm.pid))
@@ -160,12 +160,16 @@ const Farms: React.FC = ({ children }) => {
         if (!farm.lpTotalInQuoteToken || !farm.quoteTokenPriceBusd) {
           return farm
         }
-        const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteTokenPriceBusd)
+        console.log("farm: ", farm)
+        
+        const totalLiquidity = new BigNumber(farm.quoteTokenPriceBusd).times(farm.lpTotalInQuoteToken)
+        console.log("totalLiquidity: ", totalLiquidity.toNumber())
+
         const { chamRewardsApr, lpRewardsApr } = isActive
           ? getFarmApr(new BigNumber(farm.poolWeight), chamPrice, totalLiquidity, farm.lpAddresses[ChainId.MAINNET])
           : { chamRewardsApr: 0, lpRewardsApr: 0 }
 
-        return { ...farm, apr: chamRewardsApr, lpRewardsApr, liquidity: totalLiquidity }
+        return { ...farm, apr: chamRewardsApr, lpRewardsApr: lpRewardsApr, liquidity: totalLiquidity }
       })
 
       if (query) {

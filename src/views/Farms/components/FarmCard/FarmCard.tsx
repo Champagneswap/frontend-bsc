@@ -51,7 +51,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, displayApr, removed, chamPric
 
   const totalValueFormatted =
     farm.liquidity && farm.liquidity.gt(0)
-      ? `$${farm.liquidity.toNumber().toLocaleString(undefined, { maximumFractionDigits: 0 })}`
+      ? `$${farm.liquidity.toNumber().toLocaleString(undefined, { maximumFractionDigits: 3 })}`
       : ''
 
   const lpLabel = farm.lpSymbol && farm.lpSymbol.toUpperCase().replace('CHAMPAGNE', '')

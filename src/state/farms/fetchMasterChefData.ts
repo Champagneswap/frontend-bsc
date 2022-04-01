@@ -6,7 +6,8 @@ import { SerializedFarm } from '../types'
 import { getMasterChefAddress } from '../../utils/addressHelpers'
 
 const fetchMasterChefFarmCalls = (farm: SerializedFarm) => {
-  const { pid } = farm
+  let { pid } = farm
+
   return pid || pid === 0
     ? [
         {
