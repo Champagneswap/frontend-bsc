@@ -21,7 +21,7 @@ const fetchTopTokens = async (timestamp24hAgo: number): Promise<string[]> => {
       query topTokens($blacklist: [String!], $timestamp24hAgo: Int) {
         tokenDayDatas(
           first: 30
-          where: { dailyTxns_gt: 300, id_not_in: $blacklist, date_gt: $timestamp24hAgo }
+          where: { dailyTxns_gte: 0, id_not_in: $blacklist, date_gt: $timestamp24hAgo }
           orderBy: dailyVolumeUSD
           orderDirection: desc
         ) {
@@ -31,6 +31,8 @@ const fetchTopTokens = async (timestamp24hAgo: number): Promise<string[]> => {
     `
     const data = await infoClient.request<TopTokensResponse>(query, { blacklist: TOKEN_BLACKLIST, timestamp24hAgo })
     // tokenDayDatas id has compound id "0xTOKENADDRESS-NUMBERS", extracting token address with .split('-')
+
+    // console.log("fetchTopTokens", data)
     return data.tokenDayDatas.map((t) => t.id.split('-')[0])
   } catch (error) {
     console.error('Failed to fetch top tokens', error)
@@ -43,7 +45,7 @@ const fetchTopTokens = async (timestamp24hAgo: number): Promise<string[]> => {
  */
 const useTopTokenAddresses = (): string[] => {
   const [topTokenAddresses, setTopTokenAddresses] = useState([])
-  const [timestamp24hAgo] = getDeltaTimestamps()
+  const timestamp24hAgo = getDeltaTimestamps()[3]
 
   useEffect(() => {
     const fetch = async () => {
