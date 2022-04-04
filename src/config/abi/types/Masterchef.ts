@@ -23,6 +23,7 @@ export interface MasterchefInterface extends utils.Interface {
     "add(uint256,address,bool)": FunctionFragment;
     "cham()": FunctionFragment;
     "chamPerBlock()": FunctionFragment;
+    "cristal()": FunctionFragment;
     "deposit(uint256,uint256)": FunctionFragment;
     "dev(address)": FunctionFragment;
     "devaddr()": FunctionFragment;
@@ -41,7 +42,6 @@ export interface MasterchefInterface extends utils.Interface {
     "set(uint256,uint256,bool)": FunctionFragment;
     "setMigrator(address)": FunctionFragment;
     "startBlock()": FunctionFragment;
-    "cristal()": FunctionFragment;
     "totalAllocPoint()": FunctionFragment;
     "transferOwnership(address)": FunctionFragment;
     "updateMultiplier(uint256)": FunctionFragment;
@@ -63,6 +63,7 @@ export interface MasterchefInterface extends utils.Interface {
     functionFragment: "chamPerBlock",
     values?: undefined
   ): string;
+  encodeFunctionData(functionFragment: "cristal", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "deposit",
     values: [BigNumberish, BigNumberish]
@@ -120,7 +121,6 @@ export interface MasterchefInterface extends utils.Interface {
     functionFragment: "startBlock",
     values?: undefined
   ): string;
-  encodeFunctionData(functionFragment: "cristal", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "totalAllocPoint",
     values?: undefined
@@ -156,6 +156,7 @@ export interface MasterchefInterface extends utils.Interface {
     functionFragment: "chamPerBlock",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(functionFragment: "cristal", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "deposit", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "dev", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "devaddr", data: BytesLike): Result;
@@ -198,7 +199,6 @@ export interface MasterchefInterface extends utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "startBlock", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "cristal", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "totalAllocPoint",
     data: BytesLike
@@ -298,6 +298,8 @@ export interface Masterchef extends BaseContract {
 
     chamPerBlock(overrides?: CallOverrides): Promise<[BigNumber]>;
 
+    cristal(overrides?: CallOverrides): Promise<[string]>;
+
     deposit(
       _pid: BigNumberish,
       _amount: BigNumberish,
@@ -383,8 +385,6 @@ export interface Masterchef extends BaseContract {
 
     startBlock(overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    cristal(overrides?: CallOverrides): Promise<[string]>;
-
     totalAllocPoint(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     transferOwnership(
@@ -429,6 +429,8 @@ export interface Masterchef extends BaseContract {
   cham(overrides?: CallOverrides): Promise<string>;
 
   chamPerBlock(overrides?: CallOverrides): Promise<BigNumber>;
+
+  cristal(overrides?: CallOverrides): Promise<string>;
 
   deposit(
     _pid: BigNumberish,
@@ -515,8 +517,6 @@ export interface Masterchef extends BaseContract {
 
   startBlock(overrides?: CallOverrides): Promise<BigNumber>;
 
-  cristal(overrides?: CallOverrides): Promise<string>;
-
   totalAllocPoint(overrides?: CallOverrides): Promise<BigNumber>;
 
   transferOwnership(
@@ -561,6 +561,8 @@ export interface Masterchef extends BaseContract {
     cham(overrides?: CallOverrides): Promise<string>;
 
     chamPerBlock(overrides?: CallOverrides): Promise<BigNumber>;
+
+    cristal(overrides?: CallOverrides): Promise<string>;
 
     deposit(
       _pid: BigNumberish,
@@ -633,8 +635,6 @@ export interface Masterchef extends BaseContract {
     setMigrator(_migrator: string, overrides?: CallOverrides): Promise<void>;
 
     startBlock(overrides?: CallOverrides): Promise<BigNumber>;
-
-    cristal(overrides?: CallOverrides): Promise<string>;
 
     totalAllocPoint(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -723,6 +723,8 @@ export interface Masterchef extends BaseContract {
 
     chamPerBlock(overrides?: CallOverrides): Promise<BigNumber>;
 
+    cristal(overrides?: CallOverrides): Promise<BigNumber>;
+
     deposit(
       _pid: BigNumberish,
       _amount: BigNumberish,
@@ -798,8 +800,6 @@ export interface Masterchef extends BaseContract {
 
     startBlock(overrides?: CallOverrides): Promise<BigNumber>;
 
-    cristal(overrides?: CallOverrides): Promise<BigNumber>;
-
     totalAllocPoint(overrides?: CallOverrides): Promise<BigNumber>;
 
     transferOwnership(
@@ -843,6 +843,8 @@ export interface Masterchef extends BaseContract {
     cham(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     chamPerBlock(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    cristal(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     deposit(
       _pid: BigNumberish,
@@ -921,8 +923,6 @@ export interface Masterchef extends BaseContract {
     ): Promise<PopulatedTransaction>;
 
     startBlock(overrides?: CallOverrides): Promise<PopulatedTransaction>;
-
-    cristal(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     totalAllocPoint(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 

@@ -153,7 +153,7 @@ const _abi = [
         type: "uint256",
       },
       {
-        internalType: "contract IBEP20",
+        internalType: "contract IERC20",
         name: "_lpToken",
         type: "address",
       },
@@ -189,6 +189,19 @@ const _abi = [
         internalType: "uint256",
         name: "",
         type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "cristal",
+    outputs: [
+      {
+        internalType: "contract CristalBar",
+        name: "",
+        type: "address",
       },
     ],
     stateMutability: "view",
@@ -382,7 +395,7 @@ const _abi = [
     name: "poolInfo",
     outputs: [
       {
-        internalType: "contract IBEP20",
+        internalType: "contract IERC20",
         name: "lpToken",
         type: "address",
       },
@@ -469,19 +482,6 @@ const _abi = [
         internalType: "uint256",
         name: "",
         type: "uint256",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "cristal",
-    outputs: [
-      {
-        internalType: "contract CristalBar",
-        name: "",
-        type: "address",
       },
     ],
     stateMutability: "view",
