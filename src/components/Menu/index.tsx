@@ -4,7 +4,7 @@ import { NextLinkFromReactRouter } from 'components/NextLink'
 import { Menu as UikitMenu } from '@champagneswap/uikit'
 import { languageList } from 'config/localization/languages'
 import { useTranslation } from 'contexts/Localization'
-import PhishingWarningBanner from 'components/PhishingWarningBanner'
+
 import useTheme from 'hooks/useTheme'
 import { usePriceChamBusd } from 'state/farms/hooks'
 import { usePhishingBannerManager } from 'state/user/hooks'
@@ -19,7 +19,7 @@ const Menu = (props) => {
   const chamPriceUsd = usePriceChamBusd()
   const { currentLanguage, setLanguage, t } = useTranslation()
   const { pathname } = useRouter()
-  const [showPhishingWarningBanner] = usePhishingBannerManager()
+
 
   const activeMenuItem = getActiveMenuItem({ menuConfig: config(t), pathname })
   const activeSubMenuItem = getActiveSubMenuItem({ menuItem: activeMenuItem, pathname })
@@ -31,7 +31,7 @@ const Menu = (props) => {
       }}
       userMenu={<UserMenu />}
       globalMenu={<GlobalSettings />}
-      banner={showPhishingWarningBanner && typeof window !== 'undefined' && <PhishingWarningBanner />}
+     
       isDark={isDark}
       toggleTheme={toggleTheme}
       currentLang={currentLanguage.code}
