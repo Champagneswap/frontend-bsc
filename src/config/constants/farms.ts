@@ -6,7 +6,7 @@ const serializedTokens = serializeTokens()
 
 const farms: SerializedFarmConfig[] = [
   /**
-   * These 3 farms (PID 0, 251, 252) should always be at the top of the file.
+   * These 3 farms (PID 0, 2, 3) should always be at the top of the file.
    */
   {
     pid: 0,
@@ -38,6 +38,89 @@ const farms: SerializedFarmConfig[] = [
     token: serializedTokens.wbnb,
     quoteToken: serializedTokens.busd,
   },
+
+  {
+    pid: 4,
+    lpSymbol: 'ETH-BNB LP',
+    lpAddresses: {
+      97: '',
+      56: '0x8a17fb9bd8ce31d53cb742b481b6ee26d41077ba',
+    },
+    token: serializedTokens.eth,
+    quoteToken: serializedTokens.wbnb,
+  },
+  {
+    pid: 5,
+    lpSymbol: 'USDT-BNB LP',
+    lpAddresses: {
+      97: '',
+      56: '0x8a17fb9bd8ce31d53cb742b481b6ee26d41077ba',
+    },
+    token: serializedTokens.usdt,
+    quoteToken: serializedTokens.wbnb,
+  },
+   {
+    pid: 6,
+    lpSymbol: 'USDT-BUSD LP',
+    lpAddresses: {
+      97: '',
+      56: '0x8a17fb9bd8ce31d53cb742b481b6ee26d41077ba',
+    },
+    token: serializedTokens.usdt,
+    quoteToken: serializedTokens.busd,
+  },
+   {
+    pid: 7,
+    lpSymbol: 'USDC-BUSD LP',
+    lpAddresses: {
+      97: '',
+      56: '0x8a17fb9bd8ce31d53cb742b481b6ee26d41077ba',
+    },
+    token: serializedTokens.usdc,
+    quoteToken: serializedTokens.busd,
+  },
+   {
+    pid: 8,
+    lpSymbol: 'BTCB-BNB LP',
+    lpAddresses: {
+      97: '',
+      56: '0x8a17fb9bd8ce31d53cb742b481b6ee26d41077ba',
+    },
+    token: serializedTokens.btcb,
+    quoteToken: serializedTokens.busd,
+  },
+
+   {
+    pid: 9,
+    lpSymbol: 'CHAM-BUSD LP',
+    lpAddresses: {
+      97: '',
+      56: '0x8a17fb9bd8ce31d53cb742b481b6ee26d41077ba',
+    },
+    token: serializedTokens.cham,
+    quoteToken: serializedTokens.busd,
+  },
+    {
+    pid: 10,
+    lpSymbol: 'BTCB-BUSD LP',
+    lpAddresses: {
+      97: '',
+      56: '0x8a17fb9bd8ce31d53cb742b481b6ee26d41077ba',
+    },
+    token: serializedTokens.btcb,
+    quoteToken: serializedTokens.busd,
+  },
+   {
+    pid: 10,
+    lpSymbol: 'BTCB-ETH LP',
+    lpAddresses: {
+      97: '',
+      56: '0x8a17fb9bd8ce31d53cb742b481b6ee26d41077ba',
+    },
+    token: serializedTokens.btcb,
+    quoteToken: serializedTokens.eth,
+  },
+
   /**
    * V3 by order of release (some may be out of PID order due to multiplier boost)
    */
