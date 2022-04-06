@@ -9,7 +9,7 @@ import { infoClient } from 'utils/graphql'
  */
 const TOKEN_TRANSACTIONS = gql`
   query tokenTransactions($address: Bytes!) {
-    mintsAs0: mints(first: 10, orderBy: timestamp, orderDirection: desc, where: { token0: $address }) {
+    mintsAs0: mints(first: 1000, orderBy: timestamp, orderDirection: desc) {
       id
       timestamp
       pair {
@@ -27,7 +27,7 @@ const TOKEN_TRANSACTIONS = gql`
       amount1
       amountUSD
     }
-    mintsAs1: mints(first: 10, orderBy: timestamp, orderDirection: desc, where: { token0: $address }) {
+    mintsAs1: mints(first: 1000, orderBy: timestamp, orderDirection: desc) {
       id
       timestamp
       pair {
@@ -45,7 +45,7 @@ const TOKEN_TRANSACTIONS = gql`
       amount1
       amountUSD
     }
-    swapsAs0: swaps(first: 10, orderBy: timestamp, orderDirection: desc, where: { token0: $address }) {
+    swapsAs0: swaps(first: 1000, orderBy: timestamp, orderDirection: desc) {
       id
       timestamp
       pair {
@@ -65,7 +65,7 @@ const TOKEN_TRANSACTIONS = gql`
       amount1Out
       amountUSD
     }
-    swapsAs1: swaps(first: 10, orderBy: timestamp, orderDirection: desc, where: { token1: $address }) {
+    swapsAs1: swaps(first: 1000, orderBy: timestamp, orderDirection: desc) {
       id
       timestamp
       pair {
@@ -85,7 +85,7 @@ const TOKEN_TRANSACTIONS = gql`
       amount1Out
       amountUSD
     }
-    burnsAs0: burns(first: 10, orderBy: timestamp, orderDirection: desc, where: { token0: $address }) {
+    burnsAs0: burns(first: 1000, orderBy: timestamp, orderDirection: desc) {
       id
       timestamp
       pair {
@@ -103,7 +103,7 @@ const TOKEN_TRANSACTIONS = gql`
       amount1
       amountUSD
     }
-    burnsAs1: burns(first: 10, orderBy: timestamp, orderDirection: desc, where: { token1: $address }) {
+    burnsAs1: burns(first: 10, orderBy: timestamp, orderDirection: desc) {
       id
       timestamp
       pair {
@@ -138,14 +138,16 @@ const fetchTokenTransactions = async (address: string): Promise<{ data?: Transac
     const data = await infoClient.request<TransactionResults>(TOKEN_TRANSACTIONS, {
       address,
     })
-    const mints0 = data.mintsAs0.map(mapMints)
-    const mints1 = data.mintsAs1.map(mapMints)
+    const mints0 = data.mintsAs0.filter((item:any)=>item.pair.token0.id===address).map(mapMints)
+    // console.log("address", address)
+    // console.log("filtered", data.mintsAs0.filter((item:any)=>item.pair.token0.id===address))
+    const mints1 = data.mintsAs1.filter((item:any)=>item.pair.token1.id===address).map(mapMints)
 
-    const burns0 = data.burnsAs0.map(mapBurns)
-    const burns1 = data.burnsAs1.map(mapBurns)
+    const burns0 = data.burnsAs0.filter((item:any)=>item.pair.token1.id===address).map(mapBurns)
+    const burns1 = data.burnsAs1.filter((item:any)=>item.pair.token1.id===address).map(mapBurns)
 
-    const swaps0 = data.swapsAs0.map(mapSwaps)
-    const swaps1 = data.swapsAs1.map(mapSwaps)
+    const swaps0 = data.swapsAs0.filter((item:any)=>item.pair.token1.id===address).map(mapSwaps)
+    const swaps1 = data.swapsAs1.filter((item:any)=>item.pair.token1.id===address).map(mapSwaps)
 
     return { data: [...mints0, ...mints1, ...burns0, ...burns1, ...swaps0, ...swaps1], error: false }
   } catch (error) {

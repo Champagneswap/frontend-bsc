@@ -4,7 +4,6 @@ import { NextLinkFromReactRouter } from 'components/NextLink'
 import { Menu as UikitMenu } from '@champagneswap/uikit'
 import { languageList } from 'config/localization/languages'
 import { useTranslation } from 'contexts/Localization'
-
 import useTheme from 'hooks/useTheme'
 import { usePriceChamBusd } from 'state/farms/hooks'
 import { usePhishingBannerManager } from 'state/user/hooks'
@@ -31,7 +30,7 @@ const Menu = (props) => {
       }}
       userMenu={<UserMenu />}
       globalMenu={<GlobalSettings />}
-     
+      
       isDark={isDark}
       toggleTheme={toggleTheme}
       currentLang={currentLanguage.code}
