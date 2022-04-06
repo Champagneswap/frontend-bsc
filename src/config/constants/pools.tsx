@@ -19,8 +19,8 @@ export const vaultPoolConfig = {
     },
   },
   [VaultKey.IfoPool]: {
-    name: 'IFO CHAM',
-    description: <Trans>Stake CHAM to participate in IFOs</Trans>,
+    name: 'IFO POOLS',
+    description: <Trans>Stake CHAM to participate in upcoming IFO's</Trans>,
     autoCompoundFrequency: 1,
     gasLimit: 500000,
     tokenImage: {
