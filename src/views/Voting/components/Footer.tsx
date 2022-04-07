@@ -36,7 +36,7 @@ const Footer = () => {
               <Button startIcon={<ProposalIcon color="currentColor" width="24px" />}>{t('Make a Proposal')}</Button>
             </Link>
           </Box>
-          <DesktopImage src="/images/voting/voting-bunny.png" width={173} height={234} />
+         
         </Flex>
       </Container>
     </StyledFooter>
