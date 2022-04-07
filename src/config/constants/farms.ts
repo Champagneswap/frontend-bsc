@@ -59,7 +59,7 @@ const farms: SerializedFarmConfig[] = [
     quoteToken: serializedTokens.bnb,
   },
     {
-    pid: 6,
+    pid: 7,
     lpSymbol: 'USDT-BUSD LP',
     lpAddresses: {
       97: '',
@@ -69,7 +69,7 @@ const farms: SerializedFarmConfig[] = [
     quoteToken: serializedTokens.bnb,
   },
       {
-    pid: 7,
+    pid: 8,
     lpSymbol: 'CHAM-BUSD LP',
     lpAddresses: {
       97: '',
@@ -79,7 +79,7 @@ const farms: SerializedFarmConfig[] = [
     quoteToken: serializedTokens.bnb,
   },
    {
-    pid: 8,
+    pid: 9,
     lpSymbol: 'BNB-BCTB LP',
     lpAddresses: {
       97: '',
@@ -89,7 +89,7 @@ const farms: SerializedFarmConfig[] = [
     quoteToken: serializedTokens.btcb,
   },
    {
-    pid: 9,
+    pid: 10,
     lpSymbol: 'BUSD-USDC LP',
     lpAddresses: {
       97: '',
