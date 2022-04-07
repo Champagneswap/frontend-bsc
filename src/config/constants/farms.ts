@@ -80,13 +80,13 @@ const farms: SerializedFarmConfig[] = [
   },
    {
     pid: 8,
-    lpSymbol: 'BCTB-BNB LP',
+    lpSymbol: 'BNB-BCTB LP',
     lpAddresses: {
       97: '',
       56: '0xaca5d3379bbdd5624d8425cf1713c7db4a7252d3',
     },
-    token: serializedTokens.btcb,
-    quoteToken: serializedTokens.bnb,
+    token: serializedTokens.bnb,
+    quoteToken: serializedTokens.btcb,
   },
   /**
    * V3 by order of release (some may be out of PID order due to multiplier boost)
