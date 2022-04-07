@@ -66,7 +66,7 @@ const Footer: React.FC<{ variant?: FooterVariant }> = ({ variant = 'default' }) 
             id="clickExchangeHelp"
             as="a"
             external
-            href="https://docs.champagneswap.com/products/pancakeswap-exchange"
+            href="https://docs.champagneswap.com/products/champagneswap-exchange"
             variant="subtle"
           >
             {t('Need help ?')}
