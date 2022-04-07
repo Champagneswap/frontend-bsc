@@ -30,7 +30,7 @@ const Hero = () => {
               <Button startIcon={<ProposalIcon color="currentColor" width="24px" />}>{t('Make a Proposal')}</Button>
             </Link>
           </Box>
-          <DesktopImage src="/images/voting/voting-presents.png" width={361} height={214} />
+          
         </Flex>
       </Container>
     </StyledHero>
