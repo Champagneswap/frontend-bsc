@@ -23,7 +23,12 @@ export const CurrencyLogo: React.FC<{
     }
     return null
   }, [address])
-
+  console.log(address);
+  console.log(address === '0x4957c1c073557bff33c01a7ca1436d0d2409d439');
+  if(address === '0x4957c1c073557bff33c01a7ca1436d0d2409d439')
+  return <StyledLogo size = {size}
+  src = {'https://tokens.champagneswap.com/images/0x4957c1c073557BFf33C01A7cA1436D0d2409d439.png'}
+  alt="token logo" {...rest} />
   return <StyledLogo size={size} src={src} alt="token logo" {...rest} />
 }
 
