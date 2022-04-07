@@ -95,8 +95,8 @@ const farms: SerializedFarmConfig[] = [
       97: '',
       56: '0x29ed29921690d8451427be9f6e32045d07a87c4b',
     },
-    token: serializedTokens.bnb,
-    quoteToken: serializedTokens.btcb,
+    token: serializedTokens.busd,
+    quoteToken: serializedTokens.usdc,
   },
   /**
    * V3 by order of release (some may be out of PID order due to multiplier boost)
