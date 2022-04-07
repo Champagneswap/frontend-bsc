@@ -29,7 +29,7 @@ const ProfileUserMenuItem: React.FC<ProfileUserMenuItemProps> = ({ isLoading, ha
   }
 
   const handleNoProfileClick = () => {
-    router.push('/create-profile')
+    router.push('#')
   }
 
   if (isLoading) {
@@ -44,7 +44,7 @@ const ProfileUserMenuItem: React.FC<ProfileUserMenuItemProps> = ({ isLoading, ha
     return (
       <UserMenuItem as="button" disabled={disabled} onClick={handleNoProfileClick}>
         <Flex alignItems="center" justifyContent="space-between" width="100%">
-          {t('Make a Profile')}
+          {t('Coming Soon')}
           <Dot />
         </Flex>
       </UserMenuItem>
@@ -53,7 +53,7 @@ const ProfileUserMenuItem: React.FC<ProfileUserMenuItemProps> = ({ isLoading, ha
 
   return (
     <UserMenuItem as="button" disabled={disabled} onClick={handleClick}>
-      {t('Your Profile')}
+      {t('Coming Soon')}
     </UserMenuItem>
   )
 }
