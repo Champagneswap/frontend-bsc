@@ -39,7 +39,7 @@ const farms: SerializedFarmConfig[] = [
     quoteToken: serializedTokens.busd,
   },
   {
-    pid: 4,
+    pid: 13,
     lpSymbol: 'ETH-BNB LP',
     lpAddresses: {
       97: '',
@@ -49,7 +49,7 @@ const farms: SerializedFarmConfig[] = [
     quoteToken: serializedTokens.bnb,
   },
   {
-    pid: 11,
+    pid: 14,
     lpSymbol: 'USDT-BNB LP',
     lpAddresses: {
       97: '',
@@ -59,27 +59,27 @@ const farms: SerializedFarmConfig[] = [
     quoteToken: serializedTokens.bnb,
   },
     {
-    pid: 7,
+    pid: 15,
     lpSymbol: 'USDT-BUSD LP',
     lpAddresses: {
       97: '',
       56: '0x5cdae6d35973efda1f475f4349c8ebce0f217608',
     },
     token: serializedTokens.usdt,
-    quoteToken: serializedTokens.bnb,
+    quoteToken: serializedTokens.busd,
   },
-      {
-    pid: 8,
+     {
+    pid: 16,
     lpSymbol: 'CHAM-BUSD LP',
     lpAddresses: {
       97: '',
       56: '0xb81d67333122b58a73da3ec36a0a42b3874b18b8',
     },
     token: serializedTokens.cham,
-    quoteToken: serializedTokens.bnb,
+    quoteToken: serializedTokens.busd,
   },
-   {
-    pid: 9,
+  {
+    pid: 17,
     lpSymbol: 'BNB-BCTB LP',
     lpAddresses: {
       97: '',
@@ -88,8 +88,8 @@ const farms: SerializedFarmConfig[] = [
     token: serializedTokens.bnb,
     quoteToken: serializedTokens.btcb,
   },
-   {
-    pid: 10,
+  {
+    pid: 18,
     lpSymbol: 'BUSD-USDC LP',
     lpAddresses: {
       97: '',
