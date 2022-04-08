@@ -1,6 +1,6 @@
 
-const CHAMPAGNE_EXTENDED = 'https://tokens.champagneswap.com/champagneswap-extended.json'
-const CHAMPAGNE_TOP100 = 'https://tokens.champagneswap.com/champagneswap-top-100.json'
+const CHAMPAGNE_EXTENDED = 'https://t.champagne.finance/champagneswap-default.json'
+const CHAMPAGNE_TOP100 = 'https://t.champagne.finance/champagneswap-top-100.json'
 const COINGECKO = 'https://tokens.pancakeswap.finance/coingecko.json'
 const CMC = 'https://tokens.pancakeswap.finance/cmc.json'
 
