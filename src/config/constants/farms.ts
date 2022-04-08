@@ -38,7 +38,26 @@ const farms: SerializedFarmConfig[] = [
     token: serializedTokens.wbnb,
     quoteToken: serializedTokens.busd,
   },
-  
+  {
+    pid: 13,
+    lpSymbol: 'ETH-BNB LP',
+    lpAddresses: {
+      97: '',
+      56: '0x8a17fb9bd8ce31d53cb742b481b6ee26d41077ba',
+    },
+    token: serializedTokens.eth,
+    quoteToken: serializedTokens.bnb,
+  },
+  {
+    pid: 14,
+    lpSymbol: 'USDT-BNB LP',
+    lpAddresses: {
+      97: '',
+      56: '0x4e9ca7990c4cbb96050f054c9ca7b41f48d799f8',
+    },
+    token: serializedTokens.usdt,
+    quoteToken: serializedTokens.bnb,
+  },
   /**
    * V3 by order of release (some may be out of PID order due to multiplier boost)
    */
