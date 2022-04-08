@@ -49,7 +49,7 @@ const farms: SerializedFarmConfig[] = [
     quoteToken: serializedTokens.bnb,
   },
   {
-    pid: 11,
+    pid: 5,
     lpSymbol: 'USDT-BNB LP',
     lpAddresses: {
       97: '',
