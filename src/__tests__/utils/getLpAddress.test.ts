@@ -1,7 +1,7 @@
 import { Token, ChainId } from '@champagneswap/sdk'
 import getLpAddress from 'utils/getLpAddress'
 
-const CHAM_AS_STRING = '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82'
+const CHAM_AS_STRING = '0x4957c1c073557BFf33C01A7cA1436D0d2409d439'
 const BUSD_AS_STRING = '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56'
 const CHAM_AS_TOKEN = new Token(ChainId.MAINNET, CHAM_AS_STRING, 18)
 const BUSD_AS_TOKEN = new Token(ChainId.MAINNET, BUSD_AS_STRING, 18)
