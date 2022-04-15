@@ -1,4 +1,4 @@
-# Contributing to the champagne ecosystem 🥞
+# Contributing to the champagne ecosystem 
 
 Thanks for taking the time to contribute !
 You can start by reading our [Contribution guidelines](https://docs.champagneswap.com/code/contributing) first.
