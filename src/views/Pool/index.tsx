@@ -17,10 +17,9 @@ const Body = styled(CardBody)`
   background-color: ${({ theme }) => theme.colors.dropdownDeep};
 `
 
-export default function Pool() {
-  const { account } = useActiveWeb3React()
+function ContentWithAccount({ account }) {
   const { t } = useTranslation()
-
+  
   // fetch the user's balances of all tracked V2 LP tokens
   const trackedTokenPairs = useTrackedTokenPairs()
   const tokenPairsWithLiquidityTokens = useMemo(
@@ -52,13 +51,6 @@ export default function Pool() {
   const allV2PairsWithLiquidity = v2Pairs.map(([, pair]) => pair).filter((v2Pair): v2Pair is Pair => Boolean(v2Pair))
 
   const renderBody = () => {
-    if (!account) {
-      return (
-        <Text color="textSubtle" textAlign="center">
-          {t('Connect to a wallet to view your liquidity.')}
-        </Text>
-      )
-    }
     if (v2IsLoading) {
       return (
         <Text color="textSubtle" textAlign="center">
@@ -83,22 +75,47 @@ export default function Pool() {
   }
 
   return (
+    <>
+      {renderBody()}
+      {!v2IsLoading && (
+        <Flex flexDirection="column" alignItems="center" mt="24px">
+          <Text color="textSubtle" mb="8px">
+            {t("Don't see a pool you joined?")}
+          </Text>
+          <Link href="/find">
+            <Button id="import-pool-link" variant="secondary" scale="sm" as="a">
+              {t('Find other LP tokens')}
+            </Button>
+          </Link>
+        </Flex>
+      )}
+    </>
+  )
+}
+
+function ContentWithoutAccount() {
+  const { t } = useTranslation()
+
+  return (
+    <Text color="textSubtle" textAlign="center">
+      {t("Connect to a wallet to view your liquidity.")}
+    </Text>
+  )
+}
+
+export default function Pool() {
+  const { account } = useActiveWeb3React()
+  const { t } = useTranslation()
+
+  return (
     <Page>
       <AppBody>
         <AppHeader title={t('Your Liquidity')} subtitle={t('Remove liquidity to receive tokens back')} />
         <Body>
-          {renderBody()}
-          {account && !v2IsLoading && (
-            <Flex flexDirection="column" alignItems="center" mt="24px">
-              <Text color="textSubtle" mb="8px">
-                {t("Don't see a pool you joined?")}
-              </Text>
-              <Link href="/find">
-                <Button id="import-pool-link" variant="secondary" scale="sm" as="a">
-                  {t('Find other LP tokens')}
-                </Button>
-              </Link>
-            </Flex>
+          {account ? (
+            <ContentWithAccount account={account} />
+          ) : (
+            <ContentWithoutAccount />
           )}
         </Body>
         <CardFooter style={{ textAlign: 'center' }}>
