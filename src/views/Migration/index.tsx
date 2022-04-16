@@ -17,24 +17,8 @@ const Body = styled(CardBody)`
   background-color: ${({ theme }) => theme.colors.dropdownDeep};
 `
 
-function ContentWithAccount({ account }) {
+function ContentWithAccount({ account, tokenPairsWithLiquidityTokens, liquidityTokens }) {
   const { t } = useTranslation();
-
-  // fetch the user's balances of all tracked V2 LP tokens
-  const trackedTokenPairs = useTrackedTokenPairs_Mig()
-
-  const tokenPairsWithLiquidityTokens = useMemo(
-    () => trackedTokenPairs.map((tokens) => ({ liquidityToken: toV2LiquidityToken(tokens), tokens })),
-    [trackedTokenPairs],
-  )
-
-  
-  const liquidityTokens = useMemo(
-    () => tokenPairsWithLiquidityTokens.map((tpwlt) => tpwlt.liquidityToken),
-    [tokenPairsWithLiquidityTokens],
-  )
-
-  
   
   const [v2PairsBalances, fetchingV2PairBalances] = useTokenBalancesWithLoadingIndicator(
     account ?? undefined,
@@ -114,6 +98,18 @@ function ContentWithoutAccount() {
 export default function Migration() {
   const { account } = useActiveWeb3React()
   const { t } = useTranslation()
+  // fetch the user's balances of all tracked V2 LP tokens
+  const trackedTokenPairs = useTrackedTokenPairs_Mig()
+
+  const tokenPairsWithLiquidityTokens = useMemo(
+    () => trackedTokenPairs.map((tokens) => ({ liquidityToken: toV2LiquidityToken(tokens), tokens })),
+    [trackedTokenPairs],
+  )
+
+  const liquidityTokens = useMemo(
+    () => tokenPairsWithLiquidityTokens.map((tpwlt) => tpwlt.liquidityToken),
+    [tokenPairsWithLiquidityTokens],
+  )
 
   return (
     <Page>
@@ -121,7 +117,7 @@ export default function Migration() {
         <AppHeader title={t('Your Liquidity')} subtitle={t('Migrate liquidity to ChampagneSwap')} />
         <Body>
           {account ? (
-            <ContentWithAccount account={account} />
+            <ContentWithAccount account={account} tokenPairsWithLiquidityTokens={tokenPairsWithLiquidityTokens} liquidityTokens={liquidityTokens}/>
           ) : (
             <ContentWithoutAccount />
           )}
