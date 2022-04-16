@@ -17,19 +17,9 @@ const Body = styled(CardBody)`
   background-color: ${({ theme }) => theme.colors.dropdownDeep};
 `
 
-function ContentWithAccount({ account }) {
+function ContentWithAccount({ account, tokenPairsWithLiquidityTokens, liquidityTokens }) {
   const { t } = useTranslation()
   
-  // fetch the user's balances of all tracked V2 LP tokens
-  const trackedTokenPairs = useTrackedTokenPairs()
-  const tokenPairsWithLiquidityTokens = useMemo(
-    () => trackedTokenPairs.map((tokens) => ({ liquidityToken: toV2LiquidityToken(tokens), tokens })),
-    [trackedTokenPairs],
-  )
-  const liquidityTokens = useMemo(
-    () => tokenPairsWithLiquidityTokens.map((tpwlt) => tpwlt.liquidityToken),
-    [tokenPairsWithLiquidityTokens],
-  )
   const [v2PairsBalances, fetchingV2PairBalances] = useTokenBalancesWithLoadingIndicator(
     account ?? undefined,
     liquidityTokens,
@@ -107,13 +97,24 @@ export default function Pool() {
   const { account } = useActiveWeb3React()
   const { t } = useTranslation()
 
+  // fetch the user's balances of all tracked V2 LP tokens
+  const trackedTokenPairs = useTrackedTokenPairs()
+
+  const tokenPairsWithLiquidityTokens = useMemo(
+    () => trackedTokenPairs.map((tokens) => ({ liquidityToken: toV2LiquidityToken(tokens), tokens })),
+    [trackedTokenPairs],
+  )
+  const liquidityTokens = useMemo(
+    () => tokenPairsWithLiquidityTokens.map((tpwlt) => tpwlt.liquidityToken),
+    [tokenPairsWithLiquidityTokens],
+  )
   return (
     <Page>
       <AppBody>
         <AppHeader title={t('Your Liquidity')} subtitle={t('Remove liquidity to receive tokens back')} />
         <Body>
           {account ? (
-            <ContentWithAccount account={account} />
+            <ContentWithAccount account={account} tokenPairsWithLiquidityTokens={tokenPairsWithLiquidityTokens} liquidityTokens={liquidityTokens}/>
           ) : (
             <ContentWithoutAccount />
           )}
