@@ -2,7 +2,8 @@ import { ChainId, Token } from '@champagneswap/sdk'
 import { Tags, TokenInfo, TokenList } from '@uniswap/token-lists'
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
-import { DEFAULT_LIST_OF_LISTS } from 'config/constants/lists'
+import { createSelector } from '@reduxjs/toolkit'
+import { DEFAULT_LIST_OF_LISTS, OFFICIAL_LISTS } from 'config/constants/lists'
 import { AppState } from '../index'
 import DEFAULT_TOKEN_LIST from '../../config/constants/tokenLists/champagne-default.tokenlist.json'
 import { UNSUPPORTED_LIST_URLS } from '../../config/constants/lists'
@@ -23,6 +24,39 @@ function sortByListPriority(urlA: string, urlB: string) {
   if (first > second) return -1
   return 0
 }
+
+const selectorByUrls = (state: AppState) => state.lists.byUrl
+
+const combineTokenMapsWithDefault = (lists: AppState['lists']['byUrl'], urls: string[]) => {
+  const defaultTokenMap = listToTokenMap(DEFAULT_TOKEN_LIST)
+  if (!urls) return defaultTokenMap
+  return combineMaps(combineTokenMaps(lists, urls), defaultTokenMap)
+}
+
+const combineTokenMaps = (lists: AppState['lists']['byUrl'], urls: string[]) => {
+  if (!urls) return EMPTY_LIST
+  return (
+    urls
+      .slice()
+      // sort by priority so top priority goes last
+      .sort(sortByListPriority)
+      .reduce((allTokens, currentUrl) => {
+        const current = lists[currentUrl]?.current
+        if (!current) return allTokens
+        try {
+          const newTokens = Object.assign(listToTokenMap(current))
+          return combineMaps(allTokens, newTokens)
+        } catch (error) {
+          console.error('Could not show token list due to error', error)
+          return allTokens
+        }
+      }, EMPTY_LIST)
+  )
+}
+
+export const combinedTokenMapFromOfficialsUrlsSelector = createSelector([selectorByUrls], (lists) => {
+  return combineTokenMapsWithDefault(lists, OFFICIAL_LISTS)
+})
 
 /**
  * Token instances created from token info.

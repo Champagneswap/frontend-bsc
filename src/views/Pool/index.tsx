@@ -17,9 +17,9 @@ const Body = styled(CardBody)`
   background-color: ${({ theme }) => theme.colors.dropdownDeep};
 `
 
-function ContentWithAccount({ account, tokenPairsWithLiquidityTokens, liquidityTokens }) {
+function Content({ account, tokenPairsWithLiquidityTokens, liquidityTokens }) {
   const { t } = useTranslation()
-  
+
   const [v2PairsBalances, fetchingV2PairBalances] = useTokenBalancesWithLoadingIndicator(
     account ?? undefined,
     liquidityTokens,
@@ -83,12 +83,12 @@ function ContentWithAccount({ account, tokenPairsWithLiquidityTokens, liquidityT
   )
 }
 
-function ContentWithoutAccount() {
+function DefaultContent() {
   const { t } = useTranslation()
 
   return (
     <Text color="textSubtle" textAlign="center">
-      {t("Connect to a wallet to view your liquidity.")}
+      {t('Connect to a wallet to view your liquidity.')}
     </Text>
   )
 }
@@ -114,9 +114,13 @@ export default function Pool() {
         <AppHeader title={t('Your Liquidity')} subtitle={t('Remove liquidity to receive tokens back')} />
         <Body>
           {account ? (
-            <ContentWithAccount account={account} tokenPairsWithLiquidityTokens={tokenPairsWithLiquidityTokens} liquidityTokens={liquidityTokens}/>
+            <Content
+              account={account}
+              tokenPairsWithLiquidityTokens={tokenPairsWithLiquidityTokens}
+              liquidityTokens={liquidityTokens}
+            />
           ) : (
-            <ContentWithoutAccount />
+            <DefaultContent />
           )}
         </Body>
         <CardFooter style={{ textAlign: 'center' }}>

@@ -2,22 +2,51 @@
 import { parseBytes32String } from '@ethersproject/strings'
 import { Currency, ETHER, Token, currencyEquals } from '@champagneswap/sdk'
 import { useMemo } from 'react'
+import { useSelector } from 'react-redux'
+import { createSelector } from '@reduxjs/toolkit'
 import { arrayify } from '@ethersproject/bytes'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
+import { CHAIN_ID } from 'config/constants/networks'
 import {
   TokenAddressMap,
   useDefaultTokenList,
   useUnsupportedTokenList,
   useCombinedActiveList,
   useCombinedInactiveList,
+  combinedTokenMapFromOfficialsUrlsSelector,
 } from '../state/lists/hooks'
 
 import { NEVER_RELOAD, useSingleCallResult } from '../state/multicall/hooks'
-import useUserAddedTokens from '../state/user/hooks/useUserAddedTokens'
+import useUserAddedTokens, { userAddedTokenSelector } from '../state/user/hooks/useUserAddedTokens'
 import { isAddress } from '../utils'
 
 import { useBytes32TokenContract, useTokenContract } from './useContract'
 import { filterTokens } from '../components/SearchModal/filtering'
+
+const mapWithoutUrls = (tokenMap: TokenAddressMap) =>
+  Object.keys(tokenMap[CHAIN_ID]).reduce<{ [address: string]: Token }>((newMap, address) => {
+    newMap[address] = tokenMap[CHAIN_ID][address].token
+    return newMap
+  }, {})
+
+const allOfficialsAndUserAddedTokensSelector = createSelector(
+  [combinedTokenMapFromOfficialsUrlsSelector, userAddedTokenSelector],
+  (tokenMap, userAddedTokens) => {
+    return (
+      userAddedTokens
+        // reduce into all ALL_TOKENS filtered by the current chain
+        .reduce<{ [address: string]: Token }>(
+          (tokenMap_, token) => {
+            tokenMap_[token.address] = token
+            return tokenMap_
+          },
+          // must make a copy because reduce modifies the map, and we do not
+          // want to make a copy in every iteration
+          mapWithoutUrls(tokenMap),
+        )
+    )
+  },
+)
 
 // reduce token map into standard address <-> Token mapping, optionally include user added tokens
 function useTokensFromMap(tokenMap: TokenAddressMap, includeUserAdded: boolean): { [address: string]: Token } {
@@ -63,6 +92,13 @@ export function useAllTokens(includeDefaultLists = false): { [address: string]: 
   
   
   return useTokensFromMap(allTokens, true)
+}
+
+/**
+ * Returns all tokens that are from officials token list and user added tokens
+ */
+ export function useOfficialsAndUserAddedTokens(): { [address: string]: Token } {
+  return useSelector(allOfficialsAndUserAddedTokensSelector)
 }
 
 export function useAllInactiveTokens(): { [address: string]: Token } {

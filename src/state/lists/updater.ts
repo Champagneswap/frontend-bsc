@@ -21,9 +21,6 @@ export default function Updater(): null {
   const lists = useAllLists()
   const activeListUrls = useActiveListUrls()
 
-  // initiate loading
-  useAllInactiveTokens()
-
   const fetchList = useFetchListCallback()
   const fetchAllListsCallback = useCallback(() => {
     if (!isWindowVisible) return

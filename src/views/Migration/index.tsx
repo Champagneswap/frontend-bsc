@@ -17,8 +17,25 @@ const Body = styled(CardBody)`
   background-color: ${({ theme }) => theme.colors.dropdownDeep};
 `
 
-function ContentWithAccount({ account, tokenPairsWithLiquidityTokens, liquidityTokens }) {
-  const { t } = useTranslation();
+export default function Migration() {
+  const { account } = useActiveWeb3React()
+  const { t } = useTranslation()
+
+  // fetch the user's balances of all tracked V2 LP tokens
+  const trackedTokenPairs = useTrackedTokenPairs_Mig()
+  
+  const tokenPairsWithLiquidityTokens = useMemo(
+    () => trackedTokenPairs.map((tokens) => ({ liquidityToken: toV2LiquidityToken(tokens), tokens })),
+    [trackedTokenPairs],
+  )
+
+  
+  const liquidityTokens = useMemo(
+    () => tokenPairsWithLiquidityTokens.map((tpwlt) => tpwlt.liquidityToken),
+    [tokenPairsWithLiquidityTokens],
+  )
+
+  
   
   const [v2PairsBalances, fetchingV2PairBalances] = useTokenBalancesWithLoadingIndicator(
     account ?? undefined,
@@ -43,6 +60,13 @@ function ContentWithAccount({ account, tokenPairsWithLiquidityTokens, liquidityT
   const allV2PairsWithLiquidity = v2Pairs.map(([, pair]) => pair).filter((v2Pair): v2Pair is Pair => Boolean(v2Pair))
 
   const renderBody = () => {
+    if (!account) {
+      return (
+        <Text color="textSubtle" textAlign="center">
+          {t('Connect to a wallet to view your liquidity.')}
+        </Text>
+      )
+    }
     if (v2IsLoading) {
       return (
         <Text color="textSubtle" textAlign="center">
@@ -64,62 +88,25 @@ function ContentWithAccount({ account, tokenPairsWithLiquidityTokens, liquidityT
         {t('No liquidity found.')}
       </Text>
     )
-  };
-
-  return (
-    <>
-      {renderBody()}
-      {!v2IsLoading && (
-        <Flex flexDirection="column" alignItems="center" mt="24px">
-          <Text color="textSubtle" mb="8px">
-            {t("Don't see a pool you joined?")}
-          </Text>
-          <Link href="/find">
-            <Button id="import-pool-link" variant="secondary" scale="sm" as="a">
-              {t('Find other LP tokens')}
-            </Button>
-          </Link>
-        </Flex>
-      )}
-    </>
-  );
-}
-
-function ContentWithoutAccount() {
-  const { t } = useTranslation();
-
-  return (
-    <Text color="textSubtle" textAlign="center">
-      {t('Connect to a wallet to view your liquidity.')}
-    </Text>
-  );
-}
-
-export default function Migration() {
-  const { account } = useActiveWeb3React()
-  const { t } = useTranslation()
-  // fetch the user's balances of all tracked V2 LP tokens
-  const trackedTokenPairs = useTrackedTokenPairs_Mig()
-
-  const tokenPairsWithLiquidityTokens = useMemo(
-    () => trackedTokenPairs.map((tokens) => ({ liquidityToken: toV2LiquidityToken(tokens), tokens })),
-    [trackedTokenPairs],
-  )
-
-  const liquidityTokens = useMemo(
-    () => tokenPairsWithLiquidityTokens.map((tpwlt) => tpwlt.liquidityToken),
-    [tokenPairsWithLiquidityTokens],
-  )
+  }
 
   return (
     <Page>
       <AppBody>
         <AppHeader title={t('Your Liquidity')} subtitle={t('Migrate liquidity to ChampagneSwap')} />
         <Body>
-          {account ? (
-            <ContentWithAccount account={account} tokenPairsWithLiquidityTokens={tokenPairsWithLiquidityTokens} liquidityTokens={liquidityTokens}/>
-          ) : (
-            <ContentWithoutAccount />
+          {renderBody()}
+          {account && !v2IsLoading && (
+            <Flex flexDirection="column" alignItems="center" mt="24px">
+              <Text color="textSubtle" mb="8px">
+                {t("Don't see a pool you joined?")}
+              </Text>
+              <Link href="/find">
+                <Button id="import-pool-link" variant="secondary" scale="sm" as="a">
+                  {t('Find other LP tokens')}
+                </Button>
+              </Link>
+            </Flex>
           )}
         </Body>
       </AppBody>
