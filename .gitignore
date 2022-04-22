@@ -7,3 +7,5 @@ next/*
 .husky/*
 .git/*
 public/images/icrebreakers.png
+config.bat
+node_modules
